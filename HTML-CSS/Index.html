@@ -12,12 +12,12 @@
     <nav class="navbar">
         <div class="navbar__container">
             <a href="/" id="navbar__logo">NS</a>
-            <div class="navbar__toggle" id="mobile-menu">
+            <button class="navbar__toggle" id="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
+            </button>
+            <ul class="navbar__menu" id="navbar-menu">
                 <li class="navbar__item">
                     <a href="/" class="navbar__links">
                         Ínicio
@@ -51,6 +51,7 @@
             </ul>
         </div>
     </nav>
+    <script src="app.js"></script>
 </body>
 
 </html>
