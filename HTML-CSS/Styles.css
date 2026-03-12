@@ -5,9 +5,14 @@
     font-family: 'Franklin Gothic', sans-serif;
 }
 
+body{
+    background-color: #0F0F12;
+}
+
 .navbar{
-    background-color: #18181C;
-    height: 80px;
+    background: transparent;
+    height: auto;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,13 +26,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 72px;
     z-index: 1;
-    width: 100%;
+    width: calc(100% - 24px);
     max-width: 1300px;
-    margin: auto 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 20px;
     position: relative;
+    outline-style: solid;
+    outline-color: #2F2F37;
+    border-radius: 18px;
+    background-color: #18181C;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 #navbar__logo{
@@ -134,14 +144,22 @@
 }
 
 @media screen and (max-width: 960px) {
+    .navbar{
+        padding: 8px 0;
+    }
+
     .navbar__container{
         display: flex;
         justify-content: space-between;
-        height: 80px;
+        height: 72px;
         z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
+        width: calc(100% - 24px);
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 0 16px;
+        border-radius: 18px;
+        background-color: #18181C;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
     .navbar__menu{
@@ -165,7 +183,7 @@
 
     .navbar__menu.active{
         background: #18181C;
-        top: 100%;
+        top: calc(100% + 8px);
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -173,10 +191,12 @@
         z-index: 99;
         height: auto;
         font-size: 1.6rem;
+        border-radius: 16px;
+        overflow: hidden;
     }
 
     #navbar__logo{
-        padding-left: 25px;
+        padding-left: 0;
     }
 
     .navbar__toggle{
@@ -219,7 +239,7 @@
     #mobile-menu{
         position: absolute;
         top: 50%;
-        right: 24px;
+        right: 16px;
         transform: translateY(-50%);
     }
 
@@ -249,3 +269,123 @@
     }
 }
 
+/*Hero section CSS*/
+.main{
+    background-color: #0F0F12;   
+}
+
+.main__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 60vh;
+    z-index: 1;
+    width: 100%;
+    margin-top: 60px;
+    max-width: 1300px;
+    padding: 0 50px;
+    border: none;
+    border-radius: 12px;
+    outline-style: solid;
+    outline-color: #2F2F37;
+}
+
+.main__content h1{
+    font-size: 4rem;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: #F4F4F5;
+}
+
+.main__content h2{
+    font-size: 2rem;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: #F4F4F5;
+}
+
+.destaque{
+    color: #E11D48;
+    -webkit-text-fill-color: #E11D48;
+}
+
+.project__button{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 16px;
+    font-size: 20px;
+    height: 44px;
+    width: 150px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: #E11D48;
+    color: #fff;
+}
+.project__button:hover{
+    background:#F3466C;
+    transition: all 0.3s ease;
+}
+
+.contact__button{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 16px;
+    font-size: 20px;
+    height: 44px;
+    width: 150px;
+    margin-top: 18px;
+    margin-left: 12px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: #1F1F24;
+    color: #F4F4F5;
+    outline-style: solid;
+    outline-color: #2F2F37;
+}
+.contact__button:hover{
+     background:#4A4A58;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 420px) {
+    .main__container{
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main__content{
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1{
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .project__button,
+    .contact__button{
+        width: 135px;
+        height: 42px;
+        font-size: 0.95rem;
+    }
+
+    .contact__button{
+        margin-left: 8px;
+    }
+}
