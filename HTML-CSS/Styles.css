@@ -274,6 +274,12 @@ body{
     background-color: #0F0F12;   
 }
 
+.main__hr{
+    border: 0;
+    border-top: 3px solid #E11D48;
+    margin: 100px 0;
+}
+
 .main__container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -504,4 +510,48 @@ body{
     .contact__button{
         margin-left: 8px;
     }
+}
+
+.project__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    min-height: 46vh;
+    height: auto;
+    z-index: 1;
+    width: 100%;
+    margin-top: 100px;
+    max-width: 1300px;
+    padding: 12px 40px;
+    gap: 20px;
+    border: none;
+    border-radius: 12px;
+    outline-style: solid;
+    outline-color: #2F2F37;
+}
+
+.project__content{
+    transform: none;
+    text-align: left;
+    justify-self: start;
+    align-self: center;
+    margin-left: -15px;
+}
+
+.project__content h2{
+    font-size: 2.3rem;
+    background-size: 100%;
+    background-clip: text;
+    background-clip: text;
+    transform: translateY(-128px);
+    -webkit-text-fill-color: #F4F4F5;
+}
+
+.project__hr{
+    border: 0;
+    border-top: 3px solid #E11D48;
+    margin: 5px 0;
+    transform: translateY(-133px);
 }
