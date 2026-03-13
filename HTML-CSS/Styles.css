@@ -305,16 +305,16 @@ body{
 .main__content h1{
     font-size: 5rem;
     background-size: 40%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
+    background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
 .main__content h2{
     font-size: 2.4rem;
     background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
+    background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
