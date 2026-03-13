@@ -455,7 +455,7 @@ body{
     }
 }
 
-@media screen and (max-width: 420px) {
+/* @media screen and (max-width: 420px) {
     .main__container{
         grid-template-columns: 1fr;
         align-items: center;
@@ -510,7 +510,7 @@ body{
     .contact__button{
         margin-left: 8px;
     }
-}
+} */
 
 .project__container{
     display: grid;
@@ -523,6 +523,7 @@ body{
     z-index: 1;
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 100px;
     max-width: 1300px;
     padding: 12px 40px;
     gap: 20px;
@@ -545,13 +546,113 @@ body{
     background-size: 100%;
     background-clip: text;
     background-clip: text;
-    transform: translateY(-128px);
+    margin-left: -5px;
+    transform: translateY(-100px);
     -webkit-text-fill-color: #F4F4F5;
 }
 
 .project__hr{
     border: 0;
     border-top: 3px solid #E11D48;
-    margin: 5px 0;
-    transform: translateY(-133px);
+    margin-left:-5px;
+    transform: translateY(-100px);
 }
+
+#main__leftarrow{
+    width: 30px;
+    margin-bottom: 95px;
+    margin-left: -15px;
+    transform: rotateY(180deg);
+    filter: invert(100%);
+}
+
+
+.leftArrow__button{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 1px;
+    height: 50px;
+    width: 50px;
+    border: solid;
+    margin-left: -25px;
+    border-color: #2F2F37;
+    border-radius: 25px;
+    background-color: #1A1A1F;
+    color: #fff;
+    transform: translateY(170px);
+}
+
+
+#main__rightarrow{
+    width: 30px;
+    margin-bottom: 98px;
+    transform: translateX(659px);
+    filter: invert(100%);
+}
+
+.rightArrow__button{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 1px;
+    height: 50px;
+    width: 50px;
+    border: solid;
+    margin-left: 650px;
+    margin-right: -25px;
+    border-color: #2F2F37;
+    border-radius: 25px;
+    background-color: #1A1A1F;
+    color: #fff;
+    transform: translateY(170px);
+}
+
+@media screen and (max-width: 960px) {
+    .project__container{
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: min(1000px, calc(100vw - 28px));
+    max-width: 1000px;
+    margin: 18px auto 0;
+    min-height: 40vh;
+    height: auto;
+    padding: 12px 16px;
+    margin-top: 30px;
+    gap: 12px;
+    border-radius: 12px;
+    }
+
+    .project__content{
+    transform: translateY(30px);
+    margin-left: 10px;
+    }
+
+    #main__leftarrow{
+    width: 27px;
+    margin-bottom: 95px;
+    margin-left: 4px;
+    transform: rotateY(180deg);
+    filter: invert(100%);
+    }
+
+    .leftArrow__button{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 1px;
+    height: 50px;
+    width: 50px;
+    border: solid;
+    margin-left: -6px;
+    border-color: #2F2F37;
+    border-radius: 25px;
+    background-color: #1A1A1F;
+    color: #fff;
+    transform: translateY(111px);
+}
+}
+
