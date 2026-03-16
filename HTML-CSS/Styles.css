@@ -1,3 +1,4 @@
+/* Reset basico e fonte padrao do projeto */
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,15 +6,31 @@
     font-family: 'Franklin Gothic', sans-serif;
 }
 
-body{
-    background-color: #0F0F12;
+/* Variaveis de tema conectadas com Bootstrap */
+:root{
+    --bs-body-bg: #0F0F12;
+    --bs-body-color: #F4F4F5;
+    --bs-primary: #E11D48;
+    --bs-primary-rgb: 225, 29, 72;
+    --bs-secondary-color: #F3466C;
+    --bs-border-color: #2F2F37;
 }
 
+/* Fundo e cor global de texto */
+body{
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+/* ===== Navbar (desktop) ===== */
 .navbar{
     background: transparent;
+    --bs-navbar-padding-y: 0;
+    --bs-navbar-padding-x: 0;
     height: auto;
     padding: 10px 0;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
@@ -22,26 +39,28 @@ body{
     z-index: 999;
 }
 
+/* Container interno da navbar */
 .navbar__container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 72px;
     z-index: 1;
-    width: calc(100% - 24px);
-    max-width: 1300px;
+    width: 100%;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(12px, 2vw, 20px);
     position: relative;
     outline-style: solid;
-    outline-color: #2F2F37;
+    outline-color: var(--bs-border-color);
     border-radius: 18px;
     background-color: #18181C;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
+/* Logo principal */
 #navbar__logo{
-    background-color: #E11D48;
+    background-color: var(--bs-primary);
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -55,29 +74,42 @@ body{
     font-size: 2rem;
 }
 
+/* Lista de links centralizada */
 .navbar__menu{
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex: 1;
     list-style: none;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    gap: 4px;
 }
 
+/* Item individual da lista da navbar */
 .navbar__item{
-    height: 100px;
+    height: 48px;
     display: flex;
     align-items: center;
 }
 
+/* Link de navegacao */
 .navbar__links{
     color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    padding: 15px 20px;
-    height: auto;
+    transform: none;
+    padding: 0 20px;
+    height: 48px;
+    line-height: 1;
     position: relative;
 }
 
+/* Linha animada abaixo dos links */
 .navbar__links::after{
     background: none repeat scroll 0 0 transparent;
     bottom: 8px;
@@ -86,26 +118,50 @@ body{
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #F3466C;
+    background: var(--bs-secondary-color);
+    opacity: 0;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
 
+/* Hover da linha somente para dispositivos com hover real */
 @media (hover: hover) and (pointer: fine) {
     .navbar__links:hover::after{
         width: 80%;
         left: 10%;
+        opacity: 1;
     }
 }
 
+/* Wrapper do botao de curriculo */
 .navbar__btn{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
-    width: 100%;
+    height: 48px;
+    padding: 0;
+    margin-left: 2.5rem;
+    width: auto;
 }
 
+/* Ajustes do desktop para manter links no centro e CTA na direita */
+@media screen and (min-width: 992px) {
+    .navbar__menu{
+        position: relative;
+        padding-right: 220px;
+    }
+
+    .navbar__btn{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+/* Botao hamburguer (oculto no desktop) */
 .navbar__toggle{
     display: none;
     background: transparent;
@@ -113,6 +169,7 @@ body{
     padding: 0;
 }
 
+/* Barras do hamburguer */
 .bar{
     display: block;
     width: 25px;
@@ -123,27 +180,30 @@ body{
 }
 
 
+/* Estilo do botao CTA da navbar */
 .button{
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 100%;
+    padding: 0 22px;
+    height: 48px;
+    line-height: 1;
+    width: auto;
     border: none;
     outline: none;
     border-radius: 12px;
-    background-color: #E11D48;
+    background-color: var(--bs-primary);
     color: #fff;
 }
 
 .button:hover{
-    background:#F3466C;
+    background: var(--bs-secondary-color);
     transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 960px) {
+/* ===== Navbar (mobile) ===== */
+@media screen and (max-width: 991.98px) {
     .navbar{
         padding: 8px 0;
     }
@@ -153,8 +213,8 @@ body{
         justify-content: space-between;
         height: 72px;
         z-index: 1;
-        width: calc(100% - 24px);
-        max-width: 420px;
+        width: 100%;
+        max-width: 960px;
         margin: 0 auto;
         padding: 0 16px;
         border-radius: 18px;
@@ -162,6 +222,7 @@ body{
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 
+    /* Painel do menu mobile recolhido por padrao */
     .navbar__menu{
         display: grid;
         grid-template-columns: auto;
@@ -181,6 +242,7 @@ body{
         background: #18181C;
     }
 
+    /* Estado aberto do menu mobile */
     .navbar__menu.active{
         background: #18181C;
         top: calc(100% + 8px);
@@ -199,6 +261,7 @@ body{
         padding-left: 0;
     }
 
+    /* Icone hamburguer em mobile */
     .navbar__toggle{
         display: flex;
         flex-direction: column;
@@ -219,6 +282,7 @@ body{
         transform-origin: center;
     }
 
+    /* Botoes/links ocupam largura total no mobile */
     .navbar__item{
         width: 100%;
         height: auto;
@@ -229,8 +293,10 @@ body{
         padding: 1rem 2rem;
         width: 100%;
         display: table;
+        transform: none;
     }
 
+    /* Remove sublinhado animado no mobile para evitar ruido visual */
     .navbar__links::after{
         content: none;
         display: none;
@@ -244,7 +310,12 @@ body{
     }
 
     .navbar__btn{
+        position: static;
+        top: auto;
+        right: auto;
+        transform: none;
         padding: 0.5rem 1rem 1rem;
+        margin-left: 0;
     }
 
     .button{
@@ -256,6 +327,7 @@ body{
         margin: 0 auto;
     }
 
+    /* Estado do X animado quando menu esta ativo */
     #mobile-menu.is-active .bar:nth-child(2){
         opacity: 0;
     }
@@ -269,66 +341,68 @@ body{
     }
 }
 
-/*Hero section CSS*/
+/* ===== Hero section ===== */
 .main{
     background-color: #0F0F12;   
 }
 
+/* Linha divisoria da secao hero */
 .main__hr{
     border: 0;
     border-top: 3px solid #E11D48;
-    margin: 100px 0;
+    opacity: 1;
+    margin: clamp(52px, 8vw, 100px) 0;
 }
 
+/* Grid principal da hero (texto + imagem) */
 .main__container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-self: center;
+    display: block;
     margin: 0 auto;
-    min-height: 46vh;
+    min-height: 42vh;
     height: auto;
     z-index: 1;
     width: 100%;
-    margin-top: 40px;
-    max-width: 1300px;
-    padding: 12px 40px;
-    gap: 20px;
+    margin-top: clamp(20px, 4vw, 40px);
+    max-width: 1320px;
+    padding: clamp(12px, 2vw, 22px);
     border: none;
     border-radius: 12px;
     outline-style: solid;
     outline-color: #2F2F37;
 }
 
+/* Coluna de texto da hero */
 .main__content{
     transform: none;
     text-align: left;
-    justify-self: start;
-    align-self: center;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
+/* Nome principal */
 .main__content h1{
-    font-size: 5rem;
+    font-size: clamp(2.2rem, 6vw, 5rem);
     background-size: 40%;
     background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
+/* Subtitulo principal */
 .main__content h2{
-    font-size: 2.4rem;
+    font-size: clamp(1.25rem, 3.2vw, 2.4rem);
     background-size: 100%;
     background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
+/* Cor de destaque no sobrenome */
 .destaque{
-    color: #E11D48;
-    -webkit-text-fill-color: #E11D48;
+    color: var(--bs-primary);
+    -webkit-text-fill-color: var(--bs-primary);
 }
 
+/* Botao primario da hero */
 .project__button{
     display: inline-block;
     justify-content: center;
@@ -338,19 +412,20 @@ body{
     font-size: 1.6rem;
     height: 50px;
     width: 160px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 30px;
     border: none;
     border-radius: 12px;
-    background-color: #E11D48;
+    background-color: var(--bs-primary);
     color: #fff;
     white-space: nowrap;
 }
 .project__button:hover{
-    background:#F3466C;
+    background: var(--bs-secondary-color);
     transition: all 0.3s ease;
 }
 
+/* Botao secundario da hero */
 .contact__button{
     display: inline-block;
     justify-content: center;
@@ -360,8 +435,8 @@ body{
     font-size: 1.6rem;
     height: 50px;
     width: 160px;
-    margin-top: 10px;
-    margin-left: 8px;
+    margin-top: 5px;
+    margin-left: 10px;
     border: none;
     outline: none;
     border-radius: 12px;
@@ -375,36 +450,41 @@ body{
     transition: all 0.3s ease;
 }
 
+/* Coluna da imagem da hero */
 .main__imgContainer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    justify-self: end;
     padding: 0;
     z-index: 1;
     float: none;
-    margin-left: 0;
-    margin-bottom: 40px;
-    transform: translateX(-40px);
+    margin-left: -70px;
+    margin-bottom: 30px;
+    transform: none;
 }
 
+/* Imagem principal */
 #main__img{
-    width: 340px;
+    width: min(100%, 360px);
     height: auto;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (min-width: 992px) {
+    .main__imgContainer{
+        justify-content: flex-end;
+    }
+}
+
+/* Responsividade da hero */
+@media screen and (max-width: 991.98px) {
     .main__container{
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        width: min(1000px, calc(100vw - 28px));
-        max-width: 1000px;
+        width: 100%;
+        max-width: 960px;
         margin: 18px auto 0;
         min-height: 40vh;
         height: auto;
         padding: 12px 16px;
         margin-top: 30px;
-        gap: 12px;
         border-radius: 12px;
     }
 
@@ -416,27 +496,27 @@ body{
     }
 
     .main__content h1{
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 7vw, 3.5rem);
     }
 
     .main__content h2{
-        font-size: 1.7rem;
+        font-size: clamp(1.1rem, 3.6vw, 1.7rem);
     }
 
     .project__button{
         width: 130px;
         height: 41px;
         font-size: 1.3rem;
-        margin-top: 8px;
-        margin-left: 8px;
+        margin-top: 0;
+        margin-left: 0;
     }
     
     .contact__button{
         width: 130px;
         height: 41px;
         font-size: 1.3rem;
-        margin-top: 8px;
-        margin-left: 8px;
+        margin-top: 0;
+        margin-left: 0;
     }
 
     .main__imgContainer{
@@ -445,12 +525,12 @@ body{
         padding: 0;
         float: none;
         margin-left: 0;
-        margin-bottom: 31px;
-        transform: translateX(-35px);
+        margin-bottom: 8px;
+        transform: none;
     }
 
     #main__img{
-        width: 260px;
+        width: min(100%, 300px);
         height: auto;
     }
 }
@@ -513,9 +593,9 @@ body{
 } */
 
 .project__container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    /* Container da secao de projetos */
+    position: relative;
+    display: block;
     justify-self: center;
     margin: 0 auto;
     min-height: 46vh;
@@ -525,8 +605,7 @@ body{
     margin-top: 100px;
     margin-bottom: 100px;
     max-width: 1300px;
-    padding: 12px 40px;
-    gap: 20px;
+    padding: 28px 40px 36px;
     border: none;
     border-radius: 12px;
     outline-style: solid;
@@ -534,125 +613,350 @@ body{
 }
 
 .project__content{
+    /* Bloco de titulo e linha da secao */
     transform: none;
     text-align: left;
-    justify-self: start;
-    align-self: center;
-    margin-left: -15px;
+    margin-left: 0;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .project__content h2{
+    /* Titulo Projetos */
     font-size: 2.3rem;
     background-size: 100%;
     background-clip: text;
     background-clip: text;
-    margin-left: -5px;
-    transform: translateY(-100px);
+    margin-left: 0;
+    transform: none;
     -webkit-text-fill-color: #F4F4F5;
 }
 
 .project__hr{
+    /* Linha de destaque da secao Projetos */
     border: 0;
     border-top: 3px solid #E11D48;
-    margin-left:-5px;
-    transform: translateY(-100px);
+    opacity: 1;
+    margin-left: 0;
+    transform: none;
+    margin-top: 4px;
+    max-width: 135px;
+}
+
+.game__container{
+    /* Trilho horizontal do carrossel multi-itens */
+    position: relative;
+    z-index: 1;
+    margin-top: 26px;
+    min-height: 320px;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 12px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.game__viewport{
+    /* Camada de mascara com degrade nas laterais */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 112px;
+    bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.game__viewport::before,
+.game__viewport::after{
+    /* Faixas de fade para recorte visual dos lados */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(18px, 8vw, 140px);
+}
+
+.game__viewport::before{
+    left: 0;
+    background: linear-gradient(to right, #0F0F12 12%, rgba(15, 15, 18, 0.78) 52%, rgba(15, 15, 18, 0));
+}
+
+.game__viewport::after{
+    right: 0;
+    background: linear-gradient(to left, #0F0F12 12%, rgba(15, 15, 18, 0.78) 52%, rgba(15, 15, 18, 0));
+}
+
+.game__container::-webkit-scrollbar{
+    /* Esconde scrollbar no WebKit */
+    display: none;
+}
+
+.game__item{
+    /* Card individual do projeto (mantido separado) */
+    flex: 0 0 auto;
+    width: clamp(360px, 52vw, 560px);
+    min-width: clamp(360px, 52vw, 560px);
+    max-width: 560px;
+    border-radius: 14px;
+    border: 1px solid #2F2F37;
+    background-color: #1A1A1F;
+    padding: 14px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.game__item:hover{
+    /* Feedback visual ao passar o mouse */
+    transform: translateY(-4px);
+    border-color: #F3466C;
+}
+
+.game__image{
+    /* Thumb do projeto */
+    display: block;
+    width: 100%;
+    height: clamp(130px, 15vw, 230px);
+    object-fit: cover;
+    border-radius: 10px;
+    background: #101014;
+}
+
+.game__imageWrap{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #101014;
+}
+
+.game__placeholder{
+    width: 100%;
+    height: clamp(130px, 15vw, 170px);
+    border-radius: 10px;
+    background: #1F1F24;
+}
+
+.game__item--coming-soon .game__imageWrap{
+    background: transparent;
+    border: 1px solid #2F2F37;
+}
+
+.coming-soon-ribbon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 170%;
+    transform: translate(-50%, -50%) rotate(-38deg);
+    text-align: center;
+    background: #E11D48;
+    color: #F4F4F5;
+    border-top: 1px solid rgba(244, 244, 245, 0.2);
+    border-bottom: 1px solid rgba(244, 244, 245, 0.2);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 0;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+.coming-soon-ribbon::after{
+    content: attr(data-label);
+}
+
+.game__title{
+    /* Titulo do card */
+    margin-top: 10px;
+    font-size: 1.05rem;
+    color: #F4F4F5;
+    font-weight: 700;
 }
 
 #main__leftarrow{
-    width: 30px;
-    margin-bottom: 95px;
-    margin-left: -15px;
+    /* Icone da seta esquerda */
+    width: 22px;
+    margin: 0;
     transform: rotateY(180deg);
     filter: invert(100%);
 }
 
 
 .leftArrow__button{
-    display: inline-block;
+    /* Botao circular da navegacao esquerda */
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    padding: 1px 1px;
+    padding: 0;
     height: 50px;
     width: 50px;
     border: solid;
-    margin-left: -25px;
     border-color: #2F2F37;
     border-radius: 25px;
     background-color: #1A1A1F;
     color: #fff;
-    transform: translateY(170px);
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
 
 #main__rightarrow{
-    width: 30px;
-    margin-bottom: 98px;
-    transform: translateX(659px);
+    /* Icone da seta direita */
+    width: 22px;
+    margin: 0;
+    transform: none;
     filter: invert(100%);
 }
 
 .rightArrow__button{
-    display: inline-block;
+    /* Botao circular da navegacao direita */
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    padding: 1px 1px;
+    padding: 0;
     height: 50px;
     width: 50px;
     border: solid;
-    margin-left: 650px;
-    margin-right: -25px;
     border-color: #2F2F37;
     border-radius: 25px;
     background-color: #1A1A1F;
     color: #fff;
-    transform: translateY(170px);
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991.98px) {
+    /* Ajustes responsivos da secao de projetos */
     .project__container{
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    width: min(1000px, calc(100vw - 28px));
-    max-width: 1000px;
+    width: 100%;
+    max-width: 960px;
     margin: 18px auto 0;
     min-height: 40vh;
     height: auto;
-    padding: 12px 16px;
+    padding: 22px 16px 24px;
     margin-top: 30px;
-    gap: 12px;
     border-radius: 12px;
     }
 
     .project__content{
-    transform: translateY(30px);
-    margin-left: 10px;
+    transform: none;
+    margin-left: 0;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
     }
 
     #main__leftarrow{
-    width: 27px;
-    margin-bottom: 95px;
-    margin-left: 4px;
+    width: 20px;
+    margin: 0;
     transform: rotateY(180deg);
     filter: invert(100%);
     }
 
     .leftArrow__button{
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 1px 1px;
-    height: 50px;
-    width: 50px;
-    border: solid;
-    margin-left: -6px;
-    border-color: #2F2F37;
-    border-radius: 25px;
-    background-color: #1A1A1F;
-    color: #fff;
-    transform: translateY(111px);
+    top: 50%;
+    left: 12px;
+    height: 44px;
+    width: 44px;
+    transform: translateY(-50%);
+    }
+
+    .rightArrow__button{
+    top: 50%;
+    right: 12px;
+    height: 44px;
+    width: 44px;
+    transform: translateY(-50%);
+    }
+
+    .project__content h2{
+    font-size: 2rem;
+    }
+
+    .game__container{
+    /* Reduz altura minima do carrossel no tablet/mobile */
+    min-height: 280px;
+    }
+
+    .game__item{
+    width: min(84vw, 520px);
+    min-width: min(84vw, 520px);
+    max-width: 520px;
+    }
+
+    .game__image{
+    height: clamp(168px, 34vw, 220px);
+    }
+
+    .game__placeholder{
+    height: clamp(168px, 34vw, 220px);
+    }
+
+    .coming-soon-ribbon{
+    font-size: 0.84rem;
+    }
+
+    .game__viewport{
+    top: 98px;
+    }
 }
+
+@media screen and (max-width: 767.98px) {
+    /* Layout enxuto para telas pequenas */
+    .game__item{
+    width: min(88vw, 420px);
+    min-width: min(88vw, 420px);
+    max-width: 420px;
+    }
+
+    .game__image{
+    height: clamp(160px, 48vw, 210px);
+    }
+
+    .game__placeholder{
+    height: clamp(160px, 48vw, 210px);
+    }
+
+    .coming-soon-ribbon{
+    width: 178%;
+    font-size: 0.75rem;
+    }
+
+    .game__viewport::before,
+    .game__viewport::after{
+    width: clamp(10px, 4.5vw, 28px);
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .game__container{
+    gap: 14px;
+    }
+
+    .game__item{
+    width: min(92vw, 360px);
+    min-width: min(92vw, 360px);
+    max-width: 360px;
+    }
+
+    .game__viewport::before,
+    .game__viewport::after{
+    width: 0;
+    }
 }
 
