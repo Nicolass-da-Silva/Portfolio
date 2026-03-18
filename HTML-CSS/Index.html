@@ -1,208 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
 
 <head>
-    <!-- Metadados basicos de charset e responsividade -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Silva</title>
-    <!-- Bootstrap (base visual e componentes JS/CSS) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- Estilos customizados do projeto -->
-    <link rel="stylesheet" href="Styles.css">
+  <!-- Metadados basicos de charset e responsividade -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicolas Silva</title>
+  <!-- Bootstrap (base visual e componentes JS/CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
 
+  <!-- Estilos customizados do projeto -->
+  <link rel="stylesheet" href="Styles.css" />
 </head>
 
 <body>
-    <!-- Navbar principal com menu desktop e toggle mobile -->
-    <nav class="navbar">
-        <div class="navbar__container container-xxl">
-            <!-- Logo / marca -->
-            <a href="#inicio" id="navbar__logo" data-scroll-target="#inicio">NS</a>
-            <!-- Botao hamburguer para abrir menu em telas menores -->
-            <button class="navbar__toggle" id="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <!-- Lista de links de navegacao -->
-            <ul class="navbar__menu mb-0" id="navbar-menu">
-                <li class="navbar__item">
-                    <a href="#inicio" class="navbar__links" data-scroll-target="#inicio">Ínicio</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#projetos" class="navbar__links" data-scroll-target="#projetos" data-scroll-mode="center">Projetos</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#" class="navbar__links">Ferramentas</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#" class="navbar__links">Sobre</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#" class="navbar__links">Contato</a>
-                </li>
-                <li class="navbar__btn">
-                    <!-- CTA principal da navbar -->
-                    <a href="/" class="button">Currículo</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero: apresentacao principal -->
-    <div class="main" id="inicio">
-        <div class="main__container container-xxl">
-            <div class="row align-items-center g-4 g-xl-5">
-                <div class="main__content col-12 col-lg-7">
-                    <h1>Nicolas <span class="destaque">Silva</span></h1>
-                    <h2>Desenvolvedor Unity</h2>
-                    <!-- Botoes com tooltip Bootstrap -->
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <button class="project__button" data-bs-toggle="tooltip" data-bs-title="Ir para projetos" data-scroll-target="#projetos" data-scroll-mode="center">Ver projetos</button>
-                        <button class="contact__button" data-bs-toggle="tooltip" data-bs-title="Entrar em contato">Contato</button>
-                    </div>
-                </div>
-                <div class="main__imgContainer col-12 col-lg-5">
-                    <!-- Imagem principal de destaque -->
-                    <img src="images/Me Pixelsizel.png" alt="mePixel" id="main__img" width="400px">
-                </div>
-            </div>
-        </div>
-        <!-- Separador visual da secao hero -->
-        <hr class="main__hr">
+  <!-- Navbar principal com menu desktop e toggle mobile -->
+  <nav class="navbar">
+    <div class="navbar__container container-xxl">
+      <!-- Logo / marca -->
+      <a href="#inicio" id="navbar__logo" data-scroll-target="#inicio">NS</a>
+      <!-- Botao hamburguer para abrir menu em telas menores -->
+      <button class="navbar__toggle" id="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="navbar-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <!-- Lista de links de navegacao -->
+      <ul class="navbar__menu mb-0" id="navbar-menu">
+        <li class="navbar__item">
+          <a href="#inicio" class="navbar__links" data-scroll-target="#inicio">Ínicio</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#projetos" class="navbar__links" data-scroll-target="#projetos">
+            Projetos
+          </a>
+        </li>
+        <li class="navbar__item">
+          <a href="#" class="navbar__links">Ferramentas</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#" class="navbar__links">Sobre</a>
+        </li>
+        <li class="navbar__item">
+          <a href="#" class="navbar__links">Contato</a>
+        </li>
+        <li class="navbar__btn">
+          <!-- CTA principal da navbar -->
+          <a href="/" class="button">Currículo</a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Secao de projetos com carrossel customizado -->
-    <div class="project" id="projetos">
-        <div class="project__container container-xxl">
-            <!-- Seta esquerda: navega para o item anterior -->
-            <button class="leftArrow__button" type="button" aria-label="Projeto anterior">
-                <img src="images/seta-direita.png" alt="Seta para esquerda" id="main__leftarrow" width="100px">
+  <!-- Hero: apresentacao principal -->
+  <div class="main" id="inicio">
+    <div class="main__container container-md">
+      <div class="row align-items-center g-4 g-xl-5">
+        <div class="main__content col-12 col-lg-7">
+          <h1>Nicolas <span class="destaque">Silva</span></h1>
+          <h2>Desenvolvedor Unity</h2>
+          <!-- Botoes com tooltip Bootstrap -->
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <button class="project__button" data-bs-toggle="tooltip" data-bs-title="Ir para projetos"
+              data-scroll-target="#projetos" data-scroll-mode="center">
+              Ver projetos
             </button>
-            <!-- Seta direita: navega para o proximo item -->
-            <button class="rightArrow__button" type="button" aria-label="Próximo projeto">
-                <img src="images/seta-direita.png" alt="Seta para direita" id="main__rightarrow" width="100px">
+            <button class="contact__button" data-bs-toggle="tooltip" data-bs-title="Entrar em contato">
+              Contato
             </button>
-            
-            <!-- Titulo e destaque da secao -->
-            <div class="project__content">
-                <h2>Projetos</h2>
-                <hr class="project__hr">
-                <button class="jogos__button" type="button" aria-label="Jogos feitos">Jogos</button>
-                <button class="arte__button" type="button" aria-label="Artes feitas">Arte</button>
-            </div>
-            <!-- Camada com degrade para efeito de recorte lateral -->
-            <div class="game__viewport" aria-hidden="true"></div>
-            <!-- Lista horizontal de cards (itens independentes) -->
-            <div class="game__container" aria-label="Carrossel de projetos">
-                <!-- Item 1 -->
-                <article class="game__item" data-project="1">
-                    <img src="images/Me Pixelsizel.png" alt="Projeto 1" class="game__image">
-                    <h3 class="game__title">Projeto 01</h3>
-                </article>
-                <!-- Item 2 -->
-                <article class="game__item" data-project="2">
-                    <img src="images/Me Pixelsizel.png" alt="Projeto 2" class="game__image">
-                    <h3 class="game__title">Projeto 02</h3>
-                </article>
-                <!-- Item 3 -->
-                <article class="game__item" data-project="3">
-                    <img src="images/Me Pixelsizel.png" alt="Projeto 3" class="game__image">
-                    <h3 class="game__title">Projeto 03</h3>
-                </article>
-                <!-- Item 4 -->
-                <article class="game__item" data-project="4">
-                    <img src="images/Me Pixelsizel.png" alt="Projeto 4" class="game__image">
-                    <h3 class="game__title">Projeto 04</h3>
-                </article>
-                <!-- Item 5 -->
-                <article class="game__item" data-project="5">
-                    <img src="images/Me Pixelsizel.png" alt="Projeto 5" class="game__image">
-                    <h3 class="game__title">Projeto 05</h3>
-                </article>
-                <!-- Item 6 (em breve) -->
-                <article class="game__item game__item--coming-soon" data-project="6">
-                    <div class="game__imageWrap">
-                        <div class="game__placeholder" aria-hidden="true"></div>
-                        <span class="coming-soon-ribbon" data-label="EM BREVE" aria-label="Em breve"></span>
-                    </div>
-                    <h3 class="game__title">Projeto 06</h3>
-                </article>
-            </div>
+          </div>
         </div>
-    </div>
-
-    <!-- Ferramentas: ferramentas que utilizo -->
-     <div class="tools" id="ferramentas">
-        <div class="tools__container container-md">
-            <div class="row align-items-center g-4 g-md-5">
-                <div class="tools__content col-12 col-md-7">
-                    <h1 class="">Ferramentas que uso</h1>
-                    <h3 class="tools__principal">Principais</h3>
-                    <h3 class="tools__estudando">Estudando</h3>
-                    <h3 class="tools__utilizadas">Já utilizei</h3>
-                </div>
-
-                <div class="tools__cards col-md" aria-label="Grade de ferramentas">
-                    <!-- Duplique um card para adicionar uma nova ferramenta -->
-                    <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
-                        <div class="tool-card__placeholder" aria-hidden="true"></div>
-                    </article>
-
-                    <img src="images/Unity--Streamline-Font-Awesome.svg" alt="UnitySVG" class="unity__icon">
-                    <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="AsepriteSVG" class="aseprite__icon">
-                    <img src="images/Github--Streamline-Unicons.svg" alt="GithubSVG" class="github__icon">
-                    <img src="images/Notion--Streamline-Simple-Icons.svg" alt="NotionSVG" class="notion__icon">
-
-                    <img src="images/Figma--Streamline-Svg-Logos.svg" alt="FigmaSVG" class="figma__icon">
-                    <img src="images/Blender--Streamline-Simple-Icons.svg" alt="BlenderSVG" class="blender__icon">
-
-                </div>
-            </div>
+        <div class="main__imgContainer col-12 col-lg-5">
+          <!-- Imagem principal de destaque -->
+          <img src="images/Me Pixelsizel.png" alt="mePixel" id="main__img" width="400px" />
         </div>
+      </div>
     </div>
+    <!-- Separador visual da secao hero -->
+    <hr class="main__hr" />
+  </div>
 
-    <!-- Bootstrap JS bundle + script customizado do projeto -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Secao de projetos com carrossel customizado -->
+  <div class="project" id="projetos">
+    <div class="project__container container-xxl">
+      <!-- Seta esquerda: navega para o item anterior -->
+      <button class="leftArrow__button" type="button" aria-label="Projeto anterior">
+        <img src="images/seta-direita.png" alt="Seta para esquerda" id="main__leftarrow" width="100px" />
+      </button>
+      <!-- Seta direita: navega para o proximo item -->
+      <button class="rightArrow__button" type="button" aria-label="Próximo projeto">
+        <img src="images/seta-direita.png" alt="Seta para direita" id="main__rightarrow" width="100px" />
+      </button>
 
-    <script src="app.js"></script>
+      <!-- Titulo e destaque da secao -->
+      <div class="project__content">
+        <h2>Projetos</h2>
+        <hr class="project__hr" />
+        <button class="jogos__button" type="button" aria-label="Jogos feitos">
+          Jogos
+        </button>
+        <button class="arte__button" type="button" aria-label="Artes feitas">
+          Arte
+        </button>
+      </div>
+      <!-- Camada com degrade para efeito de recorte lateral -->
+      <div class="game__viewport" aria-hidden="true"></div>
+      <!-- Lista horizontal de cards (itens independentes) -->
+      <div class="game__container" aria-label="Carrossel de projetos">
+        <!-- Item 1 -->
+        <article class="game__item" data-project="1">
+          <img src="images/Me Pixelsizel.png" alt="Projeto 1" class="game__image" />
+          <h3 class="game__title">Projeto 01</h3>
+        </article>
+        <!-- Item 2 -->
+        <article class="game__item" data-project="2">
+          <img src="images/Me Pixelsizel.png" alt="Projeto 2" class="game__image" />
+          <h3 class="game__title">Projeto 02</h3>
+        </article>
+        <!-- Item 3 -->
+        <article class="game__item" data-project="3">
+          <img src="images/Me Pixelsizel.png" alt="Projeto 3" class="game__image" />
+          <h3 class="game__title">Projeto 03</h3>
+        </article>
+        <!-- Item 4 -->
+        <article class="game__item" data-project="4">
+          <img src="images/Me Pixelsizel.png" alt="Projeto 4" class="game__image" />
+          <h3 class="game__title">Projeto 04</h3>
+        </article>
+        <!-- Item 5 -->
+        <article class="game__item" data-project="5">
+          <img src="images/Me Pixelsizel.png" alt="Projeto 5" class="game__image" />
+          <h3 class="game__title">Projeto 05</h3>
+        </article>
+        <!-- Item 6 (em breve) -->
+        <article class="game__item game__item--coming-soon" data-project="6">
+          <div class="game__imageWrap">
+            <div class="game__placeholder" aria-hidden="true"></div>
+            <span class="coming-soon-ribbon" data-label="EM BREVE" aria-label="Em breve"></span>
+          </div>
+          <h3 class="game__title">Projeto 06</h3>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ferramentas: ferramentas que utilizo -->
+  <div class="tools" id="ferramentas">
+    <div class="tools__container container-md">
+      <div class="row align-items-center g-4 g-md-5">
+        <div class="tools__content col-12 col-md-7">
+          <h1 class="">Ferramentas que uso</h1>
+          <h3 class="tools__principal">Principais</h3>
+          <h3 class="tools__estudando">Estudando</h3>
+          <h3 class="tools__utilizadas">Já utilizei</h3>
+        </div>
+
+        <div class="tools__cards col-md" aria-label="Grade de ferramentas">
+          <!-- Duplique um card para adicionar uma nova ferramenta -->
+          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
+            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          </article>
+
+          <img src="images/Unity--Streamline-Font-Awesome.svg" alt="UnitySVG" class="unity__icon" />
+          <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="AsepriteSVG" class="aseprite__icon" />
+          <img src="images/Github--Streamline-Unicons.svg" alt="GithubSVG" class="github__icon" />
+          <img src="images/Notion--Streamline-Simple-Icons.svg" alt="NotionSVG" class="notion__icon" />
+
+          <img src="images/Figma--Streamline-Svg-Logos.svg" alt="FigmaSVG" class="figma__icon" />
+          <img src="images/Blender--Streamline-Simple-Icons.svg" alt="BlenderSVG" class="blender__icon" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle + script customizado do projeto -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
