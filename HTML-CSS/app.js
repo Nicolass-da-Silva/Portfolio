@@ -86,6 +86,7 @@ if (scrollTargets.length > 0) {
 const projectContainer = document.querySelector('.game__container');
 const leftArrowButton = document.querySelector('.leftArrow__button');
 const rightArrowButton = document.querySelector('.rightArrow__button');
+const toolsContainer = document.querySelector('.tools__container');
 
 // Lógica do carrossel de projetos (navegação pelas setas).
 if (projectContainer && leftArrowButton && rightArrowButton) {
