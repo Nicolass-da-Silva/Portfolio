@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 96 96" id="Trello--Streamline-Svg-Logos" height="24" width="24">
+  <desc>
+    Trello Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path fill="url(#a)" d="M85.8203 1H10.1797C5.10989 1 1 5.10989 1 10.1797v75.6406C1 90.8901 5.10989 95 10.1797 95h75.6406C90.8901 95 95 90.8901 95 85.8203V10.1797C95 5.10989 90.8901 1 85.8203 1Z"></path>
+  <path fill="#ffffff" d="M78.3731 13.2207H58.5156c-2.4335 0-4.4062 1.9727-4.4062 4.4063v32.3125c0 2.4335 1.9727 4.4062 4.4062 4.4062h19.8575c2.4335 0 4.4063-1.9727 4.4063-4.4062V17.627c0-2.4336-1.9728-4.4063-4.4063-4.4063Z"></path>
+  <path fill="#ffffff" d="M37.4845 13.2207H17.627c-2.4336 0-4.4063 1.9727-4.4063 4.4063v55.8125c0 2.4335 1.9727 4.4062 4.4063 4.4062h19.8575c2.4335 0 4.4062-1.9727 4.4062-4.4062V17.627c0-2.4336-1.9727-4.4063-4.4062-4.4063Z"></path>
+  <defs>
+    <linearGradient id="a" x1="4701" x2="4701" y1="1" y2="9401" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0091e6"></stop>
+      <stop offset="1" stop-color="#0079bf"></stop>
+    </linearGradient>
+  </defs>
+</svg>
