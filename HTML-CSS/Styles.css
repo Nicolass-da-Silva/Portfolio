@@ -35,35 +35,17 @@ body {
 
 /* Container interno da navbar */
 .navbar__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 72px;
-    z-index: 1;
-    width: 88%;
-    max-width: 2560px;
-    margin: 0 auto;
-    padding: 0 clamp(12px, 2vw, 20px);
-    position: relative;
-    outline-style: solid;
-    outline-color: var(--bs-border-color);
+    border: 3px solid var(--bs-border-color);
     border-radius: 18px;
     background-color: #18181C;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* Logo principal */
 #navbar__logo {
     background-color: var(--bs-primary);
-    background-size: 100%;
     background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
 }
@@ -71,22 +53,13 @@ body {
 /* Lista de links centralizada */
 .navbar__menu {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex: 1;
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: auto;
-    gap: 4px;
+    margin-left: 100px;
 }
 
 /* Item individual da lista da navbar */
 .navbar__item {
-    height: 48px;
     display: flex;
-    align-items: center;
 }
 
 /* Link de navegacao */
@@ -94,26 +67,20 @@ body {
     color: #fff;
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
-    transform: none;
     padding: 0 20px;
     height: 48px;
-    line-height: 1;
     position: relative;
 }
 
 /* Linha animada abaixo dos links */
 .navbar__links::after {
-    background: none repeat scroll 0 0 transparent;
     bottom: 8px;
     content: "";
-    display: block;
     height: 2px;
     left: 50%;
     position: absolute;
     background: var(--bs-secondary-color);
-    opacity: 0;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
@@ -123,26 +90,18 @@ body {
     .navbar__links:hover::after {
         width: 80%;
         left: 10%;
-        opacity: 1;
     }
 }
 
 /* Wrapper do botao de curriculo */
 .navbar__btn {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 48px;
-    padding: 0;
-    margin-left: 2.5rem;
-    width: auto;
 }
 
 /* Ajustes do desktop para manter links no centro e CTA na direita */
 @media screen and (min-width: 992px) {
     .navbar__menu {
         position: relative;
-        padding-right: 220px;
     }
 
     .navbar__btn {
@@ -150,14 +109,11 @@ body {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        margin-left: 0;
-        padding-left: 0;
     }
 }
 
 /* Botao hamburguer (oculto no desktop) */
 .navbar__toggle {
-    display: none;
     background: transparent;
     border: 0;
     padding: 0;
@@ -165,10 +121,6 @@ body {
 
 /* Barras do hamburguer */
 .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
     background: #fff;
     transition: all 0.3s ease-in-out;
 }
@@ -177,15 +129,10 @@ body {
 /* Estilo do botao CTA da navbar */
 .button {
     display: flex;
-    justify-content: center;
     align-items: center;
     text-decoration: none;
     padding: 0 22px;
     height: 48px;
-    line-height: 1;
-    width: auto;
-    border: none;
-    outline: none;
     border-radius: 12px;
     background-color: var(--bs-primary);
     color: #fff;
@@ -198,23 +145,6 @@ body {
 
 /* ===== Navbar (mobile) ===== */
 @media screen and (max-width: 991.98px) {
-    .navbar {
-        padding: 8px 0;
-    }
-
-    .navbar__container {
-        display: flex;
-        justify-content: space-between;
-        height: 72px;
-        z-index: 1;
-        width: 100%;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 16px;
-        border-radius: 18px;
-        background-color: #18181C;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-    }
 
     /* Painel do menu mobile recolhido por padrao */
     .navbar__menu {
@@ -229,10 +159,7 @@ body {
         left: 0;
         opacity: 0;
         visibility: hidden;
-        pointer-events: none;
         transition: all 0.5s ease;
-        height: 90vh;
-        z-index: -1;
         background: #18181C;
     }
 
@@ -242,17 +169,10 @@ body {
         top: calc(100% + 8px);
         opacity: 1;
         visibility: visible;
-        pointer-events: auto;
         transition: all 0.5s ease;
-        z-index: 99;
-        height: auto;
         font-size: 1.6rem;
         border-radius: 16px;
         overflow: hidden;
-    }
-
-    #navbar__logo {
-        padding-left: 0;
     }
 
     /* Icone hamburguer em mobile */
@@ -263,37 +183,19 @@ body {
         gap: 6px;
         width: 32px;
         height: 24px;
-        cursor: pointer;
-        z-index: 100;
     }
 
     .navbar__toggle .bar {
-        display: block;
         width: 100%;
         height: 3px;
-        margin: 0;
-        border-radius: 999px;
-        transform-origin: center;
     }
 
-    /* Botoes/links ocupam largura total no mobile */
-    .navbar__item {
-        width: 100%;
-        height: auto;
-    }
 
     .navbar__links {
         text-align: center;
         padding: 1rem 2rem;
         width: 100%;
         display: table;
-        transform: none;
-    }
-
-    /* Remove sublinhado animado no mobile para evitar ruido visual */
-    .navbar__links::after {
-        content: none;
-        display: none;
     }
 
     #mobile-menu {
@@ -303,19 +205,8 @@ body {
         transform: translateY(-50%);
     }
 
-    .navbar__btn {
-        position: static;
-        top: auto;
-        right: auto;
-        transform: none;
-        padding: 0.5rem 1rem 1rem;
-        margin-left: 0;
-    }
-
     .button {
-        display: flex;
         justify-content: center;
-        align-items: center;
         width: 80%;
         height: 56px;
         margin: 0 auto;
@@ -342,7 +233,6 @@ body {
 
 /* Linha divisoria da secao hero */
 .main__hr {
-    border: 0;
     border-top: 3px solid #E11D48;
     opacity: 1;
     margin: clamp(52px, 8vw, 100px) 0;
@@ -352,35 +242,24 @@ body {
 .main__container {
     margin-top: clamp(20px, 4vw, 40px);
     padding: clamp(12px, 2vw, 22px);
-    border: none;
     border-radius: 12px;
-    /* outline-style: solid;
-    outline-color: #2F2F37; */
     border: 3px solid var(--bs-border-color);
 }
 
 /* Coluna de texto da hero */
 .main__content {
-    transform: none;
-    text-align: left;
     margin-left: 30px;
 }
 
 /* Nome principal */
 .main__content h1 {
     font-size: clamp(2.2rem, 6vw, 5rem);
-    background-size: 40%;
-    background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
 /* Subtitulo principal */
 .main__content h2 {
     font-size: clamp(1.25rem, 3.2vw, 2.4rem);
-    background-size: 100%;
-    background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: #F4F4F5;
 }
 
@@ -392,11 +271,6 @@ body {
 
 /* Botao primario da hero */
 .project__button {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 1px 1px;
     font-size: 1.6rem;
     height: 50px;
     width: 160px;
@@ -406,7 +280,6 @@ body {
     border-radius: 12px;
     background-color: var(--bs-primary);
     color: #fff;
-    white-space: nowrap;
 }
 
 .project__button:hover {
@@ -416,18 +289,12 @@ body {
 
 /* Botao secundario da hero */
 .contact__button {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 1px 1px;
     font-size: 1.6rem;
     height: 50px;
     width: 160px;
     margin-top: 5px;
     margin-left: 10px;
     border: none;
-    outline: none;
     border-radius: 12px;
     background-color: #1F1F24;
     color: #F4F4F5;
@@ -444,69 +311,31 @@ body {
 .main__imgContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0;
-    z-index: 1;
-    float: none;
     margin-left: -70px;
     margin-bottom: 30px;
-    transform: none;
-}
-
-/* Imagem principal */
-#main__img {
-    width: min(100%, 360px);
-    height: auto;
 }
 
 .project__container {
     /* Container da secao de projetos */
     position: relative;
-    display: block;
-    justify-self: center;
-    margin: 0 auto;
-    min-height: 46vh;
-    height: auto;
-    z-index: 1;
-    width: 100%;
-    margin-top: 100px;
-    margin-bottom: 100px;
     max-width: 1300px;
     padding: 28px 40px 36px;
-    border: none;
     border-radius: 12px;
     outline-style: solid;
     outline-color: #2F2F37;
 }
 
-.project__content {
-    /* Bloco de titulo e linha da secao */
-    transform: none;
-    text-align: left;
-    margin-left: 0;
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .project__content h2 {
     /* Titulo Projetos */
     font-size: 2.3rem;
-    background-size: 100%;
-    background-clip: text;
-    background-clip: text;
-    margin-left: 0;
-    transform: none;
     -webkit-text-fill-color: #F4F4F5;
 }
 
 .project__hr {
     /* Linha de destaque da secao Projetos */
-    border: 0;
     border-top: 3px solid #E11D48;
     opacity: 1;
     margin-left: 0;
-    transform: none;
     margin-top: 4px;
     max-width: 135px;
 }
