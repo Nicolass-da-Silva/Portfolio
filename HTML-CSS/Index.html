@@ -53,9 +53,51 @@
           <!-- Link para secao Contato com rolagem suave -->
           <a href="#contato" class="navbar__links" data-scroll-target="#contato">Contato</a>
         </li>
+        <li class="navbar__item navbar__langPicker" data-lang-picker>
+          <button class="navbar__links navbar__langToggle" type="button" data-lang-toggle aria-haspopup="true"
+            aria-expanded="false" aria-label="Selecionar idioma">
+            <span class="navbar__langCurrentContent">
+              <img src="images/bandeira-brasil.svg" alt="" class="navbar__flag" data-lang-current-flag />
+              <span data-lang-current>PT</span>
+            </span>
+            <span class="navbar__langChevron" aria-hidden="true"></span>
+          </button>
+          <div class="navbar__langMenu" data-lang-menu role="menu" aria-label="Opcoes de idioma">
+            <button class="navbar__langOption" type="button" data-lang-option="pt" role="menuitemradio"
+              aria-checked="true">
+              <img src="images/bandeira-brasil.svg" alt="" class="navbar__flag" aria-hidden="true" />
+              <span data-lang-option-label="pt">Portugues</span>
+            </button>
+            <button class="navbar__langOption" type="button" data-lang-option="en" role="menuitemradio"
+              aria-checked="false">
+              <img src="images/bandeira-eua.svg" alt="" class="navbar__flag" aria-hidden="true" />
+              <span data-lang-option-label="en">English</span>
+            </button>
+          </div>
+        </li>
         <li class="navbar__btn">
-          <!-- CTA principal da navbar -->
-          <a href="/" class="button">Currículo</a>
+          <div class="navbar__actions">
+            <div class="navbar__themeControl" aria-hidden="true">
+              <span class="navbar__themeIcon navbar__themeIcon--moon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path fill="rgb(255, 212, 59)"
+                    d="M256 0C114.6 0 0 114.6 0 256S114.6 512 256 512c68.8 0 131.3-27.2 177.3-71.4 7.3-7 9.4-17.9 5.3-27.1s-13.7-14.9-23.8-14.1c-4.9 .4-9.8 .6-14.8 .6-101.6 0-184-82.4-184-184 0-72.1 41.5-134.6 102.1-164.8 9.1-4.5 14.3-14.3 13.1-24.4S322.6 8.5 312.7 6.3C294.4 2.2 275.4 0 256 0z" />
+                </svg>
+              </span>
+              <button class="navbar__themeToggle" type="button" data-theme-toggle aria-label="Alternar para modo claro"
+                aria-pressed="false">
+                <span class="navbar__themeThumb" aria-hidden="true"></span>
+              </button>
+              <span class="navbar__themeIcon navbar__themeIcon--sun">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path fill="rgb(255, 212, 59)"
+                    d="M288-32c8.4 0 16.3 4.4 20.6 11.7L364.1 72.3 468.9 46c8.2-2 16.9 .4 22.8 6.3S500 67 498 75.1l-26.3 104.7 92.7 55.5c7.2 4.3 11.7 12.2 11.7 20.6s-4.4 16.3-11.7 20.6L471.7 332.1 498 436.8c2 8.2-.4 16.9-6.3 22.8S477 468 468.9 466l-104.7-26.3-55.5 92.7c-4.3 7.2-12.2 11.7-20.6 11.7s-16.3-4.4-20.6-11.7L211.9 439.7 107.2 466c-8.2 2-16.8-.4-22.8-6.3S76 445 78 436.8l26.2-104.7-92.6-55.5C4.4 272.2 0 264.4 0 256s4.4-16.3 11.7-20.6L104.3 179.9 78 75.1c-2-8.2 .3-16.8 6.3-22.8S99 44 107.2 46l104.7 26.2 55.5-92.6 1.8-2.6c4.5-5.7 11.4-9.1 18.8-9.1zm0 144a144 144 0 1 0 0 288 144 144 0 1 0 0-288zm0 240a96 96 0 1 1 0-192 96 96 0 1 1 0 192z" />
+                </svg>
+              </span>
+            </div>
+            <!-- CTA principal da navbar -->
+            <a href="/" class="button">Currículo</a>
+          </div>
         </li>
       </ul>
     </div>
@@ -67,7 +109,7 @@
       <div class="row align-items-center g-4 g-xl-5">
         <div class="main__content col-12 col-lg-7">
           <h1>Nicolas <span class="destaque">Silva</span></h1>
-          <h2>Desenvolvedor Unity</h2>
+          <h2 data-typewriter-role>Artista Pixel Art</h2>
           <!-- Botoes com tooltip Bootstrap -->
           <div class="d-flex flex-wrap gap-2 mt-2">
             <button class="project__button" data-bs-toggle="tooltip" data-bs-title="Ir para projetos"
@@ -189,46 +231,46 @@
 
         <div class="tools__cards col-md" aria-label="Grade de ferramentas">
           <!-- Linha 1: ferramentas principais -->
-          <article class="tool-card tool-card--principal" aria-label="Unity">
+          <article class="tool-card tool-card--principal" aria-label="Unity" data-bs-toggle="tooltip" data-bs-title="Unity" data-bs-placement="top" tabindex="0">
             <img src="images/Unity--Streamline-Font-Awesome.svg" alt="Unity" class="tool-card__icon unity__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Aseprite">
+          <article class="tool-card tool-card--principal" aria-label="Aseprite" data-bs-toggle="tooltip" data-bs-title="Aseprite" data-bs-placement="top" tabindex="0">
             <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="Aseprite" class="tool-card__icon aseprite__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Github">
+          <article class="tool-card tool-card--principal" aria-label="Github" data-bs-toggle="tooltip" data-bs-title="GitHub" data-bs-placement="top" tabindex="0">
             <img src="images/Github--Streamline-Unicons.svg" alt="Github" class="tool-card__icon github__icon" />
           </article>
           
-          <article class="tool-card tool-card--principal" aria-label="Notion">
+          <article class="tool-card tool-card--principal" aria-label="Notion" data-bs-toggle="tooltip" data-bs-title="Notion" data-bs-placement="top" tabindex="0">
             <img src="images/Notion--Streamline-Simple-Icons.svg" alt="Notion" class="tool-card__icon notion__icon" />
           </article>
           
           <!-- Linha 2: ferramentas em estudo -->
-          <article class="tool-card tool-card--estudando tool-card--new-row" aria-label="Figma">
+          <article class="tool-card tool-card--estudando tool-card--new-row" aria-label="Figma" data-bs-toggle="tooltip" data-bs-title="Figma" data-bs-placement="top" tabindex="0">
             <img src="images/Figma--Streamline-Svg-Logos.svg" alt="Figma" class="tool-card__icon figma__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Blender">
+          <article class="tool-card tool-card--estudando" aria-label="Blender" data-bs-toggle="tooltip" data-bs-title="Blender" data-bs-placement="top" tabindex="0">
             <img src="images/Blender--Streamline-Svg-Logos.svg" alt="Blender" class="tool-card__icon blender__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Csharp">
+          <article class="tool-card tool-card--estudando" aria-label="Csharp" data-bs-toggle="tooltip" data-bs-title="C#" data-bs-placement="top" tabindex="0">
             <img src="images/csharp-svgrepo-com.svg" alt="Csharp" class="tool-card__icon c__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Photoshop">
+          <article class="tool-card tool-card--estudando" aria-label="Photoshop" data-bs-toggle="tooltip" data-bs-title="Photoshop" data-bs-placement="top" tabindex="0">
             <img src="images/adobe-photoshop-svgrepo-com.svg" alt="Photoshop" class="tool-card__icon photoshop__icon" />
           </article>
           
 
           <!-- Linha 3: ferramentas ja utilizadas -->
-          <article class="tool-card tool-card--utilizadas" aria-label="Trello">
+          <article class="tool-card tool-card--utilizadas" aria-label="Trello" data-bs-toggle="tooltip" data-bs-title="Trello" data-bs-placement="top" tabindex="0">
             <img src="images/Trello--Streamline-Svg-Logos.svg" alt="Trello" class="tool-card__icon trello__icon" />
           </article>
 
-          <article class="tool-card tool-card--utilizadas" aria-label="GameMaker">
+          <article class="tool-card tool-card--utilizadas" aria-label="GameMaker" data-bs-toggle="tooltip" data-bs-title="GameMaker" data-bs-placement="top" tabindex="0">
             <img src="images/Gamemaker--Streamline-Simple-Icons.svg" alt="GameMaker" class="tool-card__icon gamemaker__icon" />
           </article>
 
@@ -244,22 +286,22 @@
         <div class="about__content col-12 col-lg-7">
           <h2>Sobre mim</h2>
           <p class="about__text">
-            Ola! Meu nome e Nicolas. Sou desenvolvedor Unity e Pixel Artist do Brasil
-            <span class="about__flag" aria-label="Bandeira do Brasil" role="img">🇧🇷</span>,
-            com foco na criacao de mundos e experiencias envolventes para jogadores.
+            Olá! Meu nome é Nicolas. Sou desenvolvedor Unity e Pixel Artist do Brasil
+            <img src="images/bandeira-brasil.svg" alt="Bandeira do Brasil" class="about__flag" />,
+            com foco na criação de mundos e experiências envolventes para jogadores.
           </p>
 
           <p class="about__text">
             Iniciei minha jornada aos 15 anos, quando descobri o universo dos jogos e o potencial
-            criativo e tecnico dessa area. Desde entao, venho estudando programacao e aprimorando
-            minhas habilidades de forma continua.
+            criativo e técnico dessa área. Desde então, venho estudando programação e aprimorando
+            minhas habilidades de forma contínua.
           </p>
 
           <p class="about__text">
-            Comecei programando com GameMaker e, durante a graduacao em Jogos Digitais,
-            aprofundei meu trabalho com Unity, que hoje e minha principal ferramenta.
+            Comecei programando com GameMaker e, durante a graduação em Jogos Digitais,
+            aprofundei meu trabalho com Unity, que hoje é minha principal ferramenta.
             Busco constantemente novas oportunidades, aprendizado em diferentes frentes do
-            desenvolvimento e evolucao profissional, com interesse de longo prazo em Full-Stack.
+            desenvolvimento e evolução profissional, com interesse de longo prazo em Full-Stack.
           </p>
 
           <div class="about__badges" aria-label="Modelos de trabalho">
