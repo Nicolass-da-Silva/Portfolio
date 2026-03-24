@@ -96,7 +96,7 @@ const UI_TRANSLATIONS = {
         navAbout: 'About',
         navSkills: 'Skills',
         navContact: 'Contact',
-        navResume: 'Resume',
+        navResume: 'Curriculum',
         langPickerAria: 'Select language',
         langMenuAria: 'Language options',
         langCurrentShort: 'EN',
