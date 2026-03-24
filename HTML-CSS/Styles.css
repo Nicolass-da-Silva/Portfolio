@@ -288,6 +288,30 @@ body {
     -webkit-text-fill-color: #F4F4F5;
 }
 
+[data-typewriter-role] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.2em;
+}
+
+[data-typewriter-role]::after {
+    content: "|";
+    color: #F4F4F5;
+    animation: typewriter-caret-blink 0.9s steps(1, end) infinite;
+}
+
+@keyframes typewriter-caret-blink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Cor de destaque no sobrenome */
 .destaque {
     color: var(--bs-primary);

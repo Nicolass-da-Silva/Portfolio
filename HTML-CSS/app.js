@@ -7,6 +7,47 @@ const menuContainer = document.querySelector('.navbar__menu');
 const menuItems = document.querySelectorAll('.navbar__links, .button');
 // Elementos que participam da navegacao suave via data-scroll-target.
 const scrollTargets = document.querySelectorAll('[data-scroll-target]');
+const typewriterRole = document.querySelector('[data-typewriter-role]');
+
+// Efeito de escrita no subtitulo principal alternando entre dois papeis.
+if (typewriterRole) {
+    const roles = ['Pixel Artist', 'Desenvolvedor Unity'];
+    const typingDelay = 90;
+    const deletingDelay = 45;
+    const holdDelay = 1400;
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const runTypewriter = () => {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            charIndex = Math.max(0, charIndex - 1);
+        } else {
+            charIndex = Math.min(currentRole.length, charIndex + 1);
+        }
+
+        typewriterRole.textContent = currentRole.slice(0, charIndex);
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            window.setTimeout(runTypewriter, holdDelay);
+            return;
+        }
+
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        window.setTimeout(runTypewriter, isDeleting ? deletingDelay : typingDelay);
+    };
+
+    typewriterRole.textContent = '';
+    runTypewriter();
+}
 
 // Inicializa tooltips do Bootstrap para elementos que possuem data-bs-toggle="tooltip".
 if (window.bootstrap) {
