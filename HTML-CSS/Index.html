@@ -38,13 +38,20 @@
           </a>
         </li>
         <li class="navbar__item">
-          <a href="#" class="navbar__links">Ferramentas</a>
+          <!-- Link para secao de ferramentas com rolagem suave -->
+          <a href="#ferramentas" class="navbar__links" data-scroll-target="#ferramentas">Ferramentas</a>
         </li>
         <li class="navbar__item">
-          <a href="#" class="navbar__links">Sobre</a>
+          <!-- Link para secao Sobre com rolagem suave -->
+          <a href="#sobre" class="navbar__links" data-scroll-target="#sobre">Sobre</a>
         </li>
         <li class="navbar__item">
-          <a href="#" class="navbar__links">Contato</a>
+          <!-- Link para secao Skills com rolagem suave -->
+          <a href="#skills" class="navbar__links" data-scroll-target="#skills">Skills</a>
+        </li>
+        <li class="navbar__item">
+          <!-- Link para secao Contato com rolagem suave -->
+          <a href="#contato" class="navbar__links" data-scroll-target="#contato">Contato</a>
         </li>
         <li class="navbar__btn">
           <!-- CTA principal da navbar -->
@@ -67,7 +74,8 @@
               data-scroll-target="#projetos" data-scroll-mode="center">
               Ver projetos
             </button>
-            <button class="contact__button" data-bs-toggle="tooltip" data-bs-title="Entrar em contato">
+            <button class="contact__button" data-bs-toggle="tooltip" data-bs-title="Entrar em contato"
+              data-scroll-target="#contato">
               Contato
             </button>
           </div>
@@ -98,17 +106,17 @@
       <div class="project__content">
         <h2>Projetos</h2>
         <hr class="project__hr" />
-        <button class="jogos__button" type="button" aria-label="Jogos feitos">
+        <button class="jogos__button project-tab--active" type="button" aria-label="Jogos feitos" data-project-tab="jogos" aria-pressed="true">
           Jogos
         </button>
-        <button class="arte__button" type="button" aria-label="Artes feitas">
+        <button class="arte__button" type="button" aria-label="Artes feitas" data-project-tab="arte" aria-pressed="false">
           Arte
         </button>
       </div>
       <!-- Camada com degrade para efeito de recorte lateral -->
       <div class="game__viewport" aria-hidden="true"></div>
-      <!-- Lista horizontal de cards (itens independentes) -->
-      <div class="game__container" aria-label="Carrossel de projetos">
+      <!-- Carrossel horizontal de jogos -->
+      <div class="game__container" data-project-type="jogos" aria-label="Carrossel de jogos">
         <!-- Item 1 -->
         <article class="game__item" data-project="1">
           <img src="images/Me Pixelsizel.png" alt="Projeto 1" class="game__image" />
@@ -143,6 +151,28 @@
           <h3 class="game__title">Projeto 06</h3>
         </article>
       </div>
+
+      <!-- Carrossel horizontal de artes -->
+      <div class="game__container" data-project-type="arte" aria-label="Carrossel de artes" hidden>
+        <article class="game__item" data-project="arte-1">
+          <img src="images/Figma--Streamline-Svg-Logos.svg" alt="Arte 1" class="game__image" />
+          <h3 class="game__title">Arte 01</h3>
+        </article>
+        <article class="game__item" data-project="arte-2">
+          <img src="images/Me Pixelsizel.png" alt="Arte 2" class="game__image" />
+          <h3 class="game__title">Arte 02</h3>
+        </article>
+        <article class="game__item" data-project="arte-3">
+          <img src="images/Me Pixelsizel.png" alt="Arte 3" class="game__image" />
+          <h3 class="game__title">Arte 03</h3>
+        </article>
+        <article class="game__item" data-project="arte-4">
+          <img src="images/Me Pixelsizel.png" alt="Arte 4" class="game__image" />
+          <h3 class="game__title">Arte 04</h3>
+        </article>
+      </div>
+
+      <div class="project__dots" aria-label="Indicadores do carrossel"></div>
     </div>
   </div>
 
@@ -153,68 +183,236 @@
         <div class="tools__content col-12 col-md-7">
           <h1 class="">Ferramentas que uso</h1>
           <h3 class="tools__principal">Principais</h3>
-          <h3 class="tools__estudando">Estudando</h3>
           <h3 class="tools__utilizadas">Já utilizei</h3>
+          <h3 class="tools__estudando">Estudando</h3>
         </div>
 
         <div class="tools__cards col-md" aria-label="Grade de ferramentas">
-          <!-- Duplique um card para adicionar uma nova ferramenta -->
-          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <!-- Linha 1: ferramentas principais -->
+          <article class="tool-card tool-card--principal" aria-label="Unity">
+            <img src="images/Unity--Streamline-Font-Awesome.svg" alt="Unity" class="tool-card__icon unity__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--principal" aria-label="Aseprite">
+            <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="Aseprite" class="tool-card__icon aseprite__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--principal" aria-label="Github">
+            <img src="images/Github--Streamline-Unicons.svg" alt="Github" class="tool-card__icon github__icon" />
+          </article>
+          
+          <article class="tool-card tool-card--principal" aria-label="Notion">
+            <img src="images/Notion--Streamline-Simple-Icons.svg" alt="Notion" class="tool-card__icon notion__icon" />
+          </article>
+          
+          <!-- Linha 2: ferramentas em estudo -->
+          <article class="tool-card tool-card--estudando tool-card--new-row" aria-label="Figma">
+            <img src="images/Figma--Streamline-Svg-Logos.svg" alt="Figma" class="tool-card__icon figma__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Espaco para ferramenta principal">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--estudando" aria-label="Blender">
+            <img src="images/Blender--Streamline-Svg-Logos.svg" alt="Blender" class="tool-card__icon blender__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--estudando" aria-label="Csharp">
+            <img src="images/csharp-svgrepo-com.svg" alt="Csharp" class="tool-card__icon c__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--estudando" aria-label="Photoshop">
+            <img src="images/adobe-photoshop-svgrepo-com.svg" alt="Photoshop" class="tool-card__icon photoshop__icon" />
+          </article>
+          
+
+          <!-- Linha 3: ferramentas ja utilizadas -->
+          <article class="tool-card tool-card--utilizadas" aria-label="Trello">
+            <img src="images/Trello--Streamline-Svg-Logos.svg" alt="Trello" class="tool-card__icon trello__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
+          <article class="tool-card tool-card--utilizadas" aria-label="GameMaker">
+            <img src="images/Gamemaker--Streamline-Simple-Icons.svg" alt="GameMaker" class="tool-card__icon gamemaker__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Espaco para ferramenta em estudo">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
-          </article>
-
-          <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
-          </article>
-
-          <article class="tool-card tool-card--utilizadas" aria-label="Espaco para ferramenta ja utilizada">
-            <div class="tool-card__placeholder" aria-hidden="true"></div>
-          </article>
-
-          <img src="images/Unity--Streamline-Font-Awesome.svg" alt="UnitySVG" class="unity__icon" />
-          <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="AsepriteSVG" class="aseprite__icon" />
-          <img src="images/Github--Streamline-Unicons.svg" alt="GithubSVG" class="github__icon" />
-          <img src="images/Notion--Streamline-Simple-Icons.svg" alt="NotionSVG" class="notion__icon" />
-
-          <img src="images/Figma--Streamline-Svg-Logos.svg" alt="FigmaSVG" class="figma__icon" />
-          <img src="images/Blender--Streamline-Svg-Logos.svg" alt="BlenderSVG" class="blender__icon" />
-          <img src="images/csharp-svgrepo-com.svg" alt="CsharpSVG" class="c__icon">
-          <img src="images/adobe-photoshop-svgrepo-com.svg" alt="PhotoshopSVG" class="photoshop__icon">
-
-          <img src="images/Trello--Streamline-Svg-Logos.svg" alt="TrelloSVG" class="trello__icon">
-          <img src="images/Gamemaker--Streamline-Simple-Icons.svg" alt="GameMakerSVG" class="gamemaker__icon">
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Secao Sobre: apresentacao pessoal com texto e avatar -->
+  <section class="about" id="sobre">
+    <div class="about__container container-xxl">
+      <div class="about__layout row align-items-center g-4 g-lg-5">
+        <div class="about__content col-12 col-lg-7">
+          <h2>Sobre mim</h2>
+          <p class="about__text">
+            Ola! Meu nome e Nicolas. Sou desenvolvedor Unity e Pixel Artist do Brasil
+            <span class="about__flag" aria-label="Bandeira do Brasil" role="img">🇧🇷</span>,
+            com foco na criacao de mundos e experiencias envolventes para jogadores.
+          </p>
+
+          <p class="about__text">
+            Iniciei minha jornada aos 15 anos, quando descobri o universo dos jogos e o potencial
+            criativo e tecnico dessa area. Desde entao, venho estudando programacao e aprimorando
+            minhas habilidades de forma continua.
+          </p>
+
+          <p class="about__text">
+            Comecei programando com GameMaker e, durante a graduacao em Jogos Digitais,
+            aprofundei meu trabalho com Unity, que hoje e minha principal ferramenta.
+            Busco constantemente novas oportunidades, aprendizado em diferentes frentes do
+            desenvolvimento e evolucao profissional, com interesse de longo prazo em Full-Stack.
+          </p>
+
+          <div class="about__badges" aria-label="Modelos de trabalho">
+            <span class="about__badge">CLT</span>
+            <span class="about__badge">Freelancer</span>
+            <span class="about__badge">PJ</span>
+          </div>
+        </div>
+
+        <div class="about__avatarWrap col-12 col-lg-5">
+          <img src="images/Me Pixelsizel.png" alt="Avatar Nicolas" class="about__avatar" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secao Skills: alternancia entre hard skills e soft skills -->
+  <section class="skills" id="skills">
+    <div class="skills__container container-xxl skills--hard" data-skills-root>
+      <div class="skills__layout">
+        <aside class="skills__tabs" aria-label="Categorias de skills">
+          <button class="skills__tab skills__tab--active" type="button" data-skills-tab="hard" aria-pressed="true">
+            Hard Skills
+          </button>
+          <button class="skills__tab" type="button" data-skills-tab="soft" aria-pressed="false">
+            Soft Skills
+          </button>
+          <p class="skills__mode" data-skills-mode>Modo ativo: Hard Skills</p>
+        </aside>
+
+        <div class="skills__panelWrap">
+          <div class="skills__panel" data-skills-panel="hard">
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+          </div>
+
+          <div class="skills__panel" data-skills-panel="soft" hidden>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+            <article class="skills__card">
+              <h3>Titulo</h3>
+              <p>Descricao</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de detalhes do projeto/arte -->
+  <div class="project-modal" id="project-modal" hidden>
+    <div class="project-modal__backdrop" data-project-modal-close></div>
+    <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button class="project-modal__close" type="button" aria-label="Fechar modal" data-project-modal-close>
+        <span aria-hidden="true">X</span>
+      </button>
+
+      <h2 class="project-modal__title" id="project-modal-title">Detalhes do Projeto</h2>
+
+      <div class="project-modal__media">
+        <img src="" alt="Imagem do projeto" class="project-modal__image" data-project-modal-image />
+        <span class="project-modal__coming-ribbon" data-project-modal-coming-ribbon data-label="EM BREVE" aria-label="Em breve" hidden></span>
+      </div>
+
+      <div class="project-modal__description" data-project-modal-description>
+        Descricao
+      </div>
+
+      <div class="project-modal__meta">
+        <section class="project-modal__metaBlock" aria-label="Responsabilidades do projeto">
+          <h3>Responsabilidades</h3>
+          <div class="project-modal__chips" data-project-modal-responsibilities></div>
+        </section>
+
+        <section class="project-modal__metaBlock" aria-label="Tecnologias utilizadas">
+          <h3>Tecnologias</h3>
+          <div class="project-modal__techs" data-project-modal-technologies></div>
+        </section>
+      </div>
+
+      <section class="project-modal__done" aria-label="Resumo do que foi feito">
+        <h3>O que eu fiz</h3>
+        <p data-project-modal-work>Descricao do feito</p>
+      </section>
+
+      <a href="#" class="project-modal__play" data-project-modal-link target="_blank" rel="noopener noreferrer">Jogar</a>
+    </div>
+  </div>
+
+  <!-- Secao Contato com formulario e rodape -->
+  <section class="contact" id="contato">
+    <div class="contact__container container-xxl">
+      <form class="contact__form" action="#" method="post" novalidate>
+        <input type="text" name="nome" class="contact__input" placeholder="Nome" aria-label="Nome" />
+        <input type="email" name="email" class="contact__input" placeholder="Email" aria-label="Email" />
+        <textarea name="assunto" class="contact__textarea" placeholder="Assunto" aria-label="Assunto"></textarea>
+        <button class="contact__submit" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Rodape do site">
+    <div class="site-footer__container container-xxl contact__footer">
+      <p class="contact__copy">&copy; Nico 2025</p>
+      <div class="contact__socials" aria-label="Link social principal">
+        <a href="https://itch.io/profile/seu-usuario" class="contact__social contact__itch" aria-label="Abrir perfil no itch.io" target="_blank" rel="noopener noreferrer">
+          <svg class="contact__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+            <path d="M71.9 34.8C50.2 47.7 7.4 96.8 7 109.7l0 21.3c0 27.1 25.3 50.8 48.2 50.8 27.6 0 50.5-22.8 50.5-50 0 27.1 22.2 50 49.8 50s49-22.8 49-50c0 27.1 23.6 50 51.2 50l.5 0c27.6 0 51.2-22.8 51.2-50 0 27.1 21.5 50 49 50s49.8-22.8 49.8-50c0 27.1 23 50 50.5 50 23 0 48.3-23.8 48.3-50.8l0-21.3c-.4-12.9-43.2-62.1-64.9-75-67.4-2.3-114.2-2.7-184-2.7S91.1 33.1 71.9 34.8zM204.2 169.2c-22 38.4-77.9 38.7-99.8 .2-13.2 23.1-43.2 32.1-56 27.7-3.9 40.2-13.7 237.1 17.7 269.2 80 18.7 302.1 18.1 379.8 0 31.6-32.3 21.3-232 17.7-269.2-12.9 4.4-42.9-4.6-56-27.7-22 38.5-77.8 38.1-99.8-.2-7.1 12.5-23 28.9-51.8 28.9-10.4 .3-20.8-2.2-29.9-7.3s-16.7-12.6-21.9-21.6l0 0zm-41.6 53.8c16.5 0 31.1 0 49.2 19.8 29.3-3 58.9-3 88.2 0 18.2-19.7 32.8-19.7 49.2-19.7 52.3 0 65.2 77.5 83.9 144.4 17.3 62.2-5.5 63.7-34 63.7-42.1-1.6-65.5-32.2-65.5-62.8-39.3 6.4-101.9 8.8-155.6 0 0 30.6-23.3 61.2-65.5 62.8-28.4-.1-51.2-1.6-33.9-63.7 18.7-67 31.6-144.4 83.9-144.4l0-.1zM256 270.8s-44.4 40.8-52.4 55.2l29-1.2 0 25.3c0 1.5 21.3 .2 23.3 .2 11.6 .5 23.3 1 23.3-.2l0-25.3 29 1.2c-8-14.5-52.4-55.2-52.4-55.2l.1 0z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Bootstrap JS bundle + script customizado do projeto -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
