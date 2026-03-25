@@ -17,7 +17,7 @@
 <body>
   <!-- Navbar principal com menu desktop e toggle mobile -->
   <nav class="navbar">
-    <div class="navbar__container container-xxl">
+    <div class="navbar__container container-xxl px-3 px-lg-4">
       <!-- Logo / marca -->
       <a href="#inicio" id="navbar__logo" data-scroll-target="#inicio">NS</a>
       <!-- Botao hamburguer para abrir menu em telas menores -->
@@ -124,7 +124,7 @@
         </div>
         <div class="main__imgContainer col-12 col-lg-5">
           <!-- Imagem principal de destaque -->
-          <img src="images/Me Pixelsizel.png" alt="mePixel" id="main__img" width="400px" />
+          <img src="images/Me Pixelsizel.png" alt="mePixel" id="main__img" class="img-fluid" />
         </div>
       </div>
     </div>
@@ -148,12 +148,14 @@
       <div class="project__content">
         <h2>Projetos</h2>
         <hr class="project__hr" />
-        <button class="jogos__button project-tab--active" type="button" aria-label="Jogos feitos" data-project-tab="jogos" aria-pressed="true">
-          Jogos
-        </button>
-        <button class="arte__button" type="button" aria-label="Artes feitas" data-project-tab="arte" aria-pressed="false">
-          Arte
-        </button>
+        <div class="project__tabs d-flex flex-wrap gap-2 justify-content-start justify-content-md-end mt-3">
+          <button class="jogos__button project-tab--active" type="button" aria-label="Jogos feitos" data-project-tab="jogos" aria-pressed="true">
+            Jogos
+          </button>
+          <button class="arte__button" type="button" aria-label="Artes feitas" data-project-tab="arte" aria-pressed="false">
+            Arte
+          </button>
+        </div>
       </div>
       <!-- Camada com degrade para efeito de recorte lateral -->
       <div class="game__viewport" aria-hidden="true"></div>
@@ -231,46 +233,46 @@
 
         <div class="tools__cards col-md" aria-label="Grade de ferramentas">
           <!-- Linha 1: ferramentas principais -->
-          <article class="tool-card tool-card--principal" aria-label="Unity" data-bs-toggle="tooltip" data-bs-title="Unity" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--principal" aria-label="Unity" data-bs-toggle="tooltip" data-bs-title="Unity" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Unity--Streamline-Font-Awesome.svg" alt="Unity" class="tool-card__icon unity__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Aseprite" data-bs-toggle="tooltip" data-bs-title="Aseprite" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--principal" aria-label="Aseprite" data-bs-toggle="tooltip" data-bs-title="Aseprite" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Aseprite--Streamline-Simple-Icons.svg" alt="Aseprite" class="tool-card__icon aseprite__icon" />
           </article>
 
-          <article class="tool-card tool-card--principal" aria-label="Github" data-bs-toggle="tooltip" data-bs-title="GitHub" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--principal" aria-label="Github" data-bs-toggle="tooltip" data-bs-title="GitHub" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Github--Streamline-Unicons.svg" alt="Github" class="tool-card__icon github__icon" />
           </article>
           
-          <article class="tool-card tool-card--principal" aria-label="Notion" data-bs-toggle="tooltip" data-bs-title="Notion" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--principal" aria-label="Notion" data-bs-toggle="tooltip" data-bs-title="Notion" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Notion--Streamline-Simple-Icons.svg" alt="Notion" class="tool-card__icon notion__icon" />
           </article>
           
           <!-- Linha 2: ferramentas em estudo -->
-          <article class="tool-card tool-card--estudando tool-card--new-row" aria-label="Figma" data-bs-toggle="tooltip" data-bs-title="Figma" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--estudando tool-card--new-row" aria-label="Figma" data-bs-toggle="tooltip" data-bs-title="Figma" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Figma--Streamline-Svg-Logos.svg" alt="Figma" class="tool-card__icon figma__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Blender" data-bs-toggle="tooltip" data-bs-title="Blender" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--estudando" aria-label="Blender" data-bs-toggle="tooltip" data-bs-title="Blender" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Blender--Streamline-Svg-Logos.svg" alt="Blender" class="tool-card__icon blender__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Csharp" data-bs-toggle="tooltip" data-bs-title="C#" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--estudando" aria-label="Csharp" data-bs-toggle="tooltip" data-bs-title="C#" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/csharp-svgrepo-com.svg" alt="Csharp" class="tool-card__icon c__icon" />
           </article>
 
-          <article class="tool-card tool-card--estudando" aria-label="Photoshop" data-bs-toggle="tooltip" data-bs-title="Photoshop" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--estudando" aria-label="Photoshop" data-bs-toggle="tooltip" data-bs-title="Photoshop" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/adobe-photoshop-svgrepo-com.svg" alt="Photoshop" class="tool-card__icon photoshop__icon" />
           </article>
           
 
           <!-- Linha 3: ferramentas ja utilizadas -->
-          <article class="tool-card tool-card--utilizadas" aria-label="Trello" data-bs-toggle="tooltip" data-bs-title="Trello" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--utilizadas" aria-label="Trello" data-bs-toggle="tooltip" data-bs-title="Trello" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Trello--Streamline-Svg-Logos.svg" alt="Trello" class="tool-card__icon trello__icon" />
           </article>
 
-          <article class="tool-card tool-card--utilizadas" aria-label="GameMaker" data-bs-toggle="tooltip" data-bs-title="GameMaker" data-bs-placement="top" tabindex="0">
+          <article class="tool-card tool-card--utilizadas" aria-label="GameMaker" data-bs-toggle="tooltip" data-bs-title="GameMaker" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
             <img src="images/Gamemaker--Streamline-Simple-Icons.svg" alt="GameMaker" class="tool-card__icon gamemaker__icon" />
           </article>
 
@@ -312,7 +314,7 @@
         </div>
 
         <div class="about__avatarWrap col-12 col-lg-5">
-          <img src="images/Me Pixelsizel.png" alt="Avatar Nicolas" class="about__avatar" />
+          <img src="images/Me Pixelsizel.png" alt="Avatar Nicolas" class="about__avatar img-fluid" />
         </div>
       </div>
     </div>

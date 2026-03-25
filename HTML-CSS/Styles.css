@@ -12,12 +12,16 @@
     --bs-primary-rgb: 225, 29, 72;
     --bs-secondary-color: #F3466C;
     --bs-border-color: #2F2F37;
+    --layout-max-width: 1300px;
+    --layout-max-width-wide: 1600px;
+    --layout-max-width-ultra: 1780px;
 }
 
 /* Fundo e cor global de texto */
 body {
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="blur"><feGaussianBlur stdDeviation="1.5"/></filter></defs><circle cx="20" cy="20" r="10" fill="%23E11D48" opacity="0.4" filter="url(%23glow)"/><circle cx="20" cy="20" r="7" fill="%23F3466C" opacity="0.7" filter="url(%23blur)"/><circle cx="20" cy="20" r="4" fill="%23FFB6C1" opacity="0.9"/><circle cx="20" cy="20" r="2" fill="%23FFFFFF" opacity="1"/><circle cx="20" cy="20" r="12" fill="none" stroke="%23E11D48" stroke-width="0.5" opacity="0.4"/></svg>') 20 20, auto;
 }
 
 /* Scrollbar customizada (pagina inteira) */
@@ -45,6 +49,100 @@ body {
     background: linear-gradient(180deg, #F3466C, #CB1845);
 }
 
+/* Efeito de hover glow em elementos interativos com animação */
+button,
+a,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(225, 29, 72, 0.4)) drop-shadow(0 0 12px rgba(243, 70, 108, 0.2));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(225, 29, 72, 0.8)) drop-shadow(0 0 20px rgba(243, 70, 108, 0.5));
+        transform: scale(1.03);
+    }
+}
+
+button:hover,
+a:hover,
+[role="button"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+    animation: glow-pulse 1.5s ease-in-out infinite;
+}
+
+/* Efeitos especiais para botões CTA principais */
+.button,
+.project__button,
+.contact__button,
+.contact__submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before,
+.project__button::before,
+.contact__button::before,
+.contact__submit::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 12px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    background: transparent;
+    box-shadow: 0 0 0px rgba(225, 29, 72, 0.3);
+}
+
+.button:hover::before,
+.project__button:hover::before,
+.contact__button:hover::before,
+.contact__submit:hover::before {
+    opacity: 1;
+    animation: glow-pulse-shadow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-shadow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(225, 29, 72, 0.4), 0 0 30px rgba(243, 70, 108, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(225, 29, 72, 0.6), 0 0 50px rgba(243, 70, 108, 0.3);
+    }
+}
+
+/* Efeito especial nos cards de projeto */
+.game__item {
+    transition: all 0.3s ease;
+}
+
+.game__item:hover {
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.4), 0 0 40px rgba(243, 70, 108, 0.2), inset 0 0 20px rgba(225, 29, 72, 0.1);
+    animation: card-glow 2s ease-in-out infinite;
+}
+
+@keyframes card-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(225, 29, 72, 0.4), 0 0 40px rgba(243, 70, 108, 0.2), inset 0 0 20px rgba(225, 29, 72, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(225, 29, 72, 0.6), 0 0 60px rgba(243, 70, 108, 0.4), inset 0 0 30px rgba(225, 29, 72, 0.15);
+    }
+}
+
 /* ===== Navbar (desktop) ===== */
 .navbar {
     padding: 10px 0;
@@ -61,9 +159,23 @@ body {
 /* Container interno da navbar */
 .navbar__container {
     height: 72px;
+    width: 100%;
     border: 3px solid var(--bs-border-color);
     border-radius: 18px;
     background-color: #18181C;
+}
+
+.navbar__container,
+.main__container,
+.project__container,
+.tools__container,
+.about__container,
+.skills__container,
+.contact__container,
+.site-footer__container {
+    max-width: var(--layout-max-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Logo principal */
@@ -79,7 +191,7 @@ body {
 .navbar__menu {
     display: flex;
     flex: 1;
-    margin-left: 100px;
+    margin-left: clamp(14px, 5vw, 100px);
 }
 
 /* Item individual da lista da navbar */
@@ -302,6 +414,27 @@ body {
     }
 }
 
+/* Ajuste intermediário para viewport entre 992px e 1200px */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar__menu {
+        margin-left: clamp(14px, 3vw, 60px);
+    }
+
+    .navbar__links {
+        padding: 0 14px;
+        font-size: 1rem;
+    }
+
+    .navbar__themeControl {
+        gap: 6px;
+    }
+
+    .navbar__themeIcon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
 /* Botao hamburguer (oculto no desktop) */
 .navbar__toggle {
     background: transparent;
@@ -390,15 +523,18 @@ body {
 
     .navbar__langPicker {
         width: 100%;
-        display: grid;
+        display: flex;
+        justify-content: center;
+        position: relative;
     }
 
     .navbar__langToggle {
-        width: 100%;
-        height: 52px;
-        margin: 0;
-        border-radius: 0;
-        padding: 0 2rem;
+        width: 80%;
+        max-width: 250px;
+        height: 44px;
+        margin: 2px auto;
+        border-radius: 10px;
+        padding: 0 14px;
     }
 
     .navbar__langToggle span[data-lang-current] {
@@ -410,32 +546,42 @@ body {
         justify-content: center;
     }
 
+    .navbar__langChevron {
+        display: none;
+    }
+
     .navbar__langMenu {
-        position: static;
-        width: 100%;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-4px);
+        width: 80%;
+        max-width: 250px;
         min-width: 0;
-        border: 0;
-        border-top: 1px solid #2F2F37;
-        border-radius: 0;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: none;
-        max-height: 0;
-        overflow: hidden;
-        padding: 0;
-        transition: max-height 0.2s ease;
+        margin: 0;
+        border: 1px solid #2F2F37;
+        border-radius: 10px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        max-height: none;
+        padding: 4px;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        z-index: 30;
     }
 
     .navbar__langPicker.is-open .navbar__langMenu {
-        max-height: 130px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
     }
 
     .navbar__langOption {
-        justify-content: center;
-        border-radius: 0;
-        padding: 12px 2rem;
+        justify-content: flex-start;
+        border-radius: 8px;
+        padding: 10px 12px;
     }
 
     #mobile-menu {
@@ -524,7 +670,8 @@ body {
 
 /* Coluna de texto da hero */
 .main__content {
-    margin-left: 30px;
+    margin-left: 0;
+    padding-left: clamp(12px, 2.8vw, 48px);
 }
 
 /* Nome principal */
@@ -575,7 +722,7 @@ body {
     height: 50px;
     width: 160px;
     margin-top: 5px;
-    margin-left: 30px;
+    margin-left: 0;
     border: none;
     border-radius: 12px;
     background-color: var(--bs-primary);
@@ -593,7 +740,7 @@ body {
     height: 50px;
     width: 160px;
     margin-top: 5px;
-    margin-left: 10px;
+    margin-left: 0;
     border: none;
     border-radius: 12px;
     background-color: #1F1F24;
@@ -603,7 +750,6 @@ body {
 }
 
 .contact__button:hover {
-    background: #4A4A58;
     transition: all 0.3s ease;
 }
 
@@ -611,8 +757,20 @@ body {
 .main__imgContainer {
     display: flex;
     justify-content: center;
-    margin-left: -70px;
+    margin-left: 0;
     margin-bottom: 30px;
+}
+
+@media screen and (min-width: 992px) {
+    .main__imgContainer {
+        justify-content: flex-start;
+        margin-bottom: 0;
+    }
+}
+
+#main__img {
+    width: min(100%, 400px);
+    height: auto;
 }
 
 .project__container {
@@ -631,6 +789,11 @@ body {
     -webkit-text-fill-color: #F4F4F5;
 }
 
+.project__tabs {
+    position: relative;
+    z-index: 3;
+}
+
 .project__hr {
     /* Linha de destaque da secao Projetos */
     border-top: 3px solid #E11D48;
@@ -641,9 +804,6 @@ body {
 }
 
 .jogos__button {
-    position: absolute;
-    top: 255px;
-    right: 320px;
     font-size: 1.8rem;
     height: 50px;
     width: 150px;
@@ -651,14 +811,9 @@ body {
     border-radius: 12px;
     background-color: #1F1F24;
     color: #fff;
-    transform: translateY(-230px);
-    z-index: 3;
 }
 
 .arte__button {
-    position: absolute;
-    top: 255px;
-    right: 130px;
     text-decoration: none;
     font-size: 1.8rem;
     height: 50px;
@@ -667,8 +822,6 @@ body {
     border-radius: 12px;
     background-color: #1F1F24;
     color: #fff;
-    transform: translateY(-230px);
-    z-index: 3;
 }
 
 .jogos__button,
@@ -762,8 +915,8 @@ body {
 
 .game__item {
     /* Card individual do projeto (mantido separado) */
-    width: clamp(360px, 52vw, 560px);
-    min-width: clamp(360px, 52vw, 560px);
+    width: clamp(260px, 52vw, 560px);
+    min-width: clamp(260px, 52vw, 560px);
     border-radius: 14px;
     border: 1px solid #2F2F37;
     background-color: #1A1A1F;
@@ -960,6 +1113,22 @@ body {
     justify-content: start;
 }
 
+@media screen and (max-width: 1199.98px) {
+    .project__container {
+        padding: 24px 20px 28px;
+    }
+
+    .leftArrow__button,
+    .rightArrow__button {
+        width: 44px;
+        height: 44px;
+    }
+
+    .game__viewport {
+        top: 168px;
+    }
+}
+
 .tool-card {
     /* Card base com icone centralizado */
     width: var(--tool-card-size);
@@ -1126,6 +1295,45 @@ body {
 }
 
 @media screen and (max-width: 991.98px) {
+    .main__content {
+        margin-left: 0;
+        padding-left: clamp(12px, 2.8vw, 48px);
+        text-align: left;
+    }
+
+    .main__imgContainer {
+        margin-bottom: 6px;
+    }
+
+    .project__button,
+    .contact__button {
+        width: min(100%, 180px);
+        font-size: 1.3rem;
+        height: 46px;
+    }
+
+    .project__content h2 {
+        font-size: 2rem;
+    }
+
+    .jogos__button,
+    .arte__button {
+        font-size: 1.2rem;
+        height: 44px;
+        width: auto;
+        min-width: 120px;
+        padding: 0 16px;
+    }
+
+    .game__viewport {
+        display: none;
+    }
+
+    .leftArrow__button,
+    .rightArrow__button {
+        display: none;
+    }
+
     .about__container {
         padding: 22px 18px;
     }
@@ -1201,14 +1409,15 @@ body {
 
 .skills__panel {
     display: grid;
-    grid-template-columns: repeat(3, clamp(210px, 24vw, 260px));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px 32px;
-    justify-content: end;
+    width: 100%;
 }
 
 .skills__panelWrap {
     display: flex;
-    justify-content: flex-end;
+    justify-content: stretch;
+    width: 100%;
 }
 
 .skills__card {
@@ -1241,6 +1450,28 @@ body {
     box-shadow: inset 0 0 0 1px rgba(80, 163, 255, 0.22);
 }
 
+@media screen and (max-width: 1199.98px) {
+    .skills__layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .skills__tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .skills__mode {
+        width: 100%;
+    }
+
+    .skills__panel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media screen and (max-width: 991.98px) {
     .skills__layout {
         grid-template-columns: 1fr;
@@ -1258,12 +1489,18 @@ body {
     }
 
     .skills__panel {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         justify-content: stretch;
     }
 
     .skills__panelWrap {
         justify-content: stretch;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .skills__panel {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1654,6 +1891,134 @@ body.modal-open {
     }
 }
 
+@media screen and (min-width: 1920px) {
+    .navbar__container,
+    .main__container,
+    .project__container,
+    .tools__container,
+    .about__container,
+    .skills__container,
+    .contact__container,
+    .site-footer__container {
+        max-width: var(--layout-max-width-wide);
+    }
+
+    #navbar__logo {
+        font-size: 2.1rem;
+    }
+
+    .navbar__links {
+        font-size: 1.02rem;
+    }
+
+    .main__content {
+        padding-left: clamp(24px, 3.2vw, 68px);
+    }
+
+    #main__img {
+        width: clamp(340px, 20vw, 480px);
+    }
+
+    .game__item {
+        width: clamp(340px, 29vw, 560px);
+        min-width: clamp(340px, 29vw, 560px);
+    }
+
+    .tools {
+        --tool-card-size: 82px;
+        --tool-card-gap: 16px;
+    }
+
+    .tools__cards {
+        justify-content: start;
+    }
+
+    .about__avatarWrap {
+        justify-content: center;
+    }
+
+    .about__text {
+        max-width: 840px;
+    }
+
+    .skills__layout {
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .skills__tabs {
+        padding-top: 34px;
+    }
+
+    .skills__panel {
+        max-width: 980px;
+        margin-left: auto;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: 18px 22px;
+    }
+
+    .skills__card {
+        min-height: 126px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .navbar__container,
+    .main__container,
+    .project__container,
+    .tools__container,
+    .about__container,
+    .skills__container,
+    .contact__container,
+    .site-footer__container {
+        max-width: var(--layout-max-width-ultra);
+    }
+
+    .main__content h1 {
+        font-size: 5.3rem;
+    }
+
+    .main__content h2 {
+        font-size: 2.55rem;
+    }
+
+    .main__content {
+        padding-left: clamp(32px, 3vw, 84px);
+    }
+
+    #main__img {
+        width: clamp(380px, 18vw, 520px);
+    }
+
+    .game__item {
+        width: clamp(360px, 27vw, 620px);
+        min-width: clamp(360px, 27vw, 620px);
+    }
+
+    .tools {
+        --tool-card-size: 88px;
+        --tool-card-gap: 18px;
+    }
+
+    .about__avatarWrap {
+        justify-content: center;
+    }
+
+    .skills__layout {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+
+    .skills__panel {
+        max-width: 1040px;
+        grid-template-columns: repeat(3, minmax(265px, 1fr));
+        gap: 20px 24px;
+    }
+
+    .contact__copy {
+        font-size: 1.75rem;
+    }
+}
+
 [data-bs-theme="light"] {
     --bs-body-bg: #F3F5FA;
     --bs-body-color: #121725;
@@ -1822,4 +2187,66 @@ body.modal-open {
 
 [data-bs-theme="light"] .contact__social-icon {
     fill: #121725;
+}
+
+@media screen and (max-width: 575.98px) {
+    .project__container,
+    .tools__container,
+    .about__container,
+    .skills__container,
+    .contact__container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .tools__content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 12px;
+        row-gap: 8px;
+    }
+
+    .tools__content h1 {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .tools__principal {
+        order: 1;
+    }
+
+    .tools__estudando {
+        order: 2;
+    }
+
+    .tools__utilizadas {
+        order: 3;
+    }
+
+    .tools__cards {
+        grid-template-columns: repeat(2, var(--tool-card-size));
+        justify-content: start;
+    }
+
+    .game__item {
+        width: 86vw;
+        min-width: 86vw;
+    }
+}
+
+@media screen and (max-width: 375.98px) {
+    .tools {
+        --tool-card-size: 72px;
+        --tool-card-gap: 10px;
+    }
+
+    .tools__content {
+        column-gap: 10px;
+    }
+
+    .tools__content h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+    }
 }
