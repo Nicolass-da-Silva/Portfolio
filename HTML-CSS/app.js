@@ -857,9 +857,100 @@ const PROJECT_MODAL_CONTENT = {
         },
         playUrl: '#'
     },
-    '6': {
+    '1': {
         description: {
-            pt: 'Projeto em desenvolvimento. Mais detalhes em breve.',
+            pt: 'Rabbit Chase é um jogo de plataforma 2D em Pixel Art que acompanha a história da Ritinha, uma garotinha apaixonada por plantar cenouras. Só que nem tudo é tranquilo… alguns coelhos começaram a invadir sua plantação e roubar tudo! Até que, um dia, eles levam uma cesta inteira e desaparecem por um buraco, e é aí que a Ritinha decide ir atrás deles para recuperar o que é seu.\n Esse foi o primeiro projeto da minha vida e também o primeiro que levei do começo ao fim de verdade. Foi uma experiência muito importante pra mim, tanto que o jogo acabou sendo selecionado pela faculdade para ser exposto no stand da BGS 2024 durante os 5 dias de evento.',
+            en: 'Rabbit Chase is a 2D pixel art platformer that follows the story of Ritinha, a little girl who loves growing carrots. But not everything is peaceful… some rabbits have started invading her garden and stealing everything! Until one day, they take an entire basket and disappear down a hole, and that’s when Ritinha decides to go after them to get back what’s hers.\n This was the first project of my life and also the first one I actually saw through from start to finish. It was a very important experience for me, so much so that the game ended up being selected by the college to be exhibited at the BGS 2024 booth during the 5-day event.'
+        },
+        responsibilities: {
+            pt: ['Programação', 'Arte', 'Game Design', 'UI'],
+            en: ['Programming', 'Art', 'Game Design', 'UI']
+        },
+        technologies: [
+            { name: 'Unity', icon: 'images/Unity--Streamline-Font-Awesome.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' },
+            { name: 'Github', icon: 'images/Github--Streamline-Unicons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável por toda a parte de programação do jogo na Unity: movimentação da personagem, habilidades, sistema de morte, respawn, UI, menus, botões, tudo foi desenvolvido por mim.\n Além disso, também participei da parte artística. Criei animações (como a de morte da personagem), desenvolvi a interface (botões, tela inicial) e produzi todo o tileset do jogo, incluindo cenários, obstáculos e itens.\n O próprio level design foi construído diretamente dentro da Unity, onde fui criando e testando tudo de forma mais livre enquanto desenvolvia o jogo.',
+            en: 'I was responsible for all the game’s programming in Unity: character movement, abilities, the death system, respawn, UI, menus, buttons—I developed everything myself.\n In addition, I also contributed to the art side of the project. I created animations (such as the character’s death animation), developed the interface (buttons, title screen), and produced the entire game’s tileset, including environments, obstacles, and items.\n The level design itself was built directly within Unity, where I was able to create and test everything more freely while developing the game.'
+        },
+        playLabel: {
+            pt: 'Jogar',
+            en: 'Play'
+        },
+        playUrl: 'https://ticco.itch.io/rabbit-chase'
+    },
+    '2': {
+        description: {
+            pt: 'Arraial do Toninho & Tinho foi desenvolvido especialmente para uma Game Jam da faculdade em 2024, com o tema festa junina. O jogo é um clicker casual onde o objetivo é cultivar ingredientes para produzir comidas típicas dessa celebração brasileira.\n Aqui, você controla os dois irmãos tatus, Toninho e Tinho. A mecânica gira em torno de carregar a força para lançar um deles pela plantação, coletando ingredientes importantes para as receitas. Depois disso, você abre a barraquinha para trocar esses itens por moedas. Com elas, é possível evoluir diversos aspectos do jogo, como velocidade dos personagens, tamanho da plantação, quantidade de itens coletados, entre outros upgrades.\n Essa foi a primeira Game Jam que participei e conseguimos ficar em 1° lugar no tema. Além disso, o jogo também foi selecionado, junto com o anterior, para ser exposto durante os 5 dias da BGS 2024.',
+            en: 'Arraial do Toninho & Tinho was developed specifically for a college Game Jam in 2024, with the theme of the June Festival. The game is a casual clicker where the goal is to grow ingredients to make traditional foods for this Brazilian celebration.\n Here, you control the two armadillo brothers, Toninho and Tinho. The gameplay revolves around charging up to launch one of them through the plantation, collecting key ingredients for the recipes. After that, you open the little stall to trade these items for coins. With these coins, you can upgrade various aspects of the game, such as character speed, plantation size, and the number of items collected, among other upgrades.\nThis was the first Game Jam I participated in, and we managed to take 1st place in the theme category. Additionally, the game was selected, along with the previous one, to be showcased during the 5 days of BGS 2024.'
+        },
+        responsibilities: {
+            pt: ['Arte'],
+            en: ['Art']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável por toda a parte artística do jogo. Criei as pixel arts dos ingredientes da plantação, o background da barraquinha e também os sprites das comidas prontas que aparecem durante a venda.',
+            en: "I was responsible for all the game's artwork. I created the pixel art for the farm's ingredients, the background for the little stand, and the sprites for the prepared foods that appear during the sale."
+        },
+        playLabel: {
+            pt: 'Jogar',
+            en: 'Play'
+        },
+        playUrl: 'https://rerezin-das-galaxias.itch.io/arraial-de-toninho-e-tinho'
+    },
+    '3': {
+        description: {
+            pt: 'Sirin foi desenvolvido para uma Game Jam da faculdade em 2025, com o tema labirinto dos sonhos. O jogo gira em torno de três puzzles que acontecem dentro dos sonhos de uma garotinha. Você controla essa personagem enquanto ela sonha, enfrentando desafios que precisam ser superados para que ela consiga acordar. A cada fase, é necessário explorar o labirinto em busca de botões que liberam o acesso aos sonhos. Ao concluir um, você avança para o próximo, encarando novos desafios em sequência.\n No final, o jogo culmina em um confronto diferente: uma partida de “21” contra uma espécie de gato misterioso, que atua como o dono do labirinto. O projeto conquistou o 3° lugar na Game Jam.',
+            en: 'Sirin was developed for a college Game Jam in 2025, with the theme “Dream Labyrinth.” The game revolves around three puzzles that take place within a little girl’s dreams. You control this character as she dreams, facing challenges that must be overcome so she can wake up. In each stage, you must explore the maze in search of buttons that unlock access to the dreams. Upon completing one, you advance to the next, facing new challenges in sequence.\n In the end, the game culminates in a unique showdown: a game of “21” against a mysterious cat-like creature, who acts as the maze’s master. The project won 3rd place at the Game Jam.'
+        },
+        responsibilities: {
+            pt: ['Arte'],
+            en: ['Art']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável por uma parte artística do jogo. Produzi as cutscenes inicial e final, criei as animações da personagem, desenvolvi a logo do jogo e também toda a interface, incluindo menus, opções, indicadores de teclas e os elementos visuais dos botões espalhados pelo labirinto. ',
+            en: "I was responsible for the game's artistic direction. I produced the opening and closing cutscenes, created the character animations, designed the game logo, and developed the entire user interface, including menus, options, key bindings, and the visual elements of the buttons scattered throughout the maze."
+        },
+        playLabel: {
+            pt: 'Jogar',
+            en: 'Play'
+        },
+        playUrl: 'https://npcproductions.itch.io/sirin'
+    },
+    '4': {
+        description: {
+            pt: 'O Mundo que Cabe na Mão foi desenvolvido para uma Game Jam da faculdade em 2025, com o tema pequenos mundos fantásticos. O jogo gira em torno da imaginação de uma criança enquanto lê um livro junto com sua mãe.\n A jornada começa com a abertura do livro, levando a personagem por três mundos diferentes, cada um com sua própria história e mecânicas. No primeiro mundo, ela se torna um alienígena, voando pelo espaço e desviando de asteroides. No segundo, se transforma em um biscoito de gengibre em um mundo de doces, enfrentando inimigos em formato de caixa de leite e pulando obstáculos. Já no terceiro, vira uma fadinha explorando um labirinto escuro, onde precisa usar sua varinha para iluminar o caminho e avançar.\n Cada fase se conecta com a próxima de forma natural: no espaço, a personagem viaja até um planeta de doces, e ao final desse mundo, encontra a varinha que será essencial na próxima etapa. O jogo conquistou o 3° lugar na Game Jam da faculdade.',
+            en: 'The World That Fits in Your Hand was developed for a college Game Jam in 2025, with the theme “small fantasy worlds.” The game revolves around a child’s imagination as they read a book with their mother.\n The journey begins when the book is opened, taking the character through three different worlds, each with its own story and mechanics. In the first world, she becomes an alien, flying through space and dodging asteroids. In the second, she transforms into a gingerbread cookie in a world of candy, facing enemies shaped like milk cartons and jumping over obstacles. In the third, she becomes a little fairy exploring a dark maze, where she must use her wand to light the way and move forward.\n Each stage connects naturally to the next: in space, the character travels to a planet made of candy, and at the end of that world, she finds the wand that will be essential in the next stage. The game won 3rd place at the college’s Game Jam.'
+        },
+        responsibilities: {
+            pt: ['Programação', 'Game Design'],
+            en: ['Programming', 'Game Design',]
+        },
+        technologies: [
+            { name: 'Unity', icon: 'images/Unity--Streamline-Font-Awesome.svg' },
+            { name: 'Github', icon: 'images/Github--Streamline-Unicons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fiquei responsável principalmente pela programação geral do projeto. Desenvolvi todas as mecânicas de cada mundo, incluindo movimentação, sistema de iluminação, combate, IA dos inimigos, spawn e alertas de meteoros, coleta de itens, progressão de fases com desbloqueio gradual, além do menu inicial e dos tutoriais.\n Também participei ativamente do game design, com foco maior na fase dos doces e no labirinto, que exigiram um cuidado maior na construção de gameplay e na experiência do jogador.',
+            en: 'I was primarily responsible for the project’s overall programming. I developed all the mechanics for each world, including movement, the lighting system, combat, enemy AI, meteor spawns and alerts, item collection, and level progression with gradual unlocking, as well as the main menu and tutorials. I also actively participated in game design, focusing primarily on the candy level and the maze, which required greater attention to gameplay construction and the player experience.'
+        },
+        playLabel: {
+            pt: 'Jogar',
+            en: 'Play'
+        },
+        playUrl: 'https://ansys.itch.io/o-mundo-que-cabe-na-mao'
+    },
+    '5': {
+        description: {
+            pt: 'BBLLALALA.',
             en: 'Project in development. More details coming soon.'
         },
         responsibilities: {
@@ -992,12 +1083,25 @@ if (projectModal && projectCards.length > 0 && projectModalImage && projectModal
         const localizedResponsibilities = getLocalizedValue(modalContent.responsibilities) || [];
         const localizedWhatIDid = getLocalizedValue(modalContent.whatIDid);
         const localizedPlayLabel = getLocalizedValue(modalContent.playLabel);
+        const playUrl = typeof modalContent.playUrl === 'string' ? modalContent.playUrl.trim() : '';
+        const hasPlayableUrl = !modalContent.comingSoon && playUrl !== '' && playUrl !== '#';
 
         projectModalTitle.textContent = cardTitle ? cardTitle.textContent : getTranslation('modalTitleFallback');
         projectModalDescription.textContent = localizedDescription;
         projectModalWork.textContent = localizedWhatIDid;
         projectModalLink.textContent = localizedPlayLabel || getTranslation('modalPlayDefault');
-        projectModalLink.href = modalContent.playUrl;
+
+        if (hasPlayableUrl) {
+            projectModalLink.href = playUrl;
+            projectModalLink.classList.remove('project-modal__play--disabled');
+            projectModalLink.removeAttribute('aria-disabled');
+            projectModalLink.removeAttribute('tabindex');
+        } else {
+            projectModalLink.removeAttribute('href');
+            projectModalLink.classList.add('project-modal__play--disabled');
+            projectModalLink.setAttribute('aria-disabled', 'true');
+            projectModalLink.setAttribute('tabindex', '-1');
+        }
 
         if (cardImage && cardImage.src) {
             projectModalImage.src = cardImage.src;

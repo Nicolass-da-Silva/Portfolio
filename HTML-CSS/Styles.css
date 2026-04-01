@@ -71,6 +71,15 @@ input[type="reset"] {
     }
 }
 
+@keyframes glow-pulse-static {
+    0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(225, 29, 72, 0.4)) drop-shadow(0 0 12px rgba(243, 70, 108, 0.2));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(225, 29, 72, 0.8)) drop-shadow(0 0 20px rgba(243, 70, 108, 0.5));
+    }
+}
+
 button:hover,
 a:hover,
 [role="button"]:hover,
@@ -78,6 +87,13 @@ input[type="submit"]:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover {
     animation: glow-pulse 1.5s ease-in-out infinite;
+}
+
+/* Mantem o posicionamento fixo das setas do carrossel no hover */
+.leftArrow__button:hover,
+.rightArrow__button:hover {
+    animation: glow-pulse-static 1.5s ease-in-out infinite;
+    transform: translateY(-50%);
 }
 
 /* Efeitos especiais para botões CTA principais */
@@ -940,6 +956,18 @@ input[type="reset"]:hover {
     background: #101014;
 }
 
+/* Imagem diminuída só para o projeto 1 */
+.game__item[data-project="1"] .game__image {
+    width: auto;
+    max-width: 100%;
+    height: clamp(130px, 15vw, 230px);
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    background: transparent;
+    padding: 0;
+}
+
 .game__imageWrap {
     position: relative;
     overflow: hidden;
@@ -987,6 +1015,15 @@ input[type="reset"]:hover {
     font-size: 1.05rem;
     color: #F4F4F5;
     font-weight: 700;
+}
+
+.game__subtitle {
+    /* Subtítulo em inglês (fixo, não muda com idioma) */
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    color: #A0A0A5;
+    font-weight: 400;
 }
 
 #main__leftarrow {
@@ -1629,6 +1666,7 @@ body.modal-open {
     color: #D7DAE8;
     font-size: 1.05rem;
     min-height: 96px;
+    white-space: pre-line;
 }
 
 .project-modal__meta {
@@ -1693,6 +1731,7 @@ body.modal-open {
     margin: 0;
     color: #D7DAE8;
     font-size: 1.05rem;
+    white-space: pre-line;
 }
 
 .project-modal__play {
@@ -1713,6 +1752,14 @@ body.modal-open {
 
 .project-modal__play:hover {
     background: #F3466C;
+}
+
+.project-modal__play--disabled,
+.project-modal__play--disabled:hover {
+    background: #6B7280;
+    color: #E5E7EB;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 @media screen and (max-width: 767.98px) {
