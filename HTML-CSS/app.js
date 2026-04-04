@@ -950,19 +950,20 @@ const PROJECT_MODAL_CONTENT = {
     },
     '5': {
         description: {
-            pt: 'BBLLALALA.',
-            en: 'Project in development. More details coming soon.'
+            pt: 'O jogo encontra-se atualmente em desenvolvimento (2026), sendo produzido como parte do Trabalho de Conclusão de Curso (TCC). A pesquisa associada ao projeto tem como foco o resgate e a valorização estética da Pixel Art.\n A proposta consiste em um jogo casual no qual o jogador assume o papel de uma mãe brasileira responsável por administrar uma taverna. Durante o dia, o objetivo é preparar pratos, servir bebidas e gerenciar aspectos como tempo, estoque e organização da cozinha. À noite, a dinâmica se transforma: o jogador explora uma dungeon em busca de ingredientes que serão utilizados no dia seguinte, lidando com limitações de inventário e planejamento estratégico de recursos.',
+            en: 'The game is currently in development (2026) and is being produced as part of a final-year project. The research associated with the project focuses on the revival and aesthetic appreciation of pixel art.\n The concept involves a casual game in which the player takes on the role of a Brazilian mother who runs a tavern. During the day, the goal is to prepare dishes, serve drinks, and manage aspects such as timing, inventory, and kitchen organization. At night, the dynamics change: the player explores a dungeon in search of ingredients to be used the following day, dealing with inventory limitations and strategic resource planning.'
         },
         responsibilities: {
-            pt: ['Planejamento', 'Prototipação'],
-            en: ['Planning', 'Prototyping']
+            pt: ['Planejamento', 'Prototipação', 'Programação', 'Game Design'],
+            en: ['Planning', 'Prototyping', 'Programming', 'Game Design']
         },
         technologies: [
-            { name: 'Unity', icon: 'images/Unity--Streamline-Font-Awesome.svg' }
+            { name: 'Unity', icon: 'images/Unity--Streamline-Font-Awesome.svg' },
+            { name: 'Github', icon: 'images/Github--Streamline-Unicons.svg'}
         ],
         whatIDid: {
-            pt: 'Estruturei a base do projeto e defini os próximos passos de implementação.',
-            en: 'I structured the project foundation and defined the next implementation steps.'
+            pt: 'Sou o principal responsável pela programação do projeto, atuando no desenvolvimento completo dos sistemas do jogo. Isso inclui a implementação das mecânicas do personagem (movimentação, combate, interação, entre outras), das funcionalidades da taverna (preparo de alimentos, gerenciamento de estoque, corte de itens, atendimento aos clientes, etc.) e dos sistemas da dungeon (spawn de inimigos, inteligência artificial, sistema de morte, entre outros).\n Além disso, também desempenho um papel ativo no Game Design, definindo a organização dos elementos em cena, posicionamento de itens, distribuição e comportamento dos inimigos, bem como o fluxo geral da experiência do jogador.',
+            en: "I am primarily responsible for the project's programming, handling the full development of the game's systems. This includes implementing character mechanics (movement, combat, interaction, among others), tavern features (food preparation, inventory management, item crafting, customer service, etc.), and dungeon systems (enemy spawning, artificial intelligence, death mechanics, among others). In addition, I also play an active role in game design, defining the organization of on-screen elements, item placement, enemy distribution and behavior, as well as the overall flow of the player experience."
         },
         playLabel: {
             pt: 'Em breve',
@@ -972,6 +973,144 @@ const PROJECT_MODAL_CONTENT = {
         comingSoon: true
     },
     'arte-1': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-2': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-3': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-4': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-5': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-6': {
+        description: {
+            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-7': {
         description: {
             pt: 'Estudo de arte com foco em composição e identidade visual.',
             en: 'Art study focused on composition and visual identity.'
