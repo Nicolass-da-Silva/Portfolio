@@ -15,6 +15,7 @@ const langCurrentLabel = document.querySelector('[data-lang-current]');
 const langCurrentFlag = document.querySelector('[data-lang-current-flag]');
 const langOptionButtons = Array.from(document.querySelectorAll('[data-lang-option]'));
 const themeToggleButton = document.querySelector('[data-theme-toggle]');
+const contactForm = document.querySelector('.contact__form');
 
 const LANG_STORAGE_KEY = 'portfolio-language';
 const THEME_STORAGE_KEY = 'portfolio-theme';
@@ -511,6 +512,39 @@ if (menuButton && menuContainer) {
 if (scrollTargets.length > 0) {
     const navbar = document.querySelector('.navbar');
 
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        const recipientEmail = (contactForm.getAttribute('data-contact-email') || '').trim();
+        const name = (contactForm.querySelector('[name="nome"]')?.value || '').trim();
+        const email = (contactForm.querySelector('[name="email"]')?.value || '').trim();
+        const message = (contactForm.querySelector('[name="assunto"]')?.value || '').trim();
+
+        if (!recipientEmail) {
+            window.alert(currentLanguage === 'en'
+                ? 'Configure your professional email in the contact form.'
+                : 'Configure seu e-mail profissional no formulario de contato.');
+            return;
+        }
+
+        const subjectLine = currentLanguage === 'en'
+            ? `Portfolio contact - ${name || 'No name'}`
+            : `Contato pelo portfolio - ${name || 'Sem nome'}`;
+
+        const body = currentLanguage === 'en'
+            ? `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            : `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`;
+
+        const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+    });
+}
     const scrollToTarget = (triggerElement) => {
         const targetSelector = triggerElement.getAttribute('data-scroll-target');
         if (!targetSelector) {
@@ -974,66 +1008,63 @@ const PROJECT_MODAL_CONTENT = {
     },
     'arte-1': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte foi criada para a identidade visual do jogo Sirin. Fiquei responsável por desenvolver a logo pensando diretamente na premissa do jogo, buscando transmitir sua essência de forma clara já no primeiro contato.',
+            en: 'This artwork was created for the visual identity of the game Sirin. I was responsible for designing the logo with the game’s premise in mind, aiming to clearly convey its essence from the very first glance.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Todo o processo foi feito em pixel art no Aseprite, onde trabalhei a composição e os elementos visuais com foco em cartas e baralho, que são centrais para a proposta do jogo. A ideia foi criar algo que não fosse apenas estético, mas que também comunicasse o tema e ajudasse a reforçar a identidade do projeto.',
+            en: 'The entire process was done in pixel art using Aseprite, where I worked on the composition and visual elements with a focus on cards and a deck, which are central to the game’s concept. The idea was to create something that wasn’t just aesthetically pleasing, but that also communicated the theme and helped reinforce the project’s identity.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/0lBG2G'
     },
     'arte-2': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Esta arte foi desenvolvida para o Inktober 2025, a partir do tema “bigode”. Busquei uma abordagem diferenciada, indo além da representação tradicional, criando uma poção em formato de bigode como forma de explorar uma solução visual mais criativa e menos convencional.',
+            en: 'This artwork was created for Inktober 2025, based on the theme “mustache.” I sought a unique approach, going beyond traditional depictions by creating a mustache-shaped potion as a way to explore a more creative and less conventional visual solution.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Fui responsável por todo o conceito e execução da peça, trabalhando com maior liberdade na construção das formas, no posicionamento dos pixels e, principalmente, na escolha das cores. A representação de um material como vidro, contendo líquido em seu interior, exigiu atenção especial para transmitir profundidade, transparência e leitura visual de forma eficiente dentro das limitações da pixel art.',
+            en: 'I was responsible for the entire concept and execution of the piece, working with greater freedom in the construction of shapes, the placement of pixels, and, above all, the choice of colors. The representation of a material like glass, containing liquid inside, required special attention to effectively convey depth, transparency, and visual clarity within the limitations of pixel art.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.instagram.com/p/DPR1vnijzA2/?img_index=1'
     },
     'arte-3': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte faz parte da cutscene de introdução do jogo Sirin, responsável por apresentar o início da narrativa. A cena mostra a personagem indo dormir e, durante o sonho, recebendo uma carta, elemento que se conecta diretamente com a mecânica principal do jogo.',
+            en: 'This artwork is part of the introductory cutscene in the game Sirin, which sets the stage for the story. The scene shows the character going to sleep and, during her dream, receiving a letter—an element that ties directly into the game’s core mechanics.'
         },
         responsibilities: {
-            pt: ['Arte', 'Direção Visual'],
-            en: ['Art', 'Visual Direction']
+            pt: ['Arte'],
+            en: ['Art']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Desenvolvi o design da mão e da carta, adaptando um modelo existente para uma escala maior e com mais detalhe. Toda a cutscene foi produzida no Aseprite, seguindo a paleta de cores definida pela direção de arte, garantindo consistência com o restante do jogo.',
+            en: 'I developed the design for the hand and the letter, adapting an existing model to a larger scale with greater detail. The entire cutscene was produced in Aseprite, following the color palette defined by the art direction, ensuring consistency with the rest of the game.'
         },
         playLabel: {
             pt: 'Ver arte',
@@ -1043,53 +1074,72 @@ const PROJECT_MODAL_CONTENT = {
     },
     'arte-4': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte foi feita para compor o cenário e a jogabilidade de Toninho & Tinho, mais especificamente as áreas de plantação onde os personagens interagem e coletam itens.',
+            en: "This artwork was created to enhance the game's setting and gameplay in Toninho & Tinho, and was responsible for designing the farm areas that the characters use to progress and collect resources."
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'A criação foi baseada no GDD do projeto, que definia quais elementos estariam presentes no jogo. A partir disso, desenvolvi as plantações buscando referência em elementos reais, com o objetivo de trazer mais identificação visual. Também segui a paleta de cores definida pelo grupo, mantendo a consistência com o restante do projeto.',
+            en: 'Based on the project’s GDD, I designed the visual elements of the plantations using the previously defined items, drawing inspiration from real crops to ensure greater visual coherence. The entire process was carried out in accordance with the color palette established by the team, ensuring aesthetic consistency with the rest of the game.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/eRLg5b'
     },
     'arte-5': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Esta arte foi desenvolvida para representar os itens comercializados na barraquinha do Arraial de Toninho & Tinho, com foco em transmitir a essência das festas juninas dentro do jogo. Em conjunto com a equipe, definimos as comidas típicas mais representativas para compor essa experiência.',
+            en: 'This artwork was created to depict the items sold at the Arraial de Toninho & Tinho stall, with a focus on capturing the essence of the June festivals within the game. Working with the team, we selected the most representative traditional foods to bring this experience to life.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'A partir dessa definição, fui responsável pela criação do conceito visual das peças, buscando o máximo de fidelidade possível por meio de referências reais. O desenvolvimento considerou uma paleta de cores alinhada à temática do jogo, garantindo coerência estética e reforçando a identidade visual proposta.',
+            en: 'Based on this definition, I was responsible for creating the visual concept for the assets, striving for the highest possible fidelity using real-world references. The development incorporated a color palette aligned with the game’s theme, ensuring aesthetic consistency and reinforcing the proposed visual identity.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/eRLg5b'
     },
     'arte-6': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            pt: 'Esta arte pessoal consiste em uma coleção de retratos em pixel art, explorando diferentes personagens com foco em expressões, cores e variações de estilo. A composição apresenta uma grade organizada de rostos, cada um com identidade visual própria, trabalhando contraste, simplicidade de formas e leitura imediata, características essenciais para pixel art em baixa resolução. \n O projeto foi desenvolvido com base em personagens já existentes, principalmente inspirados no universo Sanrio, adaptados para um estilo próprio em pixel art. A proposta foi reinterpretar esses personagens mantendo seus traços marcantes, ao mesmo tempo em que são integrados a uma identidade visual unificada.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável por toda a concepção e execução da arte, desenvolvendo cada personagem individualmente dentro de uma limitação de espaço e resolução. Trabalhei diretamente na construção das expressões faciais, escolha de paleta e posicionamento estratégico dos pixels para garantir clareza visual e reconhecimento imediato.\n Também explorei a adaptação de personagens já conhecidos para um formato padronizado, equilibrando fidelidade visual e estilização. O foco principal foi o aprimoramento de técnicas de pixel art, especialmente em áreas como redução de formas, uso eficiente de cores e criação de identidade visual em espaços reduzidos.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: 'https://www.artstation.com/artwork/DLDZ4e'
+    },
+    'arte-7': {
+        description: {
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
             en: 'Art study focused on composition and visual identity.'
         },
         responsibilities: {
@@ -1097,11 +1147,10 @@ const PROJECT_MODAL_CONTENT = {
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
             en: 'I created the visual concept, refined forms, and finalized the color palette.'
         },
         playLabel: {
@@ -1110,9 +1159,9 @@ const PROJECT_MODAL_CONTENT = {
         },
         playUrl: '#'
     },
-    'arte-7': {
+    'arte-8': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
             en: 'Art study focused on composition and visual identity.'
         },
         responsibilities: {
@@ -1120,11 +1169,32 @@ const PROJECT_MODAL_CONTENT = {
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-9': {
+        description: {
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
             en: 'I created the visual concept, refined forms, and finalized the color palette.'
         },
         playLabel: {

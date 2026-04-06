@@ -96,7 +96,7 @@
               </span>
             </div>
             <!-- CTA principal da navbar -->
-            <a href="/" class="button">Currículo</a>
+            <a href="ultimate-guide-to-profiling-unity-games.pdf" class="button" download="Curriculo-Nicolas-Silva.pdf">Currículo</a>
           </div>
         </li>
       </ul>
@@ -224,6 +224,14 @@
         <article class="game__item" data-project="arte-7">
           <img src="images/Foods.png" alt="Arte 7" class="game__image" />
           <h3 class="game__title">Arte de comidas</h3>
+        </article>
+        <article class="game__item" data-project="arte-8">
+          <img src="images/Mouths.png" alt="Arte 7" class="game__image" />
+          <h3 class="game__title">Treino de bocas</h3>
+        </article>
+        <article class="game__item" data-project="arte-9">
+          <img src="images/WizardFrog.png" alt="Arte 7" class="game__image" />
+          <h3 class="game__title">Sapo Mago</h3>
         </article>
       </div>
 
@@ -447,10 +455,10 @@
   <!-- Secao Contato com formulario e rodape -->
   <section class="contact" id="contato">
     <div class="contact__container container-xxl">
-      <form class="contact__form" action="#" method="post" novalidate>
-        <input type="text" name="nome" class="contact__input" placeholder="Nome" aria-label="Nome" />
-        <input type="email" name="email" class="contact__input" placeholder="Email" aria-label="Email" />
-        <textarea name="assunto" class="contact__textarea" placeholder="Assunto" aria-label="Assunto"></textarea>
+      <form class="contact__form" action="#" method="post" data-contact-email="n1co.4rts@gmail.com">
+        <input type="text" name="nome" class="contact__input" placeholder="Nome" aria-label="Nome" required />
+        <input type="email" name="email" class="contact__input" placeholder="Email" aria-label="Email" required />
+        <textarea name="assunto" class="contact__textarea" placeholder="Assunto" aria-label="Assunto" required></textarea>
         <button class="contact__submit" type="submit">Enviar</button>
       </form>
     </div>
