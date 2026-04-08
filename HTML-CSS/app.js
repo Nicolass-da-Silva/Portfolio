@@ -65,6 +65,13 @@ const UI_TRANSLATIONS = {
         toolsMain: 'Principais',
         toolsUsed: 'Já utilizei',
         toolsStudying: 'Estudando',
+        toolsHireTitle: 'Áreas contratáveis',
+        roleWebTitle: 'Desenvolvimento Web',
+        roleWebLevel: 'Desenvolvimento de interfaces e aplicações front-end',
+        rolePixelTitle: 'Pixel Art',
+        rolePixelLevel: 'Criação de assets visuais para jogos 2D',
+        roleUnityTitle: 'Desenvolvimento Unity',
+        roleUnityLevel: 'Implementação de mecânicas, sistemas e lógica de gameplay',
         aboutTitle: 'Sobre mim',
         aboutP1Start: 'Olá! Meu nome é Nicolas. Sou desenvolvedor Unity e artista pixel art do Brasil',
         aboutP1End: 'com foco na criação de mundos e experiências envolventes para jogadores.',
@@ -75,6 +82,8 @@ const UI_TRANSLATIONS = {
         skillsSoft: 'Soft Skills',
         skillsModeHard: 'Modo ativo: Hard Skills',
         skillsModeSoft: 'Modo ativo: Soft Skills',
+        skillsCardTitle: 'Titulo',
+        skillsCardDescription: 'Descricao',
         modalTitleFallback: 'Detalhes do Projeto',
         modalCloseAria: 'Fechar modal',
         modalDescriptionPlaceholder: 'Descrição',
@@ -87,6 +96,7 @@ const UI_TRANSLATIONS = {
         contactName: 'Nome',
         contactEmail: 'Email',
         contactSubject: 'Assunto',
+        contactMessage: 'Mensagem',
         contactSubmit: 'Enviar'
     },
     en: {
@@ -121,6 +131,13 @@ const UI_TRANSLATIONS = {
         toolsMain: 'Main',
         toolsUsed: 'Already used',
         toolsStudying: 'Studying',
+        toolsHireTitle: 'Hireable areas',
+        roleWebTitle: 'Website Developer',
+        roleWebLevel: 'Complete beginner/student',
+        rolePixelTitle: 'Pixel Artist',
+        rolePixelLevel: 'Beginner/Intermediate and studying',
+        roleUnityTitle: 'Unity Developer',
+        roleUnityLevel: 'Beginner/Intermediate and studying',
         aboutTitle: 'About me',
         aboutP1Start: 'Hello! My name is Nicolas. I am a Unity Developer and Pixel Artist from Brazil',
         aboutP1End: 'focused on creating immersive worlds and experiences for players.',
@@ -131,6 +148,8 @@ const UI_TRANSLATIONS = {
         skillsSoft: 'Soft Skills',
         skillsModeHard: 'Active mode: Hard Skills',
         skillsModeSoft: 'Active mode: Soft Skills',
+        skillsCardTitle: 'Title',
+        skillsCardDescription: 'Description',
         modalTitleFallback: 'Project Details',
         modalCloseAria: 'Close modal',
         modalDescriptionPlaceholder: 'Description',
@@ -143,7 +162,57 @@ const UI_TRANSLATIONS = {
         contactName: 'Name',
         contactEmail: 'Email',
         contactSubject: 'Subject',
+        contactMessage: 'Message',
         contactSubmit: 'Send'
+    }
+};
+
+const PROJECT_CARD_TRANSLATIONS = {
+    '1': {
+        title: { pt: 'Perseguicao do Coelho', en: 'Rabbit Chase' },
+        subtitle: { pt: 'Perseguicao do Coelho', en: 'Rabbit Chase' }
+    },
+    '2': {
+        title: { pt: 'O Arraial do Toninho & Tinho', en: "Toninho & Tinho's Festival" },
+        subtitle: { pt: 'O Arraial do Toninho & Tinho', en: "Toninho & Tinho's Festival" }
+    },
+    '3': {
+        title: { pt: 'Sirin', en: 'Sirin' },
+        subtitle: { pt: 'Sirin', en: 'Sirin' }
+    },
+    '4': {
+        title: { pt: 'O Mundo que cabe na mao', en: 'The World That Fits in Your Hand' },
+        subtitle: { pt: 'O Mundo que cabe na mao', en: 'The World That Fits in Your Hand' }
+    },
+    '5': {
+        title: { pt: 'Projeto em desenvolvimento', en: 'Project in development' }
+    },
+    'arte-1': {
+        title: { pt: 'Logo do jogo Sirin', en: 'Sirin game logo' }
+    },
+    'arte-2': {
+        title: { pt: 'Um dos temas do Inktober 2025', en: 'One of the Inktober 2025 themes' }
+    },
+    'arte-3': {
+        title: { pt: 'Tela inicial do jogo Sirin', en: 'Sirin title screen' }
+    },
+    'arte-4': {
+        title: { pt: 'Plantacoes do jogo Toninho & Tinho', en: "Toninho & Tinho crop assets" }
+    },
+    'arte-5': {
+        title: { pt: 'Comidas da loja do jogo Toninho & Tinho', en: "Toninho & Tinho shop foods" }
+    },
+    'arte-6': {
+        title: { pt: 'Arte dos personagens de Sanrio', en: 'Sanrio characters artwork' }
+    },
+    'arte-7': {
+        title: { pt: 'Arte de comidas', en: 'Food artwork' }
+    },
+    'arte-8': {
+        title: { pt: 'Treino de bocas', en: 'Mouth practice' }
+    },
+    'arte-9': {
+        title: { pt: 'Sapo Mago', en: 'Wizard Frog' }
     }
 };
 
@@ -309,15 +378,50 @@ const updateStaticTexts = () => {
         dot.setAttribute('aria-label', `${getTranslation('projectsDotAriaPrefix')} ${index + 1}`);
     });
 
+    const projectCards = document.querySelectorAll('.game__item[data-project]');
+    projectCards.forEach((card) => {
+        const projectId = card.getAttribute('data-project');
+        const cardTranslation = PROJECT_CARD_TRANSLATIONS[projectId || ''];
+
+        if (!cardTranslation) {
+            return;
+        }
+
+        const cardTitle = card.querySelector('.game__title');
+        const cardSubtitle = card.querySelector('.game__subtitle');
+
+        if (cardTitle && cardTranslation.title) {
+            cardTitle.textContent = cardTranslation.title[currentLanguage] || cardTranslation.title.pt || cardTitle.textContent;
+        }
+
+        if (cardSubtitle && cardTranslation.subtitle) {
+            cardSubtitle.textContent = cardTranslation.subtitle[currentLanguage] || cardTranslation.subtitle.pt || cardSubtitle.textContent;
+        }
+    });
+
     const toolsTitle = document.querySelector('.tools__content h1');
     const toolsMain = document.querySelector('.tools__principal');
     const toolsUsed = document.querySelector('.tools__utilizadas');
     const toolsStudying = document.querySelector('.tools__estudando');
+    const toolsHireTitle = document.querySelector('[data-tools-hire-title]');
+    const roleWebTitle = document.querySelector('[data-tools-role-web-title]');
+    const roleWebLevel = document.querySelector('[data-tools-role-web-level]');
+    const rolePixelTitle = document.querySelector('[data-tools-role-pixel-title]');
+    const rolePixelLevel = document.querySelector('[data-tools-role-pixel-level]');
+    const roleUnityTitle = document.querySelector('[data-tools-role-unity-title]');
+    const roleUnityLevel = document.querySelector('[data-tools-role-unity-level]');
 
     if (toolsTitle) toolsTitle.textContent = getTranslation('toolsTitle');
     if (toolsMain) toolsMain.textContent = getTranslation('toolsMain');
     if (toolsUsed) toolsUsed.textContent = getTranslation('toolsUsed');
     if (toolsStudying) toolsStudying.textContent = getTranslation('toolsStudying');
+    if (toolsHireTitle) toolsHireTitle.textContent = getTranslation('toolsHireTitle');
+    if (roleWebTitle) roleWebTitle.textContent = getTranslation('roleWebTitle');
+    if (roleWebLevel) roleWebLevel.textContent = getTranslation('roleWebLevel');
+    if (rolePixelTitle) rolePixelTitle.textContent = getTranslation('rolePixelTitle');
+    if (rolePixelLevel) rolePixelLevel.textContent = getTranslation('rolePixelLevel');
+    if (roleUnityTitle) roleUnityTitle.textContent = getTranslation('roleUnityTitle');
+    if (roleUnityLevel) roleUnityLevel.textContent = getTranslation('roleUnityLevel');
 
     const aboutTitle = document.querySelector('.about__content h2');
     const aboutParagraphs = document.querySelectorAll('.about__text');
@@ -338,6 +442,15 @@ const updateStaticTexts = () => {
     if (modeLabel) {
         modeLabel.textContent = activeSkillsTab === 'soft' ? getTranslation('skillsModeSoft') : getTranslation('skillsModeHard');
     }
+
+    const skillsCardTitles = document.querySelectorAll('.skills__panel .skills__card h3');
+    const skillsCardDescriptions = document.querySelectorAll('.skills__panel .skills__card p');
+    skillsCardTitles.forEach((titleElement) => {
+        titleElement.textContent = getTranslation('skillsCardTitle');
+    });
+    skillsCardDescriptions.forEach((descriptionElement) => {
+        descriptionElement.textContent = getTranslation('skillsCardDescription');
+    });
 
     const modalClose = document.querySelector('.project-modal__close');
     const modalTitle = document.querySelector('#project-modal-title');
@@ -363,7 +476,8 @@ const updateStaticTexts = () => {
 
     const contactNameInput = document.querySelector('.contact__input[name="nome"]');
     const contactEmailInput = document.querySelector('.contact__input[name="email"]');
-    const contactSubjectInput = document.querySelector('.contact__textarea[name="assunto"]');
+    const contactSubjectInput = document.querySelector('.contact__input[name="assunto"]');
+    const contactMessageInput = document.querySelector('.contact__textarea[name="mensagem"]');
     const contactSubmitButton = document.querySelector('.contact__submit');
 
     if (contactNameInput) {
@@ -377,6 +491,10 @@ const updateStaticTexts = () => {
     if (contactSubjectInput) {
         contactSubjectInput.placeholder = getTranslation('contactSubject');
         contactSubjectInput.setAttribute('aria-label', getTranslation('contactSubject'));
+    }
+    if (contactMessageInput) {
+        contactMessageInput.placeholder = getTranslation('contactMessage');
+        contactMessageInput.setAttribute('aria-label', getTranslation('contactMessage'));
     }
     if (contactSubmitButton) {
         contactSubmitButton.textContent = getTranslation('contactSubmit');
@@ -512,9 +630,20 @@ if (menuButton && menuContainer) {
 if (scrollTargets.length > 0) {
     const navbar = document.querySelector('.navbar');
 
+    const dismissTriggerTooltip = (triggerElement) => {
+        if (!window.bootstrap || !triggerElement) {
+            return;
+        }
+
+        const tooltipInstance = window.bootstrap.Tooltip.getInstance(triggerElement);
+        if (tooltipInstance) {
+            tooltipInstance.hide();
+        }
+    };
+
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         if (!contactForm.reportValidity()) {
@@ -524,7 +653,8 @@ if (contactForm) {
         const recipientEmail = (contactForm.getAttribute('data-contact-email') || '').trim();
         const name = (contactForm.querySelector('[name="nome"]')?.value || '').trim();
         const email = (contactForm.querySelector('[name="email"]')?.value || '').trim();
-        const message = (contactForm.querySelector('[name="assunto"]')?.value || '').trim();
+        const subjectValue = (contactForm.querySelector('[name="assunto"]')?.value || '').trim();
+        const message = (contactForm.querySelector('[name="mensagem"]')?.value || '').trim();
 
         if (!recipientEmail) {
             window.alert(currentLanguage === 'en'
@@ -533,16 +663,64 @@ if (contactForm) {
             return;
         }
 
-        const subjectLine = currentLanguage === 'en'
-            ? `Portfolio contact - ${name || 'No name'}`
-            : `Contato pelo portfolio - ${name || 'Sem nome'}`;
+        const subjectLine = subjectValue
+            ? subjectValue
+            : (currentLanguage === 'en' ? 'Portfolio contact' : 'Contato pelo portfolio');
 
         const body = currentLanguage === 'en'
-            ? `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-            : `Nome: ${name}\nEmail: ${email}\n\nMensagem:\n${message}`;
+            ? `Name: ${name}\nEmail: ${email}\n\nSubject:\n${subjectLine}\n\nMessage:\n${message}`
+            : `Nome: ${name}\nEmail: ${email}\n\nAssunto:\n${subjectLine}\n\nMensagem:\n${message}`;
 
-        const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoUrl;
+        const endpointUrl = (contactForm.getAttribute('data-contact-endpoint') || '').trim();
+        const submitButton = contactForm.querySelector('.contact__submit');
+        const defaultButtonText = submitButton?.textContent || '';
+
+        const fallbackToMailto = () => {
+            const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+        };
+
+        if (endpointUrl) {
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = currentLanguage === 'en' ? 'Sending...' : 'Enviando...';
+            }
+
+            try {
+                const response = await window.fetch(endpointUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        subject: subjectLine,
+                        _subject: subjectLine,
+                        message,
+                        _captcha: 'false'
+                    })
+                });
+
+                if (response.ok) {
+                    window.alert(currentLanguage === 'en'
+                        ? 'Message sent successfully.'
+                        : 'Mensagem enviada com sucesso.');
+                    contactForm.reset();
+                    return;
+                }
+            } catch (error) {
+                // If endpoint fails (offline/CORS), keep fallback behavior.
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = defaultButtonText;
+                }
+            }
+        }
+
+        fallbackToMailto();
     });
 }
     const scrollToTarget = (triggerElement) => {
@@ -579,6 +757,11 @@ if (contactForm) {
         triggerElement.addEventListener('click', (event) => {
             event.preventDefault();
             scrollToTarget(triggerElement);
+            dismissTriggerTooltip(triggerElement);
+
+            if (typeof triggerElement.blur === 'function') {
+                triggerElement.blur();
+            }
         });
     });
 }
