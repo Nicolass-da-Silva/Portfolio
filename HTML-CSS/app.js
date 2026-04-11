@@ -216,6 +216,97 @@ const PROJECT_CARD_TRANSLATIONS = {
     }
 };
 
+const SKILLS_TRANSLATIONS = {
+    hard: [
+        {
+            title: { pt: 'Versionamento de Codigo', en: 'Code Versioning' },
+            description: {
+                pt: 'Utilizacao de sistemas de versionamento para organizar, controlar e manter o historico de projetos e codigo.',
+                en: 'Use of version control systems to organize, track, and maintain project and code history.'
+            }
+        },
+        {
+            title: { pt: 'Motores de Jogos', en: 'Game Engines' },
+            description: {
+                pt: 'Experiencia na utilizacao de game engines para desenvolvimento de mecanicas, sistemas e prototipos jogaveis.',
+                en: 'Experience using game engines to build mechanics, systems, and playable prototypes.'
+            }
+        },
+        {
+            title: { pt: 'Arquitetura de Sistemas', en: 'Systems Architecture' },
+            description: {
+                pt: 'Organizacao e estruturacao de sistemas de jogo, garantindo escalabilidade e manutencao do projeto.',
+                en: 'Organization and structuring of game systems, ensuring project scalability and maintainability.'
+            }
+        },
+        {
+            title: { pt: 'Organizacao de Assets', en: 'Asset Organization' },
+            description: {
+                pt: 'Estruturacao e organizacao de arquivos visuais, sprites e elementos graficos para manter eficiencia e consistencia na producao artistica.',
+                en: 'Structuring and organization of visual files, sprites, and graphic elements to keep artistic production efficient and consistent.'
+            }
+        },
+        {
+            title: { pt: 'Softwares Especializados', en: 'Specialized Software' },
+            description: {
+                pt: 'Uso de ferramentas voltadas a criacao e edicao de artes digitais e assets para jogos.',
+                en: 'Use of tools focused on creating and editing digital art and game assets.'
+            }
+        },
+        {
+            title: { pt: 'Perspectivas e Estilos', en: 'Perspective and Styles' },
+            description: {
+                pt: 'Aplicacao de fundamentos visuais, estilizacao e composicao para construcao de identidade visual em projetos.',
+                en: 'Application of visual fundamentals, stylization, and composition to build visual identity in projects.'
+            }
+        }
+    ],
+    soft: [
+        {
+            title: { pt: 'Trabalho em Equipe', en: 'Teamwork' },
+            description: {
+                pt: 'Capacidade de colaborar de forma eficiente com outras pessoas, contribuindo para o andamento do projeto e para um ambiente produtivo.',
+                en: 'Ability to collaborate efficiently with others, contributing to project progress and a productive environment.'
+            }
+        },
+        {
+            title: { pt: 'Comunicacao', en: 'Communication' },
+            description: {
+                pt: 'Clareza na troca de informacoes, garantindo alinhamento de ideias, processos e objetivos entre a equipe.',
+                en: 'Clarity in communication, ensuring alignment of ideas, processes, and goals across the team.'
+            }
+        },
+        {
+            title: { pt: 'Gestao de Tempo', en: 'Time Management' },
+            description: {
+                pt: 'Organizacao e priorizacao de tarefas para cumprir prazos e manter o fluxo de trabalho eficiente.',
+                en: 'Task organization and prioritization to meet deadlines and keep workflow efficient.'
+            }
+        },
+        {
+            title: { pt: 'Resiliencia', en: 'Resilience' },
+            description: {
+                pt: 'Capacidade de lidar com desafios, adaptar-se a imprevistos e manter o progresso mesmo diante de dificuldades.',
+                en: 'Ability to handle challenges, adapt to unexpected changes, and keep moving forward despite difficulties.'
+            }
+        },
+        {
+            title: { pt: 'Aprendizado Continuo', en: 'Continuous Learning' },
+            description: {
+                pt: 'Comprometimento com o desenvolvimento constante de habilidades tecnicas e criativas.',
+                en: 'Commitment to continuous development of technical and creative skills.'
+            }
+        },
+        {
+            title: { pt: 'Flexibilidade', en: 'Flexibility' },
+            description: {
+                pt: 'Facilidade para se adaptar a mudancas de escopo, novas ferramentas e diferentes demandas de projeto.',
+                en: 'Ease in adapting to scope changes, new tools, and different project demands.'
+            }
+        }
+    ]
+};
+
 const getTranslation = (key) => UI_TRANSLATIONS[currentLanguage][key] || UI_TRANSLATIONS.pt[key] || '';
 
 let typewriterTimerId = null;
@@ -443,13 +534,32 @@ const updateStaticTexts = () => {
         modeLabel.textContent = activeSkillsTab === 'soft' ? getTranslation('skillsModeSoft') : getTranslation('skillsModeHard');
     }
 
-    const skillsCardTitles = document.querySelectorAll('.skills__panel .skills__card h3');
-    const skillsCardDescriptions = document.querySelectorAll('.skills__panel .skills__card p');
-    skillsCardTitles.forEach((titleElement) => {
-        titleElement.textContent = getTranslation('skillsCardTitle');
-    });
-    skillsCardDescriptions.forEach((descriptionElement) => {
-        descriptionElement.textContent = getTranslation('skillsCardDescription');
+    ['hard', 'soft'].forEach((panelType) => {
+        const panel = document.querySelector(`[data-skills-panel="${panelType}"]`);
+        const cardTranslations = SKILLS_TRANSLATIONS[panelType] || [];
+
+        if (!panel) {
+            return;
+        }
+
+        const cards = panel.querySelectorAll('.skills__card');
+        cards.forEach((card, index) => {
+            const translation = cardTranslations[index];
+            if (!translation) {
+                return;
+            }
+
+            const titleElement = card.querySelector('h3');
+            const descriptionElement = card.querySelector('p');
+
+            if (titleElement) {
+                titleElement.textContent = translation.title[currentLanguage] || translation.title.pt || '';
+            }
+
+            if (descriptionElement) {
+                descriptionElement.textContent = translation.description[currentLanguage] || translation.description.pt || '';
+            }
+        });
     });
 
     const modalClose = document.querySelector('.project-modal__close');

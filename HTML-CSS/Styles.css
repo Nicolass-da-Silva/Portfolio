@@ -1576,12 +1576,15 @@ input[type="reset"]:hover {
 .skills__tabs {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
-    padding-top: 58px;
+    padding-top: 92px;
 }
 
 .skills__tab {
     height: 44px;
+    min-width: 132px;
     padding: 0 16px;
     border-radius: 10px;
     border: 2px solid #2F2F37;
@@ -1589,7 +1592,7 @@ input[type="reset"]:hover {
     color: #B4B6C7;
     font-size: 1.06rem;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     transition: all 0.25s ease;
 }
 
@@ -1603,9 +1606,10 @@ input[type="reset"]:hover {
     margin: 8px 0 0;
     color: #8B90A8;
     font-size: 0.9rem;
+    text-align: center;
 }
 
-.skills__panel {
+.skills__panel {    
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px 32px;
@@ -1658,6 +1662,7 @@ input[type="reset"]:hover {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         padding-top: 0;
     }
 
@@ -1679,6 +1684,7 @@ input[type="reset"]:hover {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         padding-top: 0;
     }
 
@@ -2328,6 +2334,12 @@ body.modal-open {
 [data-bs-theme="light"] .navbar__langOption--active {
     color: #BF1743;
     background: rgba(225, 29, 72, 0.12);
+}
+
+[data-bs-theme="light"] .skills__tab--active {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
 }
 
 [data-bs-theme="light"] .navbar__langOption {
