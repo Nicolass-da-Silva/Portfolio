@@ -92,5 +92,5 @@ Cada feedback conta muito 🙌
 ---
 
 <div align="center">
-  <sub>Feito com foco, café ☕ e algumas noites sem dormir.</sub>
+  <sub>Feito com foco, pesquisas e algumas noites sem dormir.</sub>
 </div>
