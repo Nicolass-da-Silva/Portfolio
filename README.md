@@ -49,8 +49,9 @@ Este projeto nasceu como um trabalho acadêmico da faculdade, mas acabou se torn
  ┃ ┣ 📂 images/icons (ainda em organização de pastas)
  ┣ 📜 Index.html
  ┣ 📜Styles.css
+ ┣ 📜 README.md
  ┣ 📜app.js
- ┗ 📜 README.md
+ ┗ 📜app.js
 ```
 
 ---
@@ -72,9 +73,9 @@ Não precisa instalar dependências — é só abrir e testar.
 **Nico**
 Desenvolvedor e estudante de Jogos Digitais, apaixonado por criar experiências visuais e interativas.
 
-* 🌐 Portfólio: *[adicione seu link aqui](https://nicolassilvaportfolio.netlify.app/)*
-* 💼 LinkedIn: *[adicione seu link aqui](https://www.linkedin.com/in/nicolas-da-silva-7368b5246/)*
-* 🐱 GitHub: *[adicione seu link aqui](https://github.com/Nicolass-da-Silva)*
+* 🌐 Portfólio: *[Acesse o site do portfólio](https://nicolassilvaportfolio.netlify.app/)*
+* 💼 LinkedIn: *[Meu LinkedIn](https://www.linkedin.com/in/nicolas-da-silva-7368b5246/)*
+* 🐱 GitHub: *[Meu Github](https://github.com/Nicolass-da-Silva)*
 
 ---
 
