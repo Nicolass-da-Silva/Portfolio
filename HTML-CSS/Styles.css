@@ -184,7 +184,9 @@ input[type="reset"]:hover {
 .navbar__container,
 .main__container,
 .project__container,
+.toolsHireRow,
 .tools__container,
+.hire__container,
 .about__container,
 .skills__container,
 .contact__container,
@@ -458,6 +460,10 @@ input[type="reset"]:hover {
     padding: 0;
 }
 
+.navbar__toggle:hover {
+    animation: none;
+}
+
 /* Barras do hamburguer */
 .bar {
     background: #fff;
@@ -519,14 +525,16 @@ input[type="reset"]:hover {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 6px;
         width: 32px;
         height: 24px;
     }
 
     .navbar__toggle .bar {
-        width: 100%;
+        width: 26px;
         height: 3px;
+        border-radius: 999px;
     }
 
 
@@ -604,6 +612,11 @@ input[type="reset"]:hover {
         position: absolute;
         top: 50%;
         right: 16px;
+        transform: translateY(-50%);
+    }
+
+    #mobile-menu:hover,
+    #mobile-menu:focus-visible {
         transform: translateY(-50%);
     }
 
@@ -1087,13 +1100,42 @@ input[type="reset"]:hover {
     /* Container principal da secao de ferramentas */
     min-height: 46vh;
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
     max-width: 1300px;
     padding: 28px 40px 36px;
     border: none;
     border:2px solid var(--bs-border-color);
     border-radius: 12px;
+}
+
+.toolsHireRow {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.toolsHireRow__row {
+    --bs-gutter-x: 18px;
+    --bs-gutter-y: 18px;
+}
+
+.toolsHireRow__colTools,
+.toolsHireRow__colHire {
+    display: flex;
+}
+
+.toolsHireRow .tools,
+.toolsHireRow .hire {
+    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.toolsHireRow .tools__container,
+.toolsHireRow .hire__container {
+    max-width: none;
+    min-height: 100%;
+    width: 100%;
 }
 
 .tools {
@@ -1143,11 +1185,89 @@ input[type="reset"]:hover {
 
 .tools__cards {
     /* Grade dos cards; 4 colunas para formar os andares por categoria */
-    margin-top: 30px;
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(4, var(--tool-card-size));
     gap: var(--tool-card-gap);
     justify-content: start;
+}
+
+.hire__panel {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+
+.hire__container {
+    min-height: 34vh;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 1300px;
+    padding: 28px 40px 36px;
+    border: 2px solid var(--bs-border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tools__hireTitle {
+    margin: 0;
+    color: #F4F4F5;
+    font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+    font-weight: 800;
+}
+
+.hire__container .tools__hireTitle {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tools__hireGrid {
+    display: grid;
+    gap: 14px;
+    width: 100%;
+    max-width: 540px;
+}
+
+.tools__hireCard {
+    border: 2px solid #2E334A;
+    border-radius: 11px;
+    background: #141522;
+    padding: 15px 16px;
+    width: 100%;
+}
+
+.tools__hireCard--web {
+    border-color: #4A4D69;
+}
+
+.tools__hireCard--pixel {
+    border-color: #4A4D69;
+}
+
+.tools__hireCard--unity {
+    border-color: #4A4D69;
+}
+
+.tools__hireCard h4 {
+    margin: 0;
+    color: #F4F4F5;
+    font-size: clamp(1.08rem, 1.7vw, 1.18rem);
+    font-weight: 800;
+}
+
+.tools__hireCard p {
+    margin: 8px 0 0;
+    color: #C0C4D4;
+    font-size: 1rem;
+    line-height: 1.35;
 }
 
 @media screen and (max-width: 1199.98px) {
@@ -1366,6 +1486,18 @@ input[type="reset"]:hover {
         display: none;
     }
 
+    .game__image {
+        height: clamp(180px, 40vw, 260px);
+    }
+
+    .game__placeholder {
+        height: clamp(180px, 40vw, 260px);
+    }
+
+    .game__item[data-project="1"] .game__image {
+        height: clamp(180px, 40vw, 260px);
+    }
+
     .leftArrow__button,
     .rightArrow__button {
         display: none;
@@ -1373,6 +1505,35 @@ input[type="reset"]:hover {
 
     .about__container {
         padding: 22px 18px;
+    }
+
+    .toolsHireRow {
+        margin-top: 82px;
+        margin-bottom: 82px;
+    }
+
+    .toolsHireRow__row {
+        --bs-gutter-y: 16px;
+    }
+
+    .hire__container {
+        padding: 22px 18px;
+    }
+
+    .tools__hireGrid {
+        gap: 12px;
+    }
+
+    .tools__hireCard {
+        padding: 14px;
+    }
+
+    .tools__hireCard h4 {
+        font-size: 1.02rem;
+    }
+
+    .tools__hireCard p {
+        font-size: 0.95rem;
     }
 
     .about__content {
@@ -1415,12 +1576,15 @@ input[type="reset"]:hover {
 .skills__tabs {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
-    padding-top: 58px;
+    padding-top: 92px;
 }
 
 .skills__tab {
     height: 44px;
+    min-width: 132px;
     padding: 0 16px;
     border-radius: 10px;
     border: 2px solid #2F2F37;
@@ -1428,7 +1592,7 @@ input[type="reset"]:hover {
     color: #B4B6C7;
     font-size: 1.06rem;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     transition: all 0.25s ease;
 }
 
@@ -1442,9 +1606,10 @@ input[type="reset"]:hover {
     margin: 8px 0 0;
     color: #8B90A8;
     font-size: 0.9rem;
+    text-align: center;
 }
 
-.skills__panel {
+.skills__panel {    
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px 32px;
@@ -1497,6 +1662,7 @@ input[type="reset"]:hover {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         padding-top: 0;
     }
 
@@ -1518,6 +1684,7 @@ input[type="reset"]:hover {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
         padding-top: 0;
     }
 
@@ -1942,7 +2109,9 @@ body.modal-open {
     .navbar__container,
     .main__container,
     .project__container,
+    .toolsHireRow,
     .tools__container,
+    .hire__container,
     .about__container,
     .skills__container,
     .contact__container,
@@ -1971,9 +2140,13 @@ body.modal-open {
         min-width: clamp(340px, 29vw, 560px);
     }
 
+    .toolsHireRow__row {
+        --bs-gutter-x: 26px;
+    }
+
     .tools {
-        --tool-card-size: 82px;
-        --tool-card-gap: 16px;
+        --tool-card-size: 98px;
+        --tool-card-gap: 20px;
     }
 
     .tools__cards {
@@ -2013,7 +2186,9 @@ body.modal-open {
     .navbar__container,
     .main__container,
     .project__container,
+    .toolsHireRow,
     .tools__container,
+    .hire__container,
     .about__container,
     .skills__container,
     .contact__container,
@@ -2042,9 +2217,17 @@ body.modal-open {
         min-width: clamp(360px, 27vw, 620px);
     }
 
+    .toolsHireRow {
+        margin-bottom: 80px;
+    }
+
+    .toolsHireRow__row {
+        --bs-gutter-x: 32px;
+    }
+
     .tools {
-        --tool-card-size: 88px;
-        --tool-card-gap: 18px;
+        --tool-card-size: 114px;
+        --tool-card-gap: 22px;
     }
 
     .about__avatarWrap {
@@ -2089,6 +2272,7 @@ body.modal-open {
 [data-bs-theme="light"] .main,
 [data-bs-theme="light"] .project__container,
 [data-bs-theme="light"] .tools__container,
+[data-bs-theme="light"] .hire__container,
 [data-bs-theme="light"] .about__container,
 [data-bs-theme="light"] .skills__container,
 [data-bs-theme="light"] .site-footer,
@@ -2109,6 +2293,7 @@ body.modal-open {
 [data-bs-theme="light"] .main__content h2,
 [data-bs-theme="light"] .project__content h2,
 [data-bs-theme="light"] .tools__content h1,
+[data-bs-theme="light"] .tools__hireTitle,
 [data-bs-theme="light"] .about__content h2,
 [data-bs-theme="light"] .about__text,
 [data-bs-theme="light"] .skills__card h3,
@@ -2151,6 +2336,12 @@ body.modal-open {
     background: rgba(225, 29, 72, 0.12);
 }
 
+[data-bs-theme="light"] .skills__tab--active {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
 [data-bs-theme="light"] .navbar__langOption {
     -webkit-text-fill-color: #121725;
 }
@@ -2173,6 +2364,23 @@ body.modal-open {
 [data-bs-theme="light"] .navbar__langChevron {
     border-right-color: #121725;
     border-bottom-color: #121725;
+}
+
+[data-bs-theme="light"] .navbar__toggle .bar {
+    background: #121725;
+}
+
+[data-bs-theme="light"] .tools__hireCard {
+    background: #F2F5FB;
+    border-color: #CDD4E0;
+}
+
+[data-bs-theme="light"] .tools__hireCard h4 {
+    color: #121725;
+}
+
+[data-bs-theme="light"] .tools__hireCard p {
+    color: #55607A;
 }
 
 [data-bs-theme="light"] .tool-card {
@@ -2227,6 +2435,16 @@ body.modal-open {
     color: #121725;
 }
 
+[data-bs-theme="light"] .game__title {
+    color: #121725;
+}
+
+[data-bs-theme="light"] .coming-soon-ribbon {
+    color: #FFFFFF;
+    border-top-color: rgba(18, 23, 37, 0.2);
+    border-bottom-color: rgba(18, 23, 37, 0.2);
+}
+
 [data-bs-theme="light"] .main__hr,
 [data-bs-theme="light"] .project__hr {
     border-color: #D81B4B;
@@ -2239,6 +2457,7 @@ body.modal-open {
 @media screen and (max-width: 575.98px) {
     .project__container,
     .tools__container,
+    .hire__container,
     .about__container,
     .skills__container,
     .contact__container {
@@ -2276,9 +2495,25 @@ body.modal-open {
         justify-content: start;
     }
 
+    .tools__panel {
+        padding: 14px;
+    }
+
     .game__item {
         width: 86vw;
         min-width: 86vw;
+    }
+
+    .game__image {
+        height: clamp(200px, 54vw, 280px);
+    }
+
+    .game__placeholder {
+        height: clamp(200px, 54vw, 280px);
+    }
+
+    .game__item[data-project="1"] .game__image {
+        height: clamp(200px, 54vw, 280px);
     }
 }
 

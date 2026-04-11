@@ -15,6 +15,7 @@ const langCurrentLabel = document.querySelector('[data-lang-current]');
 const langCurrentFlag = document.querySelector('[data-lang-current-flag]');
 const langOptionButtons = Array.from(document.querySelectorAll('[data-lang-option]'));
 const themeToggleButton = document.querySelector('[data-theme-toggle]');
+const contactForm = document.querySelector('.contact__form');
 
 const LANG_STORAGE_KEY = 'portfolio-language';
 const THEME_STORAGE_KEY = 'portfolio-theme';
@@ -64,6 +65,13 @@ const UI_TRANSLATIONS = {
         toolsMain: 'Principais',
         toolsUsed: 'Já utilizei',
         toolsStudying: 'Estudando',
+        toolsHireTitle: 'Áreas contratáveis',
+        roleWebTitle: 'Desenvolvimento Web',
+        roleWebLevel: 'Desenvolvimento de interfaces e aplicações front-end',
+        rolePixelTitle: 'Pixel Art',
+        rolePixelLevel: 'Criação de assets visuais para jogos 2D',
+        roleUnityTitle: 'Desenvolvimento Unity',
+        roleUnityLevel: 'Implementação de mecânicas, sistemas e lógica de gameplay',
         aboutTitle: 'Sobre mim',
         aboutP1Start: 'Olá! Meu nome é Nicolas. Sou desenvolvedor Unity e artista pixel art do Brasil',
         aboutP1End: 'com foco na criação de mundos e experiências envolventes para jogadores.',
@@ -74,6 +82,8 @@ const UI_TRANSLATIONS = {
         skillsSoft: 'Soft Skills',
         skillsModeHard: 'Modo ativo: Hard Skills',
         skillsModeSoft: 'Modo ativo: Soft Skills',
+        skillsCardTitle: 'Titulo',
+        skillsCardDescription: 'Descricao',
         modalTitleFallback: 'Detalhes do Projeto',
         modalCloseAria: 'Fechar modal',
         modalDescriptionPlaceholder: 'Descrição',
@@ -86,6 +96,7 @@ const UI_TRANSLATIONS = {
         contactName: 'Nome',
         contactEmail: 'Email',
         contactSubject: 'Assunto',
+        contactMessage: 'Mensagem',
         contactSubmit: 'Enviar'
     },
     en: {
@@ -120,6 +131,13 @@ const UI_TRANSLATIONS = {
         toolsMain: 'Main',
         toolsUsed: 'Already used',
         toolsStudying: 'Studying',
+        toolsHireTitle: 'Hireable areas',
+        roleWebTitle: 'Website Developer',
+        roleWebLevel: 'Complete beginner/student',
+        rolePixelTitle: 'Pixel Artist',
+        rolePixelLevel: 'Beginner/Intermediate and studying',
+        roleUnityTitle: 'Unity Developer',
+        roleUnityLevel: 'Beginner/Intermediate and studying',
         aboutTitle: 'About me',
         aboutP1Start: 'Hello! My name is Nicolas. I am a Unity Developer and Pixel Artist from Brazil',
         aboutP1End: 'focused on creating immersive worlds and experiences for players.',
@@ -130,6 +148,8 @@ const UI_TRANSLATIONS = {
         skillsSoft: 'Soft Skills',
         skillsModeHard: 'Active mode: Hard Skills',
         skillsModeSoft: 'Active mode: Soft Skills',
+        skillsCardTitle: 'Title',
+        skillsCardDescription: 'Description',
         modalTitleFallback: 'Project Details',
         modalCloseAria: 'Close modal',
         modalDescriptionPlaceholder: 'Description',
@@ -142,8 +162,149 @@ const UI_TRANSLATIONS = {
         contactName: 'Name',
         contactEmail: 'Email',
         contactSubject: 'Subject',
+        contactMessage: 'Message',
         contactSubmit: 'Send'
     }
+};
+
+const PROJECT_CARD_TRANSLATIONS = {
+    '1': {
+        title: { pt: 'Perseguicao do Coelho', en: 'Rabbit Chase' },
+        subtitle: { pt: 'Perseguicao do Coelho', en: 'Rabbit Chase' }
+    },
+    '2': {
+        title: { pt: 'O Arraial do Toninho & Tinho', en: "Toninho & Tinho's Festival" },
+        subtitle: { pt: 'O Arraial do Toninho & Tinho', en: "Toninho & Tinho's Festival" }
+    },
+    '3': {
+        title: { pt: 'Sirin', en: 'Sirin' },
+        subtitle: { pt: 'Sirin', en: 'Sirin' }
+    },
+    '4': {
+        title: { pt: 'O Mundo que cabe na mao', en: 'The World That Fits in Your Hand' },
+        subtitle: { pt: 'O Mundo que cabe na mao', en: 'The World That Fits in Your Hand' }
+    },
+    '5': {
+        title: { pt: 'Projeto em desenvolvimento', en: 'Project in development' }
+    },
+    'arte-1': {
+        title: { pt: 'Logo do jogo Sirin', en: 'Sirin game logo' }
+    },
+    'arte-2': {
+        title: { pt: 'Um dos temas do Inktober 2025', en: 'One of the Inktober 2025 themes' }
+    },
+    'arte-3': {
+        title: { pt: 'Tela inicial do jogo Sirin', en: 'Sirin title screen' }
+    },
+    'arte-4': {
+        title: { pt: 'Plantacoes do jogo Toninho & Tinho', en: "Toninho & Tinho crop assets" }
+    },
+    'arte-5': {
+        title: { pt: 'Comidas da loja do jogo Toninho & Tinho', en: "Toninho & Tinho shop foods" }
+    },
+    'arte-6': {
+        title: { pt: 'Arte dos personagens de Sanrio', en: 'Sanrio characters artwork' }
+    },
+    'arte-7': {
+        title: { pt: 'Arte de comidas', en: 'Food artwork' }
+    },
+    'arte-8': {
+        title: { pt: 'Treino de bocas', en: 'Mouth practice' }
+    },
+    'arte-9': {
+        title: { pt: 'Sapo Mago', en: 'Wizard Frog' }
+    }
+};
+
+const SKILLS_TRANSLATIONS = {
+    hard: [
+        {
+            title: { pt: 'Versionamento de Codigo', en: 'Code Versioning' },
+            description: {
+                pt: 'Utilizacao de sistemas de versionamento para organizar, controlar e manter o historico de projetos e codigo.',
+                en: 'Use of version control systems to organize, track, and maintain project and code history.'
+            }
+        },
+        {
+            title: { pt: 'Motores de Jogos', en: 'Game Engines' },
+            description: {
+                pt: 'Experiencia na utilizacao de game engines para desenvolvimento de mecanicas, sistemas e prototipos jogaveis.',
+                en: 'Experience using game engines to build mechanics, systems, and playable prototypes.'
+            }
+        },
+        {
+            title: { pt: 'Arquitetura de Sistemas', en: 'Systems Architecture' },
+            description: {
+                pt: 'Organizacao e estruturacao de sistemas de jogo, garantindo escalabilidade e manutencao do projeto.',
+                en: 'Organization and structuring of game systems, ensuring project scalability and maintainability.'
+            }
+        },
+        {
+            title: { pt: 'Organizacao de Assets', en: 'Asset Organization' },
+            description: {
+                pt: 'Estruturacao e organizacao de arquivos visuais, sprites e elementos graficos para manter eficiencia e consistencia na producao artistica.',
+                en: 'Structuring and organization of visual files, sprites, and graphic elements to keep artistic production efficient and consistent.'
+            }
+        },
+        {
+            title: { pt: 'Softwares Especializados', en: 'Specialized Software' },
+            description: {
+                pt: 'Uso de ferramentas voltadas a criacao e edicao de artes digitais e assets para jogos.',
+                en: 'Use of tools focused on creating and editing digital art and game assets.'
+            }
+        },
+        {
+            title: { pt: 'Perspectivas e Estilos', en: 'Perspective and Styles' },
+            description: {
+                pt: 'Aplicacao de fundamentos visuais, estilizacao e composicao para construcao de identidade visual em projetos.',
+                en: 'Application of visual fundamentals, stylization, and composition to build visual identity in projects.'
+            }
+        }
+    ],
+    soft: [
+        {
+            title: { pt: 'Trabalho em Equipe', en: 'Teamwork' },
+            description: {
+                pt: 'Capacidade de colaborar de forma eficiente com outras pessoas, contribuindo para o andamento do projeto e para um ambiente produtivo.',
+                en: 'Ability to collaborate efficiently with others, contributing to project progress and a productive environment.'
+            }
+        },
+        {
+            title: { pt: 'Comunicacao', en: 'Communication' },
+            description: {
+                pt: 'Clareza na troca de informacoes, garantindo alinhamento de ideias, processos e objetivos entre a equipe.',
+                en: 'Clarity in communication, ensuring alignment of ideas, processes, and goals across the team.'
+            }
+        },
+        {
+            title: { pt: 'Gestao de Tempo', en: 'Time Management' },
+            description: {
+                pt: 'Organizacao e priorizacao de tarefas para cumprir prazos e manter o fluxo de trabalho eficiente.',
+                en: 'Task organization and prioritization to meet deadlines and keep workflow efficient.'
+            }
+        },
+        {
+            title: { pt: 'Resiliencia', en: 'Resilience' },
+            description: {
+                pt: 'Capacidade de lidar com desafios, adaptar-se a imprevistos e manter o progresso mesmo diante de dificuldades.',
+                en: 'Ability to handle challenges, adapt to unexpected changes, and keep moving forward despite difficulties.'
+            }
+        },
+        {
+            title: { pt: 'Aprendizado Continuo', en: 'Continuous Learning' },
+            description: {
+                pt: 'Comprometimento com o desenvolvimento constante de habilidades tecnicas e criativas.',
+                en: 'Commitment to continuous development of technical and creative skills.'
+            }
+        },
+        {
+            title: { pt: 'Flexibilidade', en: 'Flexibility' },
+            description: {
+                pt: 'Facilidade para se adaptar a mudancas de escopo, novas ferramentas e diferentes demandas de projeto.',
+                en: 'Ease in adapting to scope changes, new tools, and different project demands.'
+            }
+        }
+    ]
 };
 
 const getTranslation = (key) => UI_TRANSLATIONS[currentLanguage][key] || UI_TRANSLATIONS.pt[key] || '';
@@ -308,15 +469,50 @@ const updateStaticTexts = () => {
         dot.setAttribute('aria-label', `${getTranslation('projectsDotAriaPrefix')} ${index + 1}`);
     });
 
+    const projectCards = document.querySelectorAll('.game__item[data-project]');
+    projectCards.forEach((card) => {
+        const projectId = card.getAttribute('data-project');
+        const cardTranslation = PROJECT_CARD_TRANSLATIONS[projectId || ''];
+
+        if (!cardTranslation) {
+            return;
+        }
+
+        const cardTitle = card.querySelector('.game__title');
+        const cardSubtitle = card.querySelector('.game__subtitle');
+
+        if (cardTitle && cardTranslation.title) {
+            cardTitle.textContent = cardTranslation.title[currentLanguage] || cardTranslation.title.pt || cardTitle.textContent;
+        }
+
+        if (cardSubtitle && cardTranslation.subtitle) {
+            cardSubtitle.textContent = cardTranslation.subtitle[currentLanguage] || cardTranslation.subtitle.pt || cardSubtitle.textContent;
+        }
+    });
+
     const toolsTitle = document.querySelector('.tools__content h1');
     const toolsMain = document.querySelector('.tools__principal');
     const toolsUsed = document.querySelector('.tools__utilizadas');
     const toolsStudying = document.querySelector('.tools__estudando');
+    const toolsHireTitle = document.querySelector('[data-tools-hire-title]');
+    const roleWebTitle = document.querySelector('[data-tools-role-web-title]');
+    const roleWebLevel = document.querySelector('[data-tools-role-web-level]');
+    const rolePixelTitle = document.querySelector('[data-tools-role-pixel-title]');
+    const rolePixelLevel = document.querySelector('[data-tools-role-pixel-level]');
+    const roleUnityTitle = document.querySelector('[data-tools-role-unity-title]');
+    const roleUnityLevel = document.querySelector('[data-tools-role-unity-level]');
 
     if (toolsTitle) toolsTitle.textContent = getTranslation('toolsTitle');
     if (toolsMain) toolsMain.textContent = getTranslation('toolsMain');
     if (toolsUsed) toolsUsed.textContent = getTranslation('toolsUsed');
     if (toolsStudying) toolsStudying.textContent = getTranslation('toolsStudying');
+    if (toolsHireTitle) toolsHireTitle.textContent = getTranslation('toolsHireTitle');
+    if (roleWebTitle) roleWebTitle.textContent = getTranslation('roleWebTitle');
+    if (roleWebLevel) roleWebLevel.textContent = getTranslation('roleWebLevel');
+    if (rolePixelTitle) rolePixelTitle.textContent = getTranslation('rolePixelTitle');
+    if (rolePixelLevel) rolePixelLevel.textContent = getTranslation('rolePixelLevel');
+    if (roleUnityTitle) roleUnityTitle.textContent = getTranslation('roleUnityTitle');
+    if (roleUnityLevel) roleUnityLevel.textContent = getTranslation('roleUnityLevel');
 
     const aboutTitle = document.querySelector('.about__content h2');
     const aboutParagraphs = document.querySelectorAll('.about__text');
@@ -337,6 +533,34 @@ const updateStaticTexts = () => {
     if (modeLabel) {
         modeLabel.textContent = activeSkillsTab === 'soft' ? getTranslation('skillsModeSoft') : getTranslation('skillsModeHard');
     }
+
+    ['hard', 'soft'].forEach((panelType) => {
+        const panel = document.querySelector(`[data-skills-panel="${panelType}"]`);
+        const cardTranslations = SKILLS_TRANSLATIONS[panelType] || [];
+
+        if (!panel) {
+            return;
+        }
+
+        const cards = panel.querySelectorAll('.skills__card');
+        cards.forEach((card, index) => {
+            const translation = cardTranslations[index];
+            if (!translation) {
+                return;
+            }
+
+            const titleElement = card.querySelector('h3');
+            const descriptionElement = card.querySelector('p');
+
+            if (titleElement) {
+                titleElement.textContent = translation.title[currentLanguage] || translation.title.pt || '';
+            }
+
+            if (descriptionElement) {
+                descriptionElement.textContent = translation.description[currentLanguage] || translation.description.pt || '';
+            }
+        });
+    });
 
     const modalClose = document.querySelector('.project-modal__close');
     const modalTitle = document.querySelector('#project-modal-title');
@@ -362,7 +586,8 @@ const updateStaticTexts = () => {
 
     const contactNameInput = document.querySelector('.contact__input[name="nome"]');
     const contactEmailInput = document.querySelector('.contact__input[name="email"]');
-    const contactSubjectInput = document.querySelector('.contact__textarea[name="assunto"]');
+    const contactSubjectInput = document.querySelector('.contact__input[name="assunto"]');
+    const contactMessageInput = document.querySelector('.contact__textarea[name="mensagem"]');
     const contactSubmitButton = document.querySelector('.contact__submit');
 
     if (contactNameInput) {
@@ -376,6 +601,10 @@ const updateStaticTexts = () => {
     if (contactSubjectInput) {
         contactSubjectInput.placeholder = getTranslation('contactSubject');
         contactSubjectInput.setAttribute('aria-label', getTranslation('contactSubject'));
+    }
+    if (contactMessageInput) {
+        contactMessageInput.placeholder = getTranslation('contactMessage');
+        contactMessageInput.setAttribute('aria-label', getTranslation('contactMessage'));
     }
     if (contactSubmitButton) {
         contactSubmitButton.textContent = getTranslation('contactSubmit');
@@ -511,6 +740,99 @@ if (menuButton && menuContainer) {
 if (scrollTargets.length > 0) {
     const navbar = document.querySelector('.navbar');
 
+    const dismissTriggerTooltip = (triggerElement) => {
+        if (!window.bootstrap || !triggerElement) {
+            return;
+        }
+
+        const tooltipInstance = window.bootstrap.Tooltip.getInstance(triggerElement);
+        if (tooltipInstance) {
+            tooltipInstance.hide();
+        }
+    };
+
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        const recipientEmail = (contactForm.getAttribute('data-contact-email') || '').trim();
+        const name = (contactForm.querySelector('[name="nome"]')?.value || '').trim();
+        const email = (contactForm.querySelector('[name="email"]')?.value || '').trim();
+        const subjectValue = (contactForm.querySelector('[name="assunto"]')?.value || '').trim();
+        const message = (contactForm.querySelector('[name="mensagem"]')?.value || '').trim();
+
+        if (!recipientEmail) {
+            window.alert(currentLanguage === 'en'
+                ? 'Configure your professional email in the contact form.'
+                : 'Configure seu e-mail profissional no formulario de contato.');
+            return;
+        }
+
+        const subjectLine = subjectValue
+            ? subjectValue
+            : (currentLanguage === 'en' ? 'Portfolio contact' : 'Contato pelo portfolio');
+
+        const body = currentLanguage === 'en'
+            ? `Name: ${name}\nEmail: ${email}\n\nSubject:\n${subjectLine}\n\nMessage:\n${message}`
+            : `Nome: ${name}\nEmail: ${email}\n\nAssunto:\n${subjectLine}\n\nMensagem:\n${message}`;
+
+        const endpointUrl = (contactForm.getAttribute('data-contact-endpoint') || '').trim();
+        const submitButton = contactForm.querySelector('.contact__submit');
+        const defaultButtonText = submitButton?.textContent || '';
+
+        const fallbackToMailto = () => {
+            const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+        };
+
+        if (endpointUrl) {
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = currentLanguage === 'en' ? 'Sending...' : 'Enviando...';
+            }
+
+            try {
+                const response = await window.fetch(endpointUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        subject: subjectLine,
+                        _subject: subjectLine,
+                        message,
+                        _captcha: 'false'
+                    })
+                });
+
+                if (response.ok) {
+                    window.alert(currentLanguage === 'en'
+                        ? 'Message sent successfully.'
+                        : 'Mensagem enviada com sucesso.');
+                    contactForm.reset();
+                    return;
+                }
+            } catch (error) {
+                // If endpoint fails (offline/CORS), keep fallback behavior.
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = defaultButtonText;
+                }
+            }
+        }
+
+        fallbackToMailto();
+    });
+}
     const scrollToTarget = (triggerElement) => {
         const targetSelector = triggerElement.getAttribute('data-scroll-target');
         if (!targetSelector) {
@@ -545,6 +867,11 @@ if (scrollTargets.length > 0) {
         triggerElement.addEventListener('click', (event) => {
             event.preventDefault();
             scrollToTarget(triggerElement);
+            dismissTriggerTooltip(triggerElement);
+
+            if (typeof triggerElement.blur === 'function') {
+                triggerElement.blur();
+            }
         });
     });
 }
@@ -974,66 +1301,63 @@ const PROJECT_MODAL_CONTENT = {
     },
     'arte-1': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte foi criada para a identidade visual do jogo Sirin. Fiquei responsável por desenvolver a logo pensando diretamente na premissa do jogo, buscando transmitir sua essência de forma clara já no primeiro contato.',
+            en: 'This artwork was created for the visual identity of the game Sirin. I was responsible for designing the logo with the game’s premise in mind, aiming to clearly convey its essence from the very first glance.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Todo o processo foi feito em pixel art no Aseprite, onde trabalhei a composição e os elementos visuais com foco em cartas e baralho, que são centrais para a proposta do jogo. A ideia foi criar algo que não fosse apenas estético, mas que também comunicasse o tema e ajudasse a reforçar a identidade do projeto.',
+            en: 'The entire process was done in pixel art using Aseprite, where I worked on the composition and visual elements with a focus on cards and a deck, which are central to the game’s concept. The idea was to create something that wasn’t just aesthetically pleasing, but that also communicated the theme and helped reinforce the project’s identity.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/0lBG2G'
     },
     'arte-2': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Esta arte foi desenvolvida para o Inktober 2025, a partir do tema “bigode”. Busquei uma abordagem diferenciada, indo além da representação tradicional, criando uma poção em formato de bigode como forma de explorar uma solução visual mais criativa e menos convencional.',
+            en: 'This artwork was created for Inktober 2025, based on the theme “mustache.” I sought a unique approach, going beyond traditional depictions by creating a mustache-shaped potion as a way to explore a more creative and less conventional visual solution.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Fui responsável por todo o conceito e execução da peça, trabalhando com maior liberdade na construção das formas, no posicionamento dos pixels e, principalmente, na escolha das cores. A representação de um material como vidro, contendo líquido em seu interior, exigiu atenção especial para transmitir profundidade, transparência e leitura visual de forma eficiente dentro das limitações da pixel art.',
+            en: 'I was responsible for the entire concept and execution of the piece, working with greater freedom in the construction of shapes, the placement of pixels, and, above all, the choice of colors. The representation of a material like glass, containing liquid inside, required special attention to effectively convey depth, transparency, and visual clarity within the limitations of pixel art.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.instagram.com/p/DPR1vnijzA2/?img_index=1'
     },
     'arte-3': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte faz parte da cutscene de introdução do jogo Sirin, responsável por apresentar o início da narrativa. A cena mostra a personagem indo dormir e, durante o sonho, recebendo uma carta, elemento que se conecta diretamente com a mecânica principal do jogo.',
+            en: 'This artwork is part of the introductory cutscene in the game Sirin, which sets the stage for the story. The scene shows the character going to sleep and, during her dream, receiving a letter—an element that ties directly into the game’s core mechanics.'
         },
         responsibilities: {
-            pt: ['Arte', 'Direção Visual'],
-            en: ['Art', 'Visual Direction']
+            pt: ['Arte'],
+            en: ['Art']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'Desenvolvi o design da mão e da carta, adaptando um modelo existente para uma escala maior e com mais detalhe. Toda a cutscene foi produzida no Aseprite, seguindo a paleta de cores definida pela direção de arte, garantindo consistência com o restante do jogo.',
+            en: 'I developed the design for the hand and the letter, adapting an existing model to a larger scale with greater detail. The entire cutscene was produced in Aseprite, following the color palette defined by the art direction, ensuring consistency with the rest of the game.'
         },
         playLabel: {
             pt: 'Ver arte',
@@ -1043,53 +1367,72 @@ const PROJECT_MODAL_CONTENT = {
     },
     'arte-4': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Essa arte foi feita para compor o cenário e a jogabilidade de Toninho & Tinho, mais especificamente as áreas de plantação onde os personagens interagem e coletam itens.',
+            en: "This artwork was created to enhance the game's setting and gameplay in Toninho & Tinho, and was responsible for designing the farm areas that the characters use to progress and collect resources."
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'A criação foi baseada no GDD do projeto, que definia quais elementos estariam presentes no jogo. A partir disso, desenvolvi as plantações buscando referência em elementos reais, com o objetivo de trazer mais identificação visual. Também segui a paleta de cores definida pelo grupo, mantendo a consistência com o restante do projeto.',
+            en: 'Based on the project’s GDD, I designed the visual elements of the plantations using the previously defined items, drawing inspiration from real crops to ensure greater visual coherence. The entire process was carried out in accordance with the color palette established by the team, ensuring aesthetic consistency with the rest of the game.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/eRLg5b'
     },
     'arte-5': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
-            en: 'Art study focused on composition and visual identity.'
+            pt: 'Esta arte foi desenvolvida para representar os itens comercializados na barraquinha do Arraial de Toninho & Tinho, com foco em transmitir a essência das festas juninas dentro do jogo. Em conjunto com a equipe, definimos as comidas típicas mais representativas para compor essa experiência.',
+            en: 'This artwork was created to depict the items sold at the Arraial de Toninho & Tinho stall, with a focus on capturing the essence of the June festivals within the game. Working with the team, we selected the most representative traditional foods to bring this experience to life.'
         },
         responsibilities: {
             pt: ['Arte', 'Direção Visual'],
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
-            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+            pt: 'A partir dessa definição, fui responsável pela criação do conceito visual das peças, buscando o máximo de fidelidade possível por meio de referências reais. O desenvolvimento considerou uma paleta de cores alinhada à temática do jogo, garantindo coerência estética e reforçando a identidade visual proposta.',
+            en: 'Based on this definition, I was responsible for creating the visual concept for the assets, striving for the highest possible fidelity using real-world references. The development incorporated a color palette aligned with the game’s theme, ensuring aesthetic consistency and reinforcing the proposed visual identity.'
         },
         playLabel: {
             pt: 'Ver arte',
             en: 'View art'
         },
-        playUrl: '#'
+        playUrl: 'https://www.artstation.com/artwork/eRLg5b'
     },
     'arte-6': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            pt: 'Esta arte pessoal consiste em uma coleção de retratos em pixel art, explorando diferentes personagens com foco em expressões, cores e variações de estilo. A composição apresenta uma grade organizada de rostos, cada um com identidade visual própria, trabalhando contraste, simplicidade de formas e leitura imediata, características essenciais para pixel art em baixa resolução. \n O projeto foi desenvolvido com base em personagens já existentes, principalmente inspirados no universo Sanrio, adaptados para um estilo próprio em pixel art. A proposta foi reinterpretar esses personagens mantendo seus traços marcantes, ao mesmo tempo em que são integrados a uma identidade visual unificada.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável por toda a concepção e execução da arte, desenvolvendo cada personagem individualmente dentro de uma limitação de espaço e resolução. Trabalhei diretamente na construção das expressões faciais, escolha de paleta e posicionamento estratégico dos pixels para garantir clareza visual e reconhecimento imediato.\n Também explorei a adaptação de personagens já conhecidos para um formato padronizado, equilibrando fidelidade visual e estilização. O foco principal foi o aprimoramento de técnicas de pixel art, especialmente em áreas como redução de formas, uso eficiente de cores e criação de identidade visual em espaços reduzidos.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: 'https://www.artstation.com/artwork/DLDZ4e'
+    },
+    'arte-7': {
+        description: {
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
             en: 'Art study focused on composition and visual identity.'
         },
         responsibilities: {
@@ -1097,11 +1440,10 @@ const PROJECT_MODAL_CONTENT = {
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
             en: 'I created the visual concept, refined forms, and finalized the color palette.'
         },
         playLabel: {
@@ -1110,9 +1452,9 @@ const PROJECT_MODAL_CONTENT = {
         },
         playUrl: '#'
     },
-    'arte-7': {
+    'arte-8': {
         description: {
-            pt: 'Estudo de arte com foco em composição e identidade visual.',
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
             en: 'Art study focused on composition and visual identity.'
         },
         responsibilities: {
@@ -1120,11 +1462,32 @@ const PROJECT_MODAL_CONTENT = {
             en: ['Art', 'Visual Direction']
         },
         technologies: [
-            { name: 'Figma', icon: 'images/Figma--Streamline-Svg-Logos.svg' },
             { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
         ],
         whatIDid: {
-            pt: 'Criei conceito visual, refinamento de formas e paleta de cores final.',
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
+            en: 'I created the visual concept, refined forms, and finalized the color palette.'
+        },
+        playLabel: {
+            pt: 'Ver arte',
+            en: 'View art'
+        },
+        playUrl: '#'
+    },
+    'arte-9': {
+        description: {
+            pt: 'Esta arte pessoal apresenta uma composição rica em elementos naturais, com foco em um campo de flores densamente detalhado, explorando cores vibrantes e variedade de espécies. A cena trabalha contraste entre luz e sombra, além de sobreposição de elementos, criando profundidade e sensação de abundância visual.\n A proposta da peça é explorar um ambiente mais orgânico e vivo, destacando a diversidade de formas e cores presentes na natureza, ao mesmo tempo em que mantém uma estilização própria. A composição também sugere uma leve fragmentação do solo, adicionando interesse visual e narrativa ao cenário.',
+            en: 'Art study focused on composition and visual identity.'
+        },
+        responsibilities: {
+            pt: ['Arte', 'Direção Visual'],
+            en: ['Art', 'Visual Direction']
+        },
+        technologies: [
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' }
+        ],
+        whatIDid: {
+            pt: 'Fui responsável pela concepção e execução completa da arte, desenvolvendo toda a composição, escolha de elementos e direção visual. Trabalhei com uma grande variedade de cores e formas para representar diferentes tipos de flores, buscando equilíbrio entre detalhamento e legibilidade.\n Também explorei técnicas de sobreposição e variação de escala para criar profundidade, além de aplicar atenção especial à iluminação e contraste. O foco principal foi o estudo de ambientes naturais, composição visual e uso avançado de cor, visando enriquecer o impacto estético da cena.',
             en: 'I created the visual concept, refined forms, and finalized the color palette.'
         },
         playLabel: {
