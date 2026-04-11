@@ -24,6 +24,26 @@ body {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="blur"><feGaussianBlur stdDeviation="1.5"/></filter></defs><circle cx="20" cy="20" r="10" fill="%23E11D48" opacity="0.4" filter="url(%23glow)"/><circle cx="20" cy="20" r="7" fill="%23F3466C" opacity="0.7" filter="url(%23blur)"/><circle cx="20" cy="20" r="4" fill="%23FFB6C1" opacity="0.9"/><circle cx="20" cy="20" r="2" fill="%23FFFFFF" opacity="1"/><circle cx="20" cy="20" r="12" fill="none" stroke="%23E11D48" stroke-width="0.5" opacity="0.4"/></svg>') 20 20, auto;
 }
 
+/* Link de pulo para acessibilidade: fica visivel apenas ao navegar via teclado */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 10px;
+    z-index: 2000;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #E11D48;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    left: 12px;
+    outline: 2px solid #FFFFFF;
+    outline-offset: 2px;
+}
+
 /* Scrollbar customizada (pagina inteira) */
 * {
     scrollbar-width: thin;
@@ -1157,7 +1177,7 @@ input[type="reset"]:hover {
     max-width: 100%;
 }
 
-.tools__content h1 {
+.tools__content .tools__title {
     font-size: clamp(2rem, 2.8vw, 2rem);
     font-weight: 800;
 }
@@ -1574,6 +1594,7 @@ input[type="reset"]:hover {
 }
 
 .skills__tabs {
+    /* Coluna lateral com os filtros Hard/Soft centralizados para facilitar leitura */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1583,6 +1604,7 @@ input[type="reset"]:hover {
 }
 
 .skills__tab {
+    /* Botao com area clicavel adequada para mouse e toque */
     height: 44px;
     min-width: 132px;
     padding: 0 16px;
@@ -1597,6 +1619,7 @@ input[type="reset"]:hover {
 }
 
 .skills__tab--active {
+    /* Estado ativo com contraste mais forte para orientar o usuario */
     background: var(--bs-primary);
     border-color: var(--bs-primary);
     color: #fff;
@@ -2292,7 +2315,7 @@ body.modal-open {
 [data-bs-theme="light"] .main__content h1,
 [data-bs-theme="light"] .main__content h2,
 [data-bs-theme="light"] .project__content h2,
-[data-bs-theme="light"] .tools__content h1,
+[data-bs-theme="light"] .tools__content .tools__title,
 [data-bs-theme="light"] .tools__hireTitle,
 [data-bs-theme="light"] .about__content h2,
 [data-bs-theme="light"] .about__text,
@@ -2473,7 +2496,7 @@ body.modal-open {
         row-gap: 8px;
     }
 
-    .tools__content h1 {
+    .tools__content .tools__title {
         width: 100%;
         margin-bottom: 2px;
     }
@@ -2527,7 +2550,7 @@ body.modal-open {
         column-gap: 10px;
     }
 
-    .tools__content h1 {
+    .tools__content .tools__title {
         font-size: 2rem;
         line-height: 1.15;
     }

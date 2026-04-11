@@ -32,6 +32,7 @@ if (!['light', 'dark'].includes(currentTheme)) {
     currentTheme = defaultTheme;
 }
 
+// Dicionario central de traducoes da interface (textos visiveis e labels de acessibilidade).
 const UI_TRANSLATIONS = {
     pt: {
         htmlLang: 'pt-br',
@@ -167,6 +168,7 @@ const UI_TRANSLATIONS = {
     }
 };
 
+// Titulos/subtitulos dos cards do carrossel por idioma.
 const PROJECT_CARD_TRANSLATIONS = {
     '1': {
         title: { pt: 'Perseguicao do Coelho', en: 'Rabbit Chase' },
@@ -216,6 +218,7 @@ const PROJECT_CARD_TRANSLATIONS = {
     }
 };
 
+// Conteudo de hard/soft skills em PT/EN usado para popular os cards dinamicamente.
 const SKILLS_TRANSLATIONS = {
     hard: [
         {
@@ -377,6 +380,7 @@ const initializeTooltips = () => {
     });
 };
 
+// Atualiza textos estaticos, atributos ARIA e labels conforme idioma selecionado.
 const updateStaticTexts = () => {
     document.documentElement.lang = getTranslation('htmlLang');
 
@@ -490,7 +494,7 @@ const updateStaticTexts = () => {
         }
     });
 
-    const toolsTitle = document.querySelector('.tools__content h1');
+    const toolsTitle = document.querySelector('.tools__content .tools__title');
     const toolsMain = document.querySelector('.tools__principal');
     const toolsUsed = document.querySelector('.tools__utilizadas');
     const toolsStudying = document.querySelector('.tools__estudando');
@@ -611,6 +615,7 @@ const updateStaticTexts = () => {
     }
 };
 
+// Aplica idioma global, persiste preferencia e sincroniza estados visuais dos botoes.
 const applyLanguage = (lang) => {
     currentLanguage = lang;
     window.localStorage.setItem(LANG_STORAGE_KEY, lang);
@@ -624,6 +629,7 @@ const applyLanguage = (lang) => {
     initializeTooltips();
 };
 
+// Aplica tema (light/dark), persiste preferencia e atualiza acessibilidade do toggle.
 const applyTheme = (theme) => {
     currentTheme = theme;
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);

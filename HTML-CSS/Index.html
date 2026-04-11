@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
 
+<!--NICOLAS DA SILVA-->
+
 <head>
   <!-- Metadados basicos de charset e responsividade -->
   <meta charset="UTF-8" />
@@ -15,9 +17,13 @@
 </head>
 
 <body>
-  <!-- Navbar principal com menu desktop e toggle mobile -->
-  <nav class="navbar">
-    <div class="navbar__container container-xxl px-3 px-lg-4">
+  <!-- Link de acessibilidade para teclado: permite pular menu e ir direto ao conteudo principal -->
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteudo principal</a>
+
+  <!-- Header com navegacao principal -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegacao principal">
+      <div class="navbar__container container-xxl px-3 px-lg-4">
       <!-- Logo / marca -->
       <a href="#inicio" id="navbar__logo" data-scroll-target="#inicio">NS</a>
       <!-- Botao hamburguer para abrir menu em telas menores -->
@@ -57,7 +63,7 @@
           <button class="navbar__links navbar__langToggle" type="button" data-lang-toggle aria-haspopup="true"
             aria-expanded="false" aria-label="Selecionar idioma">
             <span class="navbar__langCurrentContent">
-              <img src="images/bandeira-brasil.svg" alt="" class="navbar__flag" data-lang-current-flag />
+              <img src="images/bandeira-brasil.svg" alt="Bandeira do idioma atual" class="navbar__flag" data-lang-current-flag />
               <span data-lang-current>PT</span>
             </span>
             <span class="navbar__langChevron" aria-hidden="true"></span>
@@ -100,9 +106,12 @@
           </div>
         </li>
       </ul>
-    </div>
-  </nav>
+      </div>
+    </nav>
+  </header>
 
+  <!-- Conteudo principal da pagina (landmark semantico) -->
+  <main id="conteudo-principal">
   <!-- Hero: apresentacao principal -->
   <div class="main" id="inicio">
     <div class="main__container container-md">
@@ -163,25 +172,25 @@
       <div class="game__container" data-project-type="jogos" aria-label="Carrossel de jogos">
         <!-- Item 1 -->
         <article class="game__item" data-project="1">
-          <img src="images/Rabbit Capa.png" alt="Projeto 1" class="game__image" />
+          <img src="images/Rabbit Capa.png" alt="Capa do jogo Perseguicao do Coelho" class="game__image" />
           <h3 class="game__title">Perseguição do Coelho</h3>
           <p class="game__subtitle">Rabbit Chase</p>
         </article>
         <!-- Item 2 -->
         <article class="game__item" data-project="2">
-          <img src="images/Toninho Capa.png" alt="Projeto 2" class="game__image" />
+          <img src="images/Toninho Capa.png" alt="Capa do jogo O Arraial do Toninho e Tinho" class="game__image" />
           <h3 class="game__title">O Arraial do Toninho & Tinho</h3>
           <p class="game__subtitle">Toninho & Tinho's Festival</p>
         </article>
         <!-- Item 3 -->
         <article class="game__item" data-project="3">
-          <img src="images/Sirin Capa.png" alt="Projeto 3" class="game__image" />
+          <img src="images/Sirin Capa.png" alt="Capa do jogo Sirin" class="game__image" />
           <h3 class="game__title">Sirin</h3>
           <p class="game__subtitle">Sirin</p>
         </article>
         <!-- Item 4 -->
         <article class="game__item" data-project="4">
-          <img src="images/O mundo que cabe na mão capa.png" alt="Projeto 4" class="game__image" />
+          <img src="images/O mundo que cabe na mão capa.png" alt="Capa do jogo O Mundo que cabe na mao" class="game__image" />
           <h3 class="game__title">O Mundo que cabe na mão</h3>
           <p class="game__subtitle">The World That Fits in Your Hand</p>
         </article>
@@ -198,39 +207,39 @@
       <!-- Carrossel horizontal de artes -->
       <div class="game__container" data-project-type="arte" aria-label="Carrossel de artes" hidden>
         <article class="game__item" data-project="arte-1">
-          <img src="images/Logo Sirin.png" alt="Arte 1" class="game__image" />
+          <img src="images/Logo Sirin.png" alt="Arte da logo do jogo Sirin" class="game__image" />
           <h3 class="game__title">Logo do jogo Sirin</h3>
         </article>
         <article class="game__item" data-project="arte-2">
-          <img src="images/MustacheTheme64.png" alt="Arte 2" class="game__image" />
+          <img src="images/MustacheTheme64.png" alt="Arte do tema Mustache do Inktober 2025" class="game__image" />
           <h3 class="game__title">Um dos temas do Inktober 2025</h3>
         </article>
         <article class="game__item" data-project="arte-3">
-          <img src="images/Sirin Tela Inicial.gif" alt="Arte 3" class="game__image" />
+          <img src="images/Sirin Tela Inicial.gif" alt="Arte da tela inicial do jogo Sirin" class="game__image" />
           <h3 class="game__title">Tela inicial do jogo Sirin</h3>
         </article>
         <article class="game__item" data-project="arte-4">
-          <img src="images/AllPlants.png" alt="Arte 4" class="game__image" />
+          <img src="images/AllPlants.png" alt="Arte das plantacoes do jogo Toninho e Tinho" class="game__image" />
           <h3 class="game__title">Plantações do jogo Toninho & Tinho</h3>
         </article>
         <article class="game__item" data-project="arte-5">
-          <img src="images/AllFoods2.png" alt="Arte 5" class="game__image" />
+          <img src="images/AllFoods2.png" alt="Arte das comidas da loja do jogo Toninho e Tinho" class="game__image" />
           <h3 class="game__title">Comidas da loja do jogo Toninho & Tinho</h3>
         </article>
         <article class="game__item" data-project="arte-6">
-          <img src="images/Sanrio Characters.png" alt="Arte 6" class="game__image" />
+          <img src="images/Sanrio Characters.png" alt="Arte dos personagens de Sanrio" class="game__image" />
           <h3 class="game__title">Arte dos personagens de Sanrio</h3>
         </article>
         <article class="game__item" data-project="arte-7">
-          <img src="images/Foods.png" alt="Arte 7" class="game__image" />
+          <img src="images/Foods.png" alt="Arte de comidas em pixel art" class="game__image" />
           <h3 class="game__title">Arte de comidas</h3>
         </article>
         <article class="game__item" data-project="arte-8">
-          <img src="images/Mouths.png" alt="Arte 7" class="game__image" />
+          <img src="images/Mouths.png" alt="Treino de bocas em pixel art" class="game__image" />
           <h3 class="game__title">Treino de bocas</h3>
         </article>
         <article class="game__item" data-project="arte-9">
-          <img src="images/WizardFrog.png" alt="Arte 7" class="game__image" />
+          <img src="images/WizardFrog.png" alt="Arte do personagem Sapo Mago" class="game__image" />
           <h3 class="game__title">Sapo Mago</h3>
         </article>
       </div>
@@ -239,22 +248,23 @@
     </div>
   </div>
 
+  <!-- Secao combinada: ferramentas e areas contrataveis -->
   <div class="toolsHireRow container-xxl">
     <div class="row toolsHireRow__row align-items-stretch">
       <div class="col-12 col-xxl-8 toolsHireRow__colTools">
         <!-- Ferramentas: ferramentas que utilizo -->
         <div class="tools" id="ferramentas">
           <div class="tools__container">
-        <div class="row align-items-center g-4 g-md-5">
-          <div class="tools__content col-12">
-            <h1 class="">Ferramentas que uso</h1>
-            <h3 class="tools__principal">Principais</h3>
-            <h3 class="tools__estudando">Estudando</h3>
-            <h3 class="tools__utilizadas">Já utilizei</h3>
-          </div>
+            <div class="row align-items-center g-4 g-md-5">
+              <div class="tools__content col-12">
+                <h2 class="tools__title">Ferramentas que uso</h2>
+                <h3 class="tools__principal">Principais</h3>
+                <h3 class="tools__estudando">Estudando</h3>
+                <h3 class="tools__utilizadas">Já utilizei</h3>
+              </div>
 
-          <div class="col-12">
-            <div class="tools__cards" aria-label="Grade de ferramentas">
+              <div class="col-12">
+                <div class="tools__cards" aria-label="Grade de ferramentas">
               <!-- Linha 1: ferramentas principais -->
               <article class="tool-card tool-card--principal" aria-label="Unity" data-bs-toggle="tooltip" data-bs-title="Unity" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
                 <img src="images/Unity--Streamline-Font-Awesome.svg" alt="Unity" class="tool-card__icon unity__icon" />
@@ -297,9 +307,9 @@
               <article class="tool-card tool-card--utilizadas" aria-label="GameMaker" data-bs-toggle="tooltip" data-bs-title="GameMaker" data-bs-placement="top" data-bs-trigger="hover" tabindex="0">
                 <img src="images/Gamemaker--Streamline-Simple-Icons.svg" alt="GameMaker" class="tool-card__icon gamemaker__icon" />
               </article>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
           </div>
         </div>
       </div>
@@ -307,26 +317,26 @@
       <div class="col-12 col-xxl-4 toolsHireRow__colHire">
         <div class="hire">
           <div class="hire__container">
-        <section class="hire__panel" aria-label="Áreas contratáveis">
-          <h3 class="tools__hireTitle" data-tools-hire-title>Áreas contratáveis</h3>
+            <section class="hire__panel" aria-label="Áreas contratáveis">
+              <h3 class="tools__hireTitle" data-tools-hire-title>Áreas contratáveis</h3>
 
-          <div class="tools__hireGrid">
-            <article class="tools__hireCard tools__hireCard--web">
-              <h4 data-tools-role-web-title>Desenvolvedor de Sites</h4>
-              <p data-tools-role-web-level>Completamente iniciante/estudante</p>
-            </article>
+              <div class="tools__hireGrid">
+                <article class="tools__hireCard tools__hireCard--web">
+                  <h4 data-tools-role-web-title>Desenvolvedor de Sites</h4>
+                  <p data-tools-role-web-level>Completamente iniciante/estudante</p>
+                </article>
 
-            <article class="tools__hireCard tools__hireCard--pixel">
-              <h4 data-tools-role-pixel-title>Pixel Artist</h4>
-              <p data-tools-role-pixel-level>Iniciante/Intermediário e estudando</p>
-            </article>
+                <article class="tools__hireCard tools__hireCard--pixel">
+                  <h4 data-tools-role-pixel-title>Pixel Artist</h4>
+                  <p data-tools-role-pixel-level>Iniciante/Intermediário e estudando</p>
+                </article>
 
-            <article class="tools__hireCard tools__hireCard--unity">
-              <h4 data-tools-role-unity-title>Desenvolvedor Unity</h4>
-              <p data-tools-role-unity-level>Iniciante/Intermediário e estudando</p>
-            </article>
-          </div>
-        </section>
+                <article class="tools__hireCard tools__hireCard--unity">
+                  <h4 data-tools-role-unity-title>Desenvolvedor Unity</h4>
+                  <p data-tools-role-unity-level>Iniciante/Intermediário e estudando</p>
+                </article>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -498,6 +508,9 @@
     </div>
   </section>
 
+  </main>
+
+  <!-- Rodape com direitos autorais e link social -->
   <footer class="site-footer" aria-label="Rodape do site">
     <div class="site-footer__container container-xxl contact__footer">
       <p class="contact__copy">&copy; Nico 2025</p>
