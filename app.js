@@ -713,6 +713,26 @@ if (themeToggleButton) {
 applyTheme(currentTheme);
 applyLanguage(currentLanguage);
 
+// Funcao para baixar o curriculo no idioma selecionado atualmente
+const downloadResume = () => {
+    const resumeFilename = currentLanguage === 'en' 
+        ? 'Curriculo Ingles.pdf' 
+        : 'Curriculo Portugues.pdf';
+    
+    const link = document.createElement('a');
+    link.href = `PDF/${resumeFilename}`;
+    link.download = resumeFilename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
+// Event listener para o botao de download do curriculo
+const downloadResumeButton = document.querySelector('#downloadResume');
+if (downloadResumeButton) {
+    downloadResumeButton.addEventListener('click', downloadResume);
+}
+
 // Controle do menu hambúrguer em telas menores.
 if (menuButton && menuContainer) {
     // Fecha menu, remove classes de estado e atualiza acessibilidade.
@@ -1283,20 +1303,21 @@ const PROJECT_MODAL_CONTENT = {
     },
     '5': {
         description: {
-            pt: 'O jogo encontra-se atualmente em desenvolvimento (2026), sendo produzido como parte do Trabalho de Conclusão de Curso (TCC). A pesquisa associada ao projeto tem como foco o resgate e a valorização estética da Pixel Art.\n A proposta consiste em um jogo casual no qual o jogador assume o papel de uma mãe brasileira responsável por administrar uma taverna. Durante o dia, o objetivo é preparar pratos, servir bebidas e gerenciar aspectos como tempo, estoque e organização da cozinha. À noite, a dinâmica se transforma: o jogador explora uma dungeon em busca de ingredientes que serão utilizados no dia seguinte, lidando com limitações de inventário e planejamento estratégico de recursos.',
-            en: 'The game is currently in development (2026) and is being produced as part of a final-year project. The research associated with the project focuses on the revival and aesthetic appreciation of pixel art.\n The concept involves a casual game in which the player takes on the role of a Brazilian mother who runs a tavern. During the day, the goal is to prepare dishes, serve drinks, and manage aspects such as timing, inventory, and kitchen organization. At night, the dynamics change: the player explores a dungeon in search of ingredients to be used the following day, dealing with inventory limitations and strategic resource planning.'
+            pt: 'O jogo encontra-se atualmente em desenvolvimento (2026), sendo produzido como parte do Trabalho de Conclusão de Curso (TCC). A pesquisa associada ao projeto tem como foco o resgate e a valorização estética da Pixel Art.\n A proposta consiste em um jogo casual 3D no qual o jogador assume o papel de uma mãe brasileira responsável por administrar uma taverna. Durante o dia, o objetivo é preparar pratos, servir bebidas e gerenciar aspectos como tempo, estoque e organização da cozinha. À noite, a dinâmica se transforma: o jogador explora uma dungeon em busca de ingredientes que serão utilizados no dia seguinte, lidando com limitações de inventário e planejamento estratégico de recursos. A interface do jogo é totalmente criada em Pixel Art 2D, proporcionando uma fusão visual interessante entre o ambiente 3D imersivo e a estética retrô da UI.',
+            en: 'The game is currently in development (2026) and is being produced as part of a final-year project. The research associated with the project focuses on the revival and aesthetic appreciation of pixel art.\n The concept involves a casual 3D game in which the player takes on the role of a Brazilian mother who runs a tavern. During the day, the goal is to prepare dishes, serve drinks, and manage aspects such as timing, inventory, and kitchen organization. At night, the dynamics change: the player explores a dungeon in search of ingredients to be used the following day, dealing with inventory limitations and strategic resource planning. The game\'s interface is entirely created in 2D Pixel Art, providing an interesting visual fusion between the immersive 3D environment and the retro aesthetic of the UI.'
         },
         responsibilities: {
-            pt: ['Planejamento', 'Prototipação', 'Programação', 'Game Design'],
-            en: ['Planning', 'Prototyping', 'Programming', 'Game Design']
+            pt: ['Planejamento', 'Prototipação', 'Programação', 'Game Design', 'UI - Pixel Art'],
+            en: ['Planning', 'Prototyping', 'Programming', 'Game Design', 'UI - Pixel Art']
         },
         technologies: [
             { name: 'Unity', icon: 'images/Unity--Streamline-Font-Awesome.svg' },
+            { name: 'Aseprite', icon: 'images/Aseprite--Streamline-Simple-Icons.svg' },
             { name: 'Github', icon: 'images/Github--Streamline-Unicons.svg'}
         ],
         whatIDid: {
-            pt: 'Sou o principal responsável pela programação do projeto, atuando no desenvolvimento completo dos sistemas do jogo. Isso inclui a implementação das mecânicas do personagem (movimentação, combate, interação, entre outras), das funcionalidades da taverna (preparo de alimentos, gerenciamento de estoque, corte de itens, atendimento aos clientes, etc.) e dos sistemas da dungeon (spawn de inimigos, inteligência artificial, sistema de morte, entre outros).\n Além disso, também desempenho um papel ativo no Game Design, definindo a organização dos elementos em cena, posicionamento de itens, distribuição e comportamento dos inimigos, bem como o fluxo geral da experiência do jogador.',
-            en: "I am primarily responsible for the project's programming, handling the full development of the game's systems. This includes implementing character mechanics (movement, combat, interaction, among others), tavern features (food preparation, inventory management, item crafting, customer service, etc.), and dungeon systems (enemy spawning, artificial intelligence, death mechanics, among others). In addition, I also play an active role in game design, defining the organization of on-screen elements, item placement, enemy distribution and behavior, as well as the overall flow of the player experience."
+            pt: 'Sou o principal responsável pela programação do projeto, atuando no desenvolvimento completo dos sistemas do jogo. Isso inclui a implementação das mecânicas do personagem (movimentação, combate, interação, entre outras), das funcionalidades da taverna (preparo de alimentos, gerenciamento de estoque, corte de itens, atendimento aos clientes, etc.) e dos sistemas da dungeon (spawn de inimigos, inteligência artificial, sistema de morte, entre outros).\n Além disso, também desempenho um papel ativo no Game Design, definindo a organização dos elementos em cena, posicionamento de itens, distribuição e comportamento dos inimigos, bem como o fluxo geral da experiência do jogador. Sou responsável também pela criação de toda a interface do jogo em Pixel Art, desenvolvendo botões, menus, HUD, ícones de itens e outros elementos visuais que complementam a experiência imersiva do ambiente 3D.',
+            en: "I am primarily responsible for the project's programming, handling the full development of the game's systems. This includes implementing character mechanics (movement, combat, interaction, among others), tavern features (food preparation, inventory management, item crafting, customer service, etc.), and dungeon systems (enemy spawning, artificial intelligence, death mechanics, among others). In addition, I also play an active role in game design, defining the organization of on-screen elements, item placement, enemy distribution and behavior, as well as the overall flow of the player experience. I'm also responsible for creating the entire game interface in Pixel Art, developing buttons, menus, HUD, item icons, and other visual elements that complement the immersive experience of the 3D environment."
         },
         playLabel: {
             pt: 'Em breve',
